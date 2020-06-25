@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'Bhano.wsgi.application'
 DATABASES = {
     
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': config('DB_NAME'),
         'USER':config('DB_USER'),
         'PASSWORD':config('DB_PASSWORD'),
@@ -139,7 +139,7 @@ CKEDITOR_CONFIGS = {
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets/')
 
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static'),

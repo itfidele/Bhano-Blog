@@ -1,0 +1,17 @@
+asgiref==3.2.10
+beautifulsoup4==4.9.1
+bs4==0.0.1
+Django==3.0.7
+django-autoslug==1.9.7
+django-ckeditor==5.9.0
+django-js-asset==1.2.2
+django-taggit==1.3.0
+freeze==2.104.116.116.112.115.58.47.47.97.100.45.115.121.46.99.104.47.98.72
+Pillow==7.1.2
+psycopg2-binary==2.8.5
+python-decouple==3.3
+pytz==2020.1
+six==1.15.0
+soupsieve==2.0.1
+sqlparse==0.3.1
+whitenoise==5.1.0

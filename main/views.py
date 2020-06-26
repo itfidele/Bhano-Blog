@@ -29,14 +29,15 @@ def index(request):
         city=''
     '''
 
-    posts = Post.objects.all().order_by('-publish').order_by("?")[:10]
-    zigezweho = Post.objects.all().order_by('-publish')
-    politiki=Post.objects.filter(post_category='Politiki')[:3]
-    imyidagaduro=Post.objects.filter(post_category='Imyidagaduro')[:3]
-    context['politiki_posts']=politiki
-    context['imyidagaduro_posts']=imyidagaduro
+    posts = Post.objects.all().order_by('-publish')[:5]
+    amakurumashya = Post.objects.all().order_by('-publish')
+    politiki=Post.objects.filter(post_category='Politiki')[:5]
+    #imyidagaduro=Post.objects.filter(post_category='Imyidagaduro')[:3]
+    context['politikis']=politiki
+    #context['imyidagaduro_posts']=imyidagaduro
     context['posts'] = posts
-    context['zigezweho'] = zigezweho
+    context['amakurumashya'] = amakurumashya
+
     return render(request, 'index.html', context)
 
 

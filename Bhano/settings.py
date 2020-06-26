@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'taggit',
     'ckeditor',
     'ckeditor_uploader',
+    'django.contrib.humanize'
 ]
 
 MIDDLEWARE = [

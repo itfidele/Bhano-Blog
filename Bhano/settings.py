@@ -25,7 +25,6 @@ SECRET_KEY = 'z%!^j7*$!+l+@r!09jo^ex(n@jsmimxr5t$r#=k4qwt10wr&*$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
-print(DEBUG)
 
 ALLOWED_HOSTS = ['162.243.163.85','127.0.0.1']
 

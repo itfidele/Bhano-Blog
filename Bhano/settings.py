@@ -32,17 +32,19 @@ ALLOWED_HOSTS = ['162.243.163.85','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'main',
     'taggit',
     'ckeditor',
     'ckeditor_uploader',
-    'django.contrib.humanize'
+    
 ]
 
 MIDDLEWARE = [
@@ -136,6 +138,8 @@ CKEDITOR_CONFIGS = {
         #'toolbar': 'full',
     },
 }
+GRAPPELLI_ADMIN_TITLE = "ByoseHano"
+GRAPPELLI_AUTOCOMPLETE_LIMIT = 5
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/

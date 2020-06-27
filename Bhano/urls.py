@@ -21,6 +21,7 @@ from django.conf import settings
 
 
 urlpatterns = [
+    path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
     path('',index,name="index"),
     path('ckeditor/', include('ckeditor_uploader.urls')),

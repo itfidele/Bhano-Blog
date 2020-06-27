@@ -2,5 +2,4 @@ env
 .idea
 .vscode
 media
-.env
 static_root

@@ -32,8 +32,10 @@ def index(request):
     posts = Post.objects.all().order_by('-publish')[:5]
     amakurumashya = Post.objects.all().order_by('-publish')
     politiki=Post.objects.filter(post_category='Politiki')[:5]
+    imikino=Post.objects.filter(post_category='Imikino')[:8]
     #imyidagaduro=Post.objects.filter(post_category='Imyidagaduro')[:3]
     context['politikis']=politiki
+    context['imikino']=imikino
     #context['imyidagaduro_posts']=imyidagaduro
     context['posts'] = posts
     context['amakurumashya'] = amakurumashya

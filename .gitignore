@@ -3,3 +3,4 @@ env
 .vscode
 media
 static_root
+db.sqlite3

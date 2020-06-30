@@ -331,84 +331,43 @@
 
                         <div class="widget color-default">
                             <h3 class="utf_block_title"><span>Popular News</span></h3>
-                            <div class="utf_post_overaly_style clearfix">
-                                <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                            src="images/news/lifestyle/health4.jpg" alt=""> </a> </div>
-                                <div class="utf_post_content"> <a class="utf_post_cat" href="#">Health</a>
-                                    <h2 class="utf_post_title"> <a href="#">Smart packs parking sensor tech and
-                                            beeps when col 26</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                class="fa fa-user"></i> <a href="#">John Wick</a></span> <span
-                                            class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan, 2020</span>
+
+                            {% for post in sobanukirwas %}
+                              
+                                {% if forloop.first %}
+                                
+                                <div class="utf_post_overaly_style clearfix">
+                                    <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
+                                                src="{{ post.thumbnail.url }}" alt=""> </a> </div>
+                                    <div class="utf_post_content"> <a class="utf_post_cat" href="#">{{ post.post_category|title }}</a>
+                                        <h2 class="utf_post_title"> <a href="#">{{ post.title|title }}</a> </h2>
+                                        <div class="utf_post_meta"> <span class="utf_post_author"><i
+                                                    class="fa fa-user"></i> <a href="#">{{ post.author.username }}</a></span> <span
+                                                class="utf_post_date"><i class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="utf_list_post_block">
-                                <ul class="utf_list_post">
-                                    <li class="clearfix">
-                                        <div class="utf_post_block_style post-float clearfix">
-                                            <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                        src="images/news/tech/gadget3.jpg" alt=""> </a> <a
-                                                    class="utf_post_cat" href="#">Lifestyle</a> </div>
-                                            <div class="utf_post_content">
-                                                <h2 class="utf_post_title title-small"> <a href="#">Zhang social
-                                                        media pop also known when smart innocent...</a> </h2>
-                                                <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#">John Wick</a></span>
-                                                    <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
-                                                        Jan, 2020</span> </div>
-                                            </div>
+                                <div class="utf_list_post_block">
+                                    <ul class="utf_list_post">
+                                {% else %}
+                                    
+                                <li class="clearfix">
+                                    <div class="utf_post_block_style post-float clearfix">
+                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
+                                                    src="{{ post.thumbnail.url }}" alt=""> </a> <a
+                                                class="utf_post_cat" href="#">{{ post.post.post_category }}</a> </div>
+                                        <div class="utf_post_content">
+                                            <h2 class="utf_post_title title-small"> <a href="#">{{ post.title|title }}.</a> </h2>
+                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
+                                                        class="fa fa-user"></i> <a href="#">{{ post.author.username }}</a></span>
+                                                <span class="utf_post_date"><i class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span> </div>
                                         </div>
-                                    </li>
+                                    </div>
+                                </li>
+                        
+                                {% endif %}
 
-                                    <li class="clearfix">
-                                        <div class="utf_post_block_style post-float clearfix">
-                                            <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                        src="images/news/lifestyle/travel5.jpg" alt=""> </a> <a
-                                                    class="utf_post_cat" href="#">Travel</a> </div>
-                                            <div class="utf_post_content">
-                                                <h2 class="utf_post_title title-small"> <a href="#">Zhang social
-                                                        media pop also known when smart innocent...</a> </h2>
-                                                <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#">John Wick</a></span>
-                                                    <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
-                                                        Jan, 2020</span> </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="clearfix">
-                                        <div class="utf_post_block_style post-float clearfix">
-                                            <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                        src="images/news/tech/robot5.jpg" alt=""> </a> <a
-                                                    class="utf_post_cat" href="#">Traveling</a> </div>
-                                            <div class="utf_post_content">
-                                                <h2 class="utf_post_title title-small"> <a href="#">Zhang social
-                                                        media pop also known when smart innocent...</a> </h2>
-                                                <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#">John Wick</a></span>
-                                                    <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
-                                                        Jan, 2020</span> </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="clearfix">
-                                        <div class="utf_post_block_style post-float clearfix">
-                                            <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                        src="images/news/lifestyle/food1.jpg" alt=""> </a> <a
-                                                    class="utf_post_cat" href="#">Food</a> </div>
-                                            <div class="utf_post_content">
-                                                <h2 class="utf_post_title title-small"> <a href="#">Zhang social
-                                                        media pop also known when smart innocent...</a> </h2>
-                                                <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#">John Wick</a></span>
-                                                    <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
-                                                        Jan, 2020</span> </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                            {% endfor %}
                                 </ul>
                             </div>
                         </div>

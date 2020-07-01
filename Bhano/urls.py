@@ -22,6 +22,7 @@ from django.conf import settings
 urlpatterns = [
     path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
-    path('',include('main.urls')),
+    path('category/',include('main.urls')),
+    path('',include('web.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

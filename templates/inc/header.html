@@ -57,10 +57,10 @@
                             <ul class="nav navbar-nav">
                                 <li class="nav-item dropdown active"> <a href='{% url "web:index" %}'>🏠 Ahabanza</a>
                                 </li>
-                                <li> <a href="category-style2.html">🤸‍♂️ Imikino</a> </li>
-                                <li> <a href="category-style2.html">🏛️ Politiki</a> </li>
-                                <li> <a href="category-style2.html">👩‍⚕️Ubuzima</a> </li>
-                                <li> <a href="#">📲 Ikoranabuhanaga</a> </li>
+                                <li> <a href="{% url 'main:article_category' 'Imikino' %}">🤸‍♂️ Imikino</a> </li>
+                                <li> <a href="{% url 'main:article_category' 'Politiki' %}">🏛️ Politiki</a> </li>
+                                <li> <a href="{% url 'main:article_category' 'Ubuzima' %}">👩‍⚕️Ubuzima</a> </li>
+                                <li> <a href="{% url 'main:article_category' 'Ikoranabuhanga' %}">📲 Ikoranabuhanaga</a> </li>
                                 <li><a href="#">✨ Andi makuru</a></li>
                             </ul>
                         </div>

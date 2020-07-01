@@ -83,8 +83,11 @@ def ArticleDetail(request, post_category, slug):
         if formcomment.is_valid():
             comment = formcomment.save(commit=False)
             comment.post = post
-            comment.save()
-            context['success_comment'] = "Murakoze ku gitekerezo cyanyu!!"
+            if not Comment.objects.filter(name=comment.name,body=comment.body,post=post).exists():
+                comment.save()
+                context['success_comment'] = "Murakoze ku gitekerezo cyanyu!!"
+            else:
+                print("Not now karabaye iyi comment ntibaho")
 
     return render(request, 'article_detail.html', context)
 

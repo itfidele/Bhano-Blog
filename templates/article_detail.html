@@ -55,10 +55,8 @@
             <div class="author-box">
               <div class="author-img pull-left"> <img src="images/news/author.png" alt=""> </div>
               <div class="author-info">
-                <h3>Miss Lisa Doe</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since It has survived not only five centuries, but also the leap
-                  into electronic type setting, remaining essentially unchanged.</p>
+                <h3>ByoseHano</h3>
+                <p>Menya Byinshi igihe Nyacyo</p>
               </div>
             </div>
 
@@ -66,17 +64,6 @@
               <h3 class="utf_block_title"><span>Related Posts</span></h3>
               <div id="utf_latest_news_slide" class="owl-carousel owl-theme utf_latest_news_slide owl-loaded">
 
-
-
-
-
-
-
-
-
-                
-                
-                
               <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1201px;"><div class="owl-item active" style="width: 370.039px; margin-right: 30px;"><div class="owl-stage-outer">
                   <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1067px;">
                     <div class="owl-item active" style="width: 183.34px; margin-right: 30px;">
@@ -158,51 +145,25 @@
 
             <!-- Post comment start -->
             <div id="comments" class="comments-area block">
-              <h3 class="utf_block_title"><span>03 Comments</span></h3>
+              <h3 class="utf_block_title"><span>{{ post.comments.count }} Comments</span></h3>
               <ul class="comments-list">
                 <li>
+                  
+                  {% for comment in post.comments.all %}
+                    
                   <div class="comment"> <img class="comment-avatar pull-left" alt="" src="images/news/user1.png">
                     <div class="comment-body">
-                      <div class="meta-data"> <span class="comment-author">Miss Lisa Doe</span> <span class="comment-date pull-right">15 Jan, 2020</span> </div>
+                      <div class="meta-data"> <span class="comment-author">{{ comment.name }}</span> <span class="comment-date pull-right">{{ commment.publish|naturalday }}</span> </div>
                       <div class="comment-content">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                          been the industry's standard dummy text ever since It has survived not only five centuries,
-                          but also the leap into electronic type setting, remaining essentially unchanged.</p>
+                        {{ comment.body }}
                       </div>
                       <div class="text-left"> <a class="comment-reply" href="#"><i class="fa fa-share"></i> Reply</a>
                       </div>
                     </div>
                   </div>
 
-                  <ul class="comments-reply">
-                    <li>
-                      <div class="comment"> <img class="comment-avatar pull-left" alt="" src="images/news/user2.png">
-                        <div class="comment-body">
-                          <div class="meta-data"> <span class="comment-author">Miss Lisa Doe</span> <span class="comment-date pull-right">15 Jan, 2020</span> </div>
-                          <div class="comment-content">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                              has been the industry's standard dummy text ever since It has survived not only five
-                              centuries, but also the leap into electronic type setting, remaining essentially
-                              unchanged.</p>
-                          </div>
-                          <div class="text-left"> <a class="comment-reply" href="#"><i class="fa fa-share"></i>
-                              Reply</a> </div>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                  <div class="comment last"> <img class="comment-avatar pull-left" alt="" src="images/news/user1.png">
-                    <div class="comment-body">
-                      <div class="meta-data"> <span class="comment-author">Miss Lisa Doe</span> <span class="comment-date pull-right">15 Jan, 2020</span> </div>
-                      <div class="comment-content">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                          been the industry's standard dummy text ever since It has survived not only five centuries,
-                          but also the leap into electronic type setting, remaining essentially unchanged.</p>
-                      </div>
-                      <div class="text-left"> <a class="comment-reply" href="#"><i class="fa fa-share"></i> Reply</a>
-                      </div>
-                    </div>
-                  </div>
+                  {% endfor %}
+
                 </li>
               </ul>
             </div>
@@ -210,32 +171,23 @@
 
             <!--/ Comments Form Start -->
             <div class="comments-form">
-              <h3 class="title-normal">Leave a comment</h3>
-              <form>
+              <h3 class="title-normal">Siga ubutumwa</h3>
+              <form method="POST" action="{{ post.get_absolute_url }}">
+                {% csrf_token %}
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input class="form-control" name="name" id="name" placeholder="Name" type="text" required="">
+                      {{ form_comment.name }}
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input class="form-control" name="email" id="email" placeholder="Email" type="email" required="">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <input class="form-control" placeholder="Phone" type="text" required="">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <input class="form-control" placeholder="Subject" type="text" required="">
+                      {{ form_comment.email }}
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <textarea class="form-control required-field" id="message" placeholder="Comment" rows="10" required=""></textarea>
+                      {{ form_comment.body }}
                     </div>
                   </div>
                 </div>

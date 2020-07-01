@@ -11,7 +11,7 @@
               <div class="post-media post-featured-image"> <img src="{{ post.thumbnail.url }}" class="img-fluid" alt=""> </div>
               <div class="utf_post_title-area"> <a class="utf_post_cat" href="#">{{ post.post_category }}</a>
                 <h2 class="utf_post_title">{{ post.title|title }}</h2>
-                <div class="utf_post_meta"> <span class="utf_post_author"> By <a href="#">John Wick</a> </span> <span class="utf_post_date"><i class="fa fa-clock-o"></i> 15 Jan, 2020</span> <span class="post-hits"><i class="fa fa-eye"></i> 21</span> <span class="post-comment"><i class="fa fa-comments-o"></i> <a href="#" class="comments-link"><span>01</span></a></span> </div>
+                <div class="utf_post_meta"> <span class="utf_post_author"> By <a href="#">{{ post.author.username|title }}</a> </span> <span class="utf_post_date"><i class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span> <span class="post-hits"><i class="fa fa-eye"></i>{{ post.views }}</span> <span class="post-comment"><i class="fa fa-comments-o"></i> <a href="#" class="comments-link"><span>{{ post.comments.count }}</span></a></span> </div>
               </div>
 
               <div class="utf_post_content-area">

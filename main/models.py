@@ -17,6 +17,10 @@ from ckeditor_uploader.fields import RichTextUploadingField
 class Category(models.Model):
     name=models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
+    
+
 class Author(Model):
     user = ForeignKey(User, on_delete=models.CASCADE)
     category = models.CharField(max_length=50, choices=USER_CATEGORY)
@@ -48,6 +52,7 @@ class Post(Model):
     publish = DateTimeField(default=timezone.now)
     created = DateTimeField(auto_now_add=True)
     updated = DateTimeField(auto_now=True)
+    views=models.IntegerField(default=0,null=True)
     category=models.ForeignKey(Category,on_delete=models.CASCADE,null=True,blank=False)
     post_category = CharField(
         max_length=100, choices=POST_CATEGORY,default='Amakuru')

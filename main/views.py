@@ -60,6 +60,8 @@ class ArticleDetailView(DetailView):
 
 def ArticleDetail(request, post_category, slug):
     post = get_object_or_404(Post, post_category=post_category, slug=slug)
+    post.views=post.views+1
+    post.save()
     # get all comment of a given post
     comments = Comment.objects.filter(post=post)
 

@@ -4,14 +4,6 @@ from main.models import Post
 context={}
 
 def index(request):
-    '''
-    g=GeoIP2()
-    ip=request.META.get('REMOTE_ADDR',None)
-    if ip:
-        city=g.city(ip)['city']
-    else:
-        city=''
-    '''
 
     posts = Post.objects.all().order_by('-publish')[:5]
     amakurumashya = Post.objects.all().order_by('-publish')

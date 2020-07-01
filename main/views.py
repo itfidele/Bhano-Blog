@@ -19,6 +19,9 @@ context = {}
 context['categories'] = POST_CATEGORY
 
 
+
+
+
 class ArticleListView(ListView):
     model = Post.published
     template_name = 'article_list.html'

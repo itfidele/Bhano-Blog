@@ -1,8 +1,10 @@
 from django.contrib import admin
-from .models import Post,Comment
+from .models import Post,Comment,Category
 # Register your models here.
 
 #admin.site.register(Users)
+
+admin.site.register(Category)
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):

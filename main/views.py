@@ -78,6 +78,7 @@ def ArticleDetail(request, post_category, slug):
     context['post'] = post
     context['form_comment'] = CommentForm()
     context['comments'] = comments
+    context['popular_news']=Post.objects.all().order_by('-views')[:6]
     if request.method == 'POST':
         formcomment = CommentForm(request.POST)
         if formcomment.is_valid():

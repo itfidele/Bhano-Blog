@@ -151,7 +151,7 @@
                   
                   {% for comment in post.comments.all %}
                     
-                  <div class="comment"> <img class="comment-avatar pull-left" alt="" src="images/news/user1.png">
+                  <div class="comment {% if forloop.last %} last {% endif %}"> <img class="comment-avatar pull-left" alt="" src="images/news/user1.png">
                     <div class="comment-body">
                       <div class="meta-data"> <span class="comment-author">{{ comment.name }}</span> <span class="comment-date pull-right">{{ commment.publish|naturalday }}</span> </div>
                       <div class="comment-content">

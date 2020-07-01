@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 from django.core.files import File
 from .categories import POST_CATEGORY
 from urllib.request import urlretrieve
-from operations.lists import pamakeolinks
+from taggit.models import Tag
 # get user IP
 #from django.contrib.gis.geoip2 import GeoIP2
 
@@ -128,6 +128,7 @@ def allPosts(request):
 
 
 def ArticleCategory(request, post_category=None):
+
     context = {}
     if post_category:
         context['category'] = post_category

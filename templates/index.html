@@ -11,7 +11,7 @@
             <div class="col-lg-7 col-md-12 pad-r">
                 <div id="utf_featured_slider" class="owl-carousel owl-theme utf_featured_slider">
 
-                    {% for post in posts %}
+                    {% for post in posts|slice:":5" %}
                     <div class="item" style="background-image:url('{{ post.thumbnail.url }}')">
                         <div class="utf_featured_post">
                             <div class="utf_post_content"> <a class="utf_post_cat"
@@ -34,14 +34,14 @@
                 <div class="row">
                     {% for post in posts %}
 
-                    {% if forloop.first %}
+                    {% if forloop.counter == 6 %}
                     <div class="col-md-12">
                         <div class="utf_post_overaly_style contentTop hot-post-top clearfix">
                             <div class="utf_post_thumb"> <a href="#"><img class="img-fluid"
                                         src="{{ post.thumbnail.url }}" alt="{{ post.title|title }}"></a> </div>
-                            <div class="utf_post_content"> <a class="utf_post_cat" href="#">Gadget</a>
+                            <div class="utf_post_content"> <a class="utf_post_cat" href="#">{{ post.category.name }}</a>
                                 <h2 class="utf_post_title title-large"> <a
-                                        href="{{ post.get_absolute_url }}">{{ post.title|title }}</a> </h2>
+                                        href="{{ post.get_absolute_url }}">{{ post.title }}</a> </h2>
                                 <span class="utf_post_author"><i class="fa fa-user"></i> <a
                                         href="#">{{ post.author.username|title }}</a></span>
                                 <span class="utf_post_date"><i
@@ -54,16 +54,16 @@
                     {% endfor %}
                     <div class="col-md-12">
                     </div>
-                    {% for post in posts|slice:":2" %}
+                    {% for post in posts %}
 
-                    {% if forloop.first %}
+                    {% if forloop.counter == 7 %}
                     <div class="col-md-6 pad-r-small">
                         <div class="utf_post_overaly_style contentTop utf_hot_post_bottom clearfix">
                             <div class="utf_post_thumb"> <a href="#"><img class="img-fluid"
                                         src="{{ post.thumbnail.url }}" alt=""></a> </div>
-                            <div class="utf_post_content"> <a class="utf_post_cat" href="#">Travel</a>
+                            <div class="utf_post_content">
                                 <h2 class="utf_post_title title-medium"> <a
-                                        href="{{ post.get_absolute_url }}">{{ post.title|title }}</a> </h2>
+                                        href="{{ post.get_absolute_url }}" title="{{ post.title }}">{{ post.title|slice:":35" }}...</a> </h2>
                                 <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> <a
                                             href="#">{{ post.author.username|title }}</a></span></div>
                             </div>
@@ -71,15 +71,14 @@
                     </div>
                     {% endif %}
 
-                    {% if forloop.last %}
+                    {% if forloop.counter == 8 %}
                     <div class="col-md-6 pad-l-small">
                         <div class="utf_post_overaly_style contentTop utf_hot_post_bottom clearfix">
                             <div class="utf_post_thumb"> <a href="#"><img class="img-fluid"
                                         src="{{ post.thumbnail.url }}" alt=""></a> </div>
-                            <div class="utf_post_content"> <a class="utf_post_cat"
-                                    href="{{ post.get_absolute_url }}">{{ post.post_category|title }}</a>
+                            <div class="utf_post_content"> 
                                 <h2 class="utf_post_title title-medium"> <a
-                                        href="{{ post.get_absolute_url }}">{{ post.title|title }}</a> </h2>
+                                        href="{{ post.get_absolute_url }}" title="{{ post.title }}">{{ post.title|slice:":35" }}...</a> </h2>
                                 <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> <a
                                             href="#">{{ post.author.username|title }}</a></span> </div>
                             </div>
@@ -152,131 +151,6 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-12">
-                <div class="utf_featured_tab color-blue">
-                    <h3 class="utf_block_title"><span>Politiki</span></h3>
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item"> <a class="nav-link animated fadeIn active" href="#tab_a"
-                                data-toggle="tab"> <span class="tab-head"> <span
-                                        class="tab-text-title">Izigezweho</span> </span> </a> </li>
-                        <li class="nav-item"> <a class="nav-link animated fadeIn" href="#tab_b" data-toggle="tab"> <span
-                                    class="tab-head"> <span class="tab-text-title"></span>Izakunzwe</span> </a> </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active animated fadeInRight" id="tab_a">
-                            <div class="row">
-
-                                {% for post in politikis %}
-
-                                {% if forloop.first %}
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="utf_post_block_style clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="{{ post.thumbnail.url }}" alt=""> </a> </div>
-                                        <a class="utf_post_cat" href="#">Lifestyle</a>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title"> <a href="#">{{ post.title|title }}</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a
-                                                        href="#">{{ post.author.username|title }}</a></span>
-                                                <span class="utf_post_date"><i
-                                                        class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span>
-                                            </div>
-                                            <p>{{ post.body|slice:":120"|safe }}...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="utf_list_post_block">
-                                        <ul class="utf_list_post">
-                                            {% else %}
-                                            <li class="clearfix">
-                                                <div class="utf_post_block_style post-float clearfix">
-                                                    <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                                src="{{ post.thumbnail.url }}" alt=""> </a>
-                                                    </div>
-                                                    <div class="utf_post_content">
-                                                        <h2 class="utf_post_title title-small"> <a
-                                                                href="#">{{ post.title }}</a> </h2>
-                                                        <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                                    class="fa fa-user"></i> <a
-                                                                    href="#">{{ post.author.username|title }}</a></span>
-                                                            <span class="utf_post_date"><i
-                                                                    class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            {% endif %}
-
-                                            {% endfor %}
-                                        </ul>
-                                    </div>
-                                </div>
-
-
-
-                            </div>
-                        </div>
-
-                        <div class="tab-pane animated fadeInLeft" id="tab_b">
-                            <div class="row">
-
-                                {% for post in politikis %}
-
-                                {% if forloop.first %}
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="utf_post_block_style clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="{{ post.thumbnail.url }}" alt=""> </a> </div>
-                                        <a class="utf_post_cat" href="#">Lifestyle</a>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title"> <a href="#">{{ post.title|title }}</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a
-                                                        href="#">{{ post.author.username|title }}</a></span>
-                                                <span class="utf_post_date"><i
-                                                        class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span>
-                                            </div>
-                                            <p>{{ post.body|slice:":120"|safe }}...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="utf_list_post_block">
-                                        <ul class="utf_list_post">
-                                            {% else %}
-                                            <li class="clearfix">
-                                                <div class="utf_post_block_style post-float clearfix">
-                                                    <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                                src="{{ post.thumbnail.url }}" alt=""> </a>
-                                                    </div>
-                                                    <div class="utf_post_content">
-                                                        <h2 class="utf_post_title title-small"> <a
-                                                                href="#">{{ post.title }}</a> </h2>
-                                                        <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                                    class="fa fa-user"></i> <a
-                                                                    href="#">{{ post.author.username|title }}</a></span>
-                                                            <span class="utf_post_date"><i
-                                                                    class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            {% endif %}
-
-                                            {% endfor %}
-                                        </ul>
-                                    </div>
-                                </div>
-
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gap-40"></div>
                 <div class="block color-orange">
                     <h3 class="utf_block_title"><span>Imikino</span></h3>
                     <div class="row">
@@ -335,6 +209,128 @@
                         </div>
                     </div>
                 </div>
+                <div class="gap-40"></div>
+                <div class="utf_featured_tab color-blue">
+                    <h3 class="utf_block_title"><span>Politiki</span></h3>
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item"> <a class="nav-link animated fadeIn active" href="#tab_a"
+                                data-toggle="tab"> <span class="tab-head"> <span
+                                        class="tab-text-title">Izigezweho</span> </span> </a> </li>
+                        <li class="nav-item"> <a class="nav-link animated fadeIn" href="#tab_b" data-toggle="tab"> <span
+                                    class="tab-head"> <span class="tab-text-title"></span>Izakunzwe</span> </a> </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active animated fadeInRight" id="tab_a">
+                            <div class="row">
+
+                                {% for post in politikis %}
+
+                                {% if forloop.first %}
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="utf_post_block_style clearfix">
+                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
+                                                    src="{{ post.thumbnail.url }}" alt=""> </a> </div>
+                                        <a class="utf_post_cat" href="#">Lifestyle</a>
+                                        <div class="utf_post_content">
+                                            <h2 class="utf_post_title"> <a href="{{ post.get_absolute_url }}">{{ post.title }}</a> </h2>
+                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
+                                                        class="fa fa-user"></i> <a
+                                                        href="#">{{ post.author.username|title }}</a></span>
+                                                <span class="utf_post_date"><i
+                                                        class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span>
+                                            </div>
+                                            <p>{{ post.body|slice:":120"|safe }}...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="utf_list_post_block">
+                                        <ul class="utf_list_post">
+                                            {% else %}
+                                            <li class="clearfix">
+                                                <div class="utf_post_block_style post-float clearfix">
+                                                    <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
+                                                                src="{{ post.thumbnail.url }}" alt=""> </a>
+                                                    </div>
+                                                    <div class="utf_post_content">
+                                                        <h2 class="utf_post_title title-small"> <a
+                                                                href="{{ post.get_absolute_url }}">{{ post.title }}</a> </h2>
+                                                        <div class="utf_post_meta"> <span class="utf_post_author"><i
+                                                                    class="fa fa-user"></i> <a
+                                                                    href="#">{{ post.author.username|title }}</a></span>
+                                                            <span class="utf_post_date"><i
+                                                                    class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            {% endif %}
+
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+                        <div class="tab-pane animated fadeInLeft" id="tab_b">
+                            <div class="row">
+
+                                {% for post in politikis %}
+
+                                {% if forloop.first %}
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="utf_post_block_style clearfix">
+                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
+                                                    src="{{ post.thumbnail.url }}" alt=""> </a> </div>
+                                        <a class="utf_post_cat" href="#">Lifestyle</a>
+                                        <div class="utf_post_content">
+                                            <h2 class="utf_post_title"> <a href="{{ post.get_absolute_url }}">{{ post.title }}</a> </h2>
+                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
+                                                        class="fa fa-user"></i> <a
+                                                        href="#">{{ post.author.username|title }}</a></span>
+                                                <span class="utf_post_date"><i
+                                                        class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span>
+                                            </div>
+                                            <p>{{ post.body|slice:":120"|safe }}...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="utf_list_post_block">
+                                        <ul class="utf_list_post">
+                                            {% else %}
+                                            <li class="clearfix">
+                                                <div class="utf_post_block_style post-float clearfix">
+                                                    <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
+                                                                src="{{ post.thumbnail.url }}" alt=""> </a>
+                                                    </div>
+                                                    <div class="utf_post_content">
+                                                        <h2 class="utf_post_title title-small"> <a
+                                                                href="{{ post.get_absolute_url }}">{{ post.title }}</a> </h2>
+                                                        <div class="utf_post_meta"> <span class="utf_post_author"><i
+                                                                    class="fa fa-user"></i> <a
+                                                                    href="#">{{ post.author.username|title }}</a></span>
+                                                            <span class="utf_post_date"><i
+                                                                    class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            {% endif %}
+
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -364,7 +360,7 @@
                                     alt=""> </a> </div>
                         <div class="utf_post_content"> <a class="utf_post_cat"
                                 href="#">{{ post.post_category|title }}</a>
-                            <h2 class="utf_post_title"> <a href="#">{{ post.title|title }}</a> </h2>
+                            <h2 class="utf_post_title"> <a href="{{ post.get_absolute_url }}">{{ post.title }}</a> </h2>
                             <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> <a
                                         href="#">{{ post.author.username }}</a></span> <span class="utf_post_date"><i
                                         class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span>
@@ -380,7 +376,7 @@
                                     <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
                                                 src="{{ post.thumbnail.url }}" alt=""> </a></div>
                                     <div class="utf_post_content">
-                                        <h2 class="utf_post_title title-small"> <a href="#">{{ post.title|title }}.</a>
+                                        <h2 class="utf_post_title title-small"> <a href="{{ post.get_absolute_url }}">{{ post.title }}.</a>
                                         </h2>
                                         <div class="utf_post_meta"> <span class="utf_post_author"><i
                                                     class="fa fa-user"></i> <a
@@ -569,121 +565,4 @@
     </div>
 </div>
 <!-- Ad Content Area End -->
-
-<!-- Footer Start -->
-<footer id="footer" class="footer">
-    <div class="utf_footer_main">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-sm-12 col-xs-12 footer-widget contact-widget">
-                    <h3 class="widget-title">About Us</h3>
-                    <ul>
-                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                            Ipsum has been the industry's standard dummy text since has five...</li>
-                        <li><i class="fa fa-home"></i>15 Cliff St, New York NY 10038, USA</li>
-                        <li><i class="fa fa-phone"></i> <a href="#">91 234 567 8765</a></li>
-                        <li><i class="fa fa-envelope-o"></i> <a href="#">mail@example.com</a></li>
-                    </ul>
-                    <ul class="unstyled utf_footer_social">
-                        <li><a title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a title="Twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a title="Google+" href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a title="Linkdin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a title="Skype" href="#"><i class="fa fa-skype"></i></a></li>
-                        <li><a title="Skype" href="#"><i class="fa fa-instagram"></i></a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-sm-12 col-xs-12 footer-widget widget-categories">
-                    <h3 class="widget-title">Popular Categories</h3>
-                    <ul>
-                        <li><i class="fa fa-angle-double-right"></i><a href="#"><span
-                                    class="catTitle">Make-Up</span><span class="catCounter"> (05)</span></a>
-                        </li>
-                        <li><i class="fa fa-angle-double-right"></i><a href="#"><span
-                                    class="catTitle">Health</span><span class="catCounter"> (06)</span></a>
-                        </li>
-                        <li><i class="fa fa-angle-double-right"></i><a href="#"><span class="catTitle">Audio</span><span
-                                    class="catCounter"> (15)</span></a> </li>
-                        <li><i class="fa fa-angle-double-right"></i><a href="#"><span
-                                    class="catTitle">Travel</span><span class="catCounter"> (25)</span></a>
-                        </li>
-                        <li><i class="fa fa-angle-double-right"></i><a href="#"><span
-                                    class="catTitle">Health</span><span class="catCounter"> (05)</span></a>
-                        </li>
-                        <li><i class="fa fa-angle-double-right"></i><a href="#"><span
-                                    class="catTitle">Gadgets</span><span class="catCounter"> (12)</span></a>
-                        </li>
-                        <li><i class="fa fa-angle-double-right"></i><a href="#"><span class="catTitle">Food</span><span
-                                    class="catCounter"> (14)</span></a> </li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-sm-12 col-xs-12 footer-widget">
-                    <h3 class="widget-title">Popular Post</h3>
-                    <div class="utf_list_post_block">
-                        <ul class="utf_list_post">
-                            <li class="clearfix">
-                                <div class="utf_post_block_style post-float clearfix">
-                                    <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                src="images/news/lifestyle/health2.jpg" alt=""> </a> </div>
-                                    <div class="utf_post_content">
-                                        <h2 class="utf_post_title title-small"> <a href="#">Santino loganne
-                                                legan an year old resident...</a> </h2>
-                                        <div class="utf_post_meta"> <span class="utf_post_date"><i
-                                                    class="fa fa-clock-o"></i> 25 Jan, 2020</span> </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="clearfix">
-                                <div class="utf_post_block_style post-float clearfix">
-                                    <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                src="images/news/lifestyle/health3.jpg" alt=""> </a> </div>
-                                    <div class="utf_post_content">
-                                        <h2 class="utf_post_title title-small"> <a href="#">Santino loganne
-                                                legan an year old resident...</a> </h2>
-                                        <div class="utf_post_meta"> <span class="utf_post_date"><i
-                                                    class="fa fa-clock-o"></i> 25 Jan, 2020</span> </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="clearfix">
-                                <div class="utf_post_block_style post-float clearfix">
-                                    <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                src="images/news/lifestyle/health4.jpg" alt=""> </a> </div>
-                                    <div class="utf_post_content">
-                                        <h2 class="utf_post_title title-small"> <a href="#">Santino loganne
-                                                legan an year old resident...</a> </h2>
-                                        <div class="utf_post_meta"> <span class="utf_post_date"><i
-                                                    class="fa fa-clock-o"></i> 25 Jan, 2020</span> </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- Footer End -->
-
-<!-- Copyright Start -->
-<div class="copyright">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-12 text-center">
-                <div class="utf_copyright_info"> <span>Copyright © 2020 All Rights Reserved.</span> </div>
-            </div>
-        </div>
-        <div id="back-to-top" class="back-to-top">
-            <button class="btn btn-primary" title="Back to Top"> <i class="fa fa-angle-up"></i> </button>
-        </div>
-    </div>
-</div>
-<!-- Copyright End -->
-
 {% endblock content %}

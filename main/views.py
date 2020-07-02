@@ -55,6 +55,19 @@ def ArticleDetail(request, post_category, slug):
     context['post'] = post
     context['form_comment'] = CommentForm()
     context['comments'] = comments
+
+    try:
+        next_post = Post.get_next_by_publish(post)
+        context['next_post'] = next_post
+    except Exception as e:
+        context['next_post'] = "#"
+
+    try:
+        prev_post = Post.get_previous_by_publish(post)
+        context['prev_post'] = prev_post
+    except Exception as e:
+        context['prev_post'] = "#"
+
     context['popular_news']=Post.objects.all().order_by('-views')[:6]
     if request.method == 'POST':
         formcomment = CommentForm(request.POST)
@@ -119,7 +132,7 @@ def ArticleCategory(request, post_category=None):
 def scrape(request):
     from operations.sa import PamakeoPress
     pama=PamakeoPress()
-    pama.news_items(links=pamakeolinks)
+    #pama.news_items(links=pamakeolinks)
     
 
     return HttpResponse("<h1>scraped</h1>")

@@ -6,5 +6,5 @@ app_name="web"
 urlpatterns = [
     # website
     path('',index, name='index'),
-    #path('tags/',scrape,name='scrape'),
+    path('tags/<str:tag_slug>/',ArticlesByTag,name='article_tag'),
 ]

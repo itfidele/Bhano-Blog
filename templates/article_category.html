@@ -9,13 +9,13 @@
         <div class="row">
             <div class="col-lg-8 col-md-12">
                 <div class="block category-listing">
-                    <h3 class="utf_block_title"><span>Lifestyle News</span></h3>
-                    <ul class="subCategory unstyled">
+                    <h3 class="utf_block_title"><span>{{ menu_title }}</span></h3>
+                    <!--<ul class="subCategory unstyled">
                         <li><a href="#">Travel</a></li>
                         <li><a href="#">Health</a></li>
                         <li><a href="#">Architecture</a></li>
                         <li><a href="#">Food</a></li>
-                    </ul>
+                    </ul>-->
 
 
                     {% for post in posts %}
@@ -70,84 +70,35 @@
                     </div>
 
                     <div class="widget color-default">
-                        <h3 class="utf_block_title"><span>Popular News</span></h3>
+                        <h3 class="utf_block_title"><span>Izakunzwe</span></h3>
                         <div class="utf_list_post_block">
                             <ul class="utf_list_post">
-                                <li class="clearfix">
-                                    <div class="utf_post_block_style post-float clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="images/news/tech/gadget3.jpg" alt=""> </a> <a
-                                                class="utf_post_cat" href="#">Lifestyle</a> </div>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title title-small"> <a href="#">Zhang social media pop
-                                                    also known when smart innocent...</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#">John Wick</a></span> <span
-                                                    class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                    2020</span> </div>
+                                
+                                {% for post in popular_news|slice:":3" %}
+                                    <li class="clearfix">
+                                        <div class="utf_post_block_style post-float clearfix">
+                                            <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
+                                                        src="{{ post.thumbnail.url }}" alt=""> </a></div>
+                                            <div class="utf_post_content">
+                                                <h2 class="utf_post_title title-small"> <a href="{{ post.get_absolute_url }}">{{ post.title }}</a> </h2>
+                                                <div class="utf_post_meta"> <span class="utf_post_author"><i
+                                                            class="fa fa-eye"></i>{{ post.views }} <i class="fa fa-comment-o"></i> {{ post.comments.count }}</span></div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                {% endfor %}
 
-                                <li class="clearfix">
-                                    <div class="utf_post_block_style post-float clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="images/news/lifestyle/travel5.jpg" alt=""> </a> <a
-                                                class="utf_post_cat" href="#">Travel</a> </div>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title title-small"> <a href="#">Zhang social media pop
-                                                    also known when smart innocent...</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#">John Wick</a></span> <span
-                                                    class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                    2020</span> </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="clearfix">
-                                    <div class="utf_post_block_style post-float clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="images/news/tech/robot5.jpg" alt=""> </a> <a
-                                                class="utf_post_cat" href="#">Traveling</a> </div>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title title-small"> <a href="#">Zhang social media pop
-                                                    also known when smart innocent...</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#">John Wick</a></span> <span
-                                                    class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                    2020</span> </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="clearfix">
-                                    <div class="utf_post_block_style post-float clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="images/news/lifestyle/food1.jpg" alt=""> </a> <a
-                                                class="utf_post_cat" href="#">Food</a> </div>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title title-small"> <a href="#">Zhang social media pop
-                                                    also known when smart innocent...</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#">John Wick</a></span> <span
-                                                    class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                    2020</span> </div>
-                                        </div>
-                                    </div>
-                                </li>
                             </ul>
                         </div>
                     </div>
                     <div class="widget text-center"> <img class="banner img-fluid"
                             src="images/banner-ads/ad-sidebar.png" alt=""> </div>
                     <div class="widget m-bottom-0">
-                        <h3 class="utf_block_title"><span>Newsletter</span></h3>
+                        <h3 class="utf_block_title"><span>Email yawe hano</span></h3>
                         <div class="utf_newsletter_block">
                             <div class="utf_newsletter_introtext">
-                                <h4>Subscribe Newsletter!</h4>
-                                <p>Lorem ipsum dolor sit consectetur adipiscing elit Maecenas in pulvinar neque Nulla
-                                    finibus lobortis pulvinar.</p>
+                                <h4>Injira</h4>
+                                <p>Horana amakuru mashya yacu winjiza email yawe hano</p>
                             </div>
                             <div class="utf_newsletter_form">
                                 <form action="#" method="post">
@@ -155,7 +106,7 @@
                                         <input type="email" name="email" id="utf_newsletter_form-email"
                                             class="form-control form-control-lg" placeholder="E-Mail Address"
                                             autocomplete="off">
-                                        <button class="btn btn-primary">Subscribe</button>
+                                        <button class="btn btn-primary">Injira</button>
                                     </div>
                                 </form>
                             </div>

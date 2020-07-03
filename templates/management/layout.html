@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Sunrise Admin Panel">
+    <meta name="keywords"
+        content="Admin, Dashboard, Bootstrap3, Sass, transform, CSS3, HTML5, Web design, UI Design, Responsive Dashboard, Responsive Admin, Admin Theme, Best Admin UI, Bootstrap Theme, Themeforest, Bootstrap">
+    <meta name="author" content="Bootstrap Gallery">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <title>Author Panel, Byosehano Dashboard</title>
+    <link href="{% static 'user/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'user/css/animate.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'user/css/main.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'user/fonts/icomoon/icomoon.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/circliful/circliful.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flags/flag-icon-custom.css' %}">
+    {% block stylesheets %}
+      
+    {% endblock stylesheets %}
+    <!--[if lt IE 9]>
+			<script src="js/html5shiv.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+</head>
+
+<body class="orange">
+    <div class="sunrise-loading"></div>
+    <div class="vertical-nav">
+        <button class="collapse-menu"><i class="icon-dehaze"></i></button>
+        <div class="logo"><a href="index.html"><img src="{% static 'logo.png' %}" alt="Sunrise"></a></div>
+        <div class="user-info">
+            <div class="user-img"><img src="{% static 'user/img/user7.png' %}" alt="User Info"> <span class="likes-info">26</span></div>
+            <h5 class="user-name-o">Cassandra</h5>
+            <p class="profile-complete">Profile Complete - 78%</p>
+        </div>
+        <ul class="menu clearfix">
+            <li class="active selected"><a href="#"><i class="icon-graphic_eq"></i> <span
+                        class="menu-item">Dashboards</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="index.html" class="current">Overview</a></li>
+                    <li><a href="social-analytics.html">Social Analytics <span
+                                class="label label-danger">&nbsp;</span></a></li>
+                    <li><a href="product-analytics.html">Product Analytics</a></li>
+                    <li><a href="events.html">Events <span class="label label-success">&nbsp;</span></a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-devices_other"></i> <span class="menu-item">Layouts</span> <span
+                        class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="custom-drag.html">Drag &amp; Drop Panels</a></li>
+                    <li><a href="default.html">Default Layout</a></li>
+                    <li><a href="offcanvas-layout.html">Off Canvas Layout</a></li>
+                    <li><a href="layout-sidebar.html">Layout Sidebar</a></li>
+                    <li><a href="grid-layout.html">Grid Layout</a></li>
+                    <li><a href="three-col-layout.html">Three Column Layout</a></li>
+                    <li><a href="two-col-layout.html">Two Column Layout</a></li>
+                </ul>
+            </li>
+            <li><a href="widgets.html"><i class="icon-ac_unit"></i> <span class="menu-item">Widgets</span></a></li>
+            <li><a href="timeline.html"><i class="icon-timeline"></i> <span class="menu-item">Timeline</span></a></li>
+            <li><a href="email.html"><i class="icon-av_timer"></i> <span class="menu-item">Email</span></a></li>
+            <li><a href="#"><i class="icon-pie_chart_outlined"></i> <span class="menu-item">Graphs</span> <span
+                        class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="c3-graphs.html">C3 Graphs</a></li>
+                    <li><a href="graphs.html">Flot Graphs</a></li>
+                    <li><a href="google-graphs.html">Google Graphs</a></li>
+                    <li><a href="morris-graphs.html">Morris Graphs</a></li>
+                    <li><a href="maps.html">Maps</a></li>
+                </ul>
+            </li>
+            <li><a href="gallery.html"><i class="icon-monochrome_photos"></i> <span
+                        class="menu-item">Showcase</span></a></li>
+            <li><a href="#"><i class="icon-shopping_basket"></i> <span class="menu-item">Pages</span> <span
+                        class="down-arrow"></span></a>
+                <ul class="collapse">
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="invoice.html">Invoice</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-domain"></i> <span class="menu-item">Forms</span> <span
+                        class="down-arrow"></span></a>
+                <ul class="collapse">
+                    <li><a href="form-elements.html">Forms Inputs</a></li>
+                    <li><a href="wysiwyg-editor.html">WYSIWYG Editor</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-style"></i> <span class="menu-item">UI Elements</span> <span
+                        class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="components.html"><span>Components</span></a></li>
+                    <li><a href="buttons.html"><span>Buttons</span></a></li>
+                    <li><a href="notifications.html"><span>Notifications</span></a></li>
+                    <li><a href="panels.html"><span>Panels</span></a></li>
+                    <li><a href="tabs.html"><span>Tabs &amp; Accordians</span></a></li>
+                    <li><a href="modals.html"><span>Modals</span></a></li>
+                    <li><a href="icons.html"><span>Icons</span></a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-person_pin"></i> <span class="menu-item">User Profile</span> <span
+                        class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">SignUp</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="forgot-pwd.html">Forgot Password</a></li>
+                    <li><a href="error.html">404</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-border_all"></i> <span class="menu-item">Tables</span> <span
+                        class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="tables.html">Tables</a></li>
+                    <li><a href="data-tables.html">Databar Tables<span class="label label-danger">&nbsp;</span></a></li>
+                    <li><a href="dynamic-tables.html">Dynamic Tables</a></li>
+                </ul>
+            </li>
+            <li><a href="typography.html"><i class="icon-format_color_text"></i> <span
+                        class="menu-item">Typography</span></a></li>
+        </ul>
+    </div>
+    
+    {% block content %}
+      
+    {% endblock content %}
+
+    
+    <script src="{% static 'user/js/jquery.js' %}"></script>
+    <script src="{% static 'user/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'user/js/jquery-ui.js' %}"></script>
+    <script src="{% static 'user/js/sparkline.js' %}"></script>
+    <script src="{% static 'user/js/scrollup/jquery.scrollUp.js' %}"></script>
+    {% block javascripts %}
+        <script src="{% static 'user/js/circliful/circliful.min.js' %}"></script>
+        <script src="{% static 'user/js/circliful/circliful.custom.js' %}"></script>
+        <script src="{% static 'user/js/jvectormap/jquery-jvectormap-2.0.3.min.js' %}"></script>
+        <script src="{% static 'user/js/jvectormap/world-mill-en.js' %}"></script>
+        <script src="{% static 'user/js/jvectormap/gdp-data.js' %}"></script>
+        <script src="{% static 'user/js/jvectormap/custom/world-map-markers.js' %}"></script>
+    {% endblock javascripts %}
+    <script src="{% static 'user/js/custom.js' %}"></script>
+    <script src="{% static 'user/js/custom-overview.js' %}"></script>
+</body>
+<!-- Mirrored from bootstrap.gallery/sunrise-admin-feb26/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Mar 2020 13:19:17 GMT -->
+
+</html>

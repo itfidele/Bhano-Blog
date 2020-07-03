@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Mirrored from bootstrap.gallery/sunrise-admin-feb26/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Mar 2020 13:22:32 GMT -->
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Sunrise Admin Panel">
+    <meta name="keywords"
+        content="Admin, Dashboard, Bootstrap3, Sass, transform, CSS3, HTML5, Web design, UI Design, Responsive Dashboard, Responsive Admin, Admin Theme, Best Admin UI, Bootstrap Theme, Themeforest, Bootstrap">
+    <meta name="author" content="Bootstrap Gallery">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <title>Sunrise Admin Panel, Sunrise Dashboard</title>
+    <link href="{% static 'user/css/login.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'user/css/animate.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'user/fonts/icomoon/icomoon.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <form action="." method="POST" id="wrapper">
+        {% csrf_token %}
+        <div id="box" class="animated bounceIn">
+            <div id="top_header">
+                <h3><img src="{% static 'logo.png' %}" alt="Logo"></h3>
+                <h5>Sign in to continue to your<br>ByoseHano Account.</h5>
+            </div>
+            <div id="inputs">
+                <div class="form-control"><input type="text" name="username" placeholder="Email"> <i class="icon-email"></i></div>
+                <div class="form-control"><input type="password" name="password" placeholder="Password"> <i class="icon-lock2"></i>
+                <input type="hidden" name="next" value="{{ next }}" id="">
+                </div><input type="submit" name="submit" value="Sign In">
+            </div>
+            <div id="bottom">
+                <div class="squared-check"><input type="checkbox" value="None" id="remember" name="check"
+                        checked=""><label for="remember"></label>
+                    <div class="cb-label">Remember</div>
+                </div><a class="right_a" href="forgot-pwd.html">Forgot password?</a>
+            </div>
+        </div>
+    </form>
+</body>
+<!-- Mirrored from bootstrap.gallery/sunrise-admin-feb26/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Mar 2020 13:22:33 GMT -->
+
+</html>

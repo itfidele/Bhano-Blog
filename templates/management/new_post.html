@@ -1,0 +1,104 @@
+{% extends "management/layout.html" %}
+{% load static %}
+
+{% block stylesheets %}
+<!-- Font Awesome Icons -->
+<link href="{% static 'user/fonts/font-awesome.css' %}" rel="stylesheet" />
+
+<!-- Icomoon Icons -->
+<link href="{% static 'user/fonts/icomoon/icomoon.css' %}" rel="stylesheet" />
+  <!-- Wysiwyg CSS -->
+  <link href="{% static 'user/css/wysiwyg-editor/editor.css' %}" rel="stylesheet" />
+{% endblock stylesheets %}
+
+
+{% block javascripts %}
+<!-- wysiwyg editor js -->
+<script src="{% static 'user/js/wysiwyg-editor/editor.js' %}"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#txtEditor").Editor();
+    });
+</script>
+{% endblock javascripts %}
+
+{% block content %}
+
+<div class="top-bar clearfix">
+    <div class="page-title">
+        <h4>Form Elements</h4>
+    </div>
+    <ul class="sales-stats hidden-xs">
+        <li>
+            <div class="sales-block hidden-sm hidden-xs"><span id="sale_today"></span></div>
+            <div class="sales-details">
+                <h4>$<span>580</span> <i class="icon-arrow-up-right2 up"></i></h4>
+                <h5>Today's Income</h5>
+            </div>
+        </li>
+        <li>
+            <div class="sales-block hidden-sm hidden-xs"><span id="sale_weekly"></span></div>
+            <div class="sales-details">
+                <h4>$<span>7235</span> <i class="icon-arrow-down-right2 down"></i></h4>
+                <h5>Week's Income</h5>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="main-container">
+    <div class="container-fluid">
+        <div class="row gutter">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="panel panel-blue">
+                    <div class="panel-heading">
+                        <h4>Add Post</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            {{ success_post|safe }}
+                        </div>
+                        <form action="{% url 'management:new_post' %}" enctype="multipart/form-data" method="POST">
+                            {% csrf_token %}
+                            <div class="col-md-12">
+                                <label for="title">Title</label>
+                                {{ add_post.title }}
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <label for="title">Image</label>
+                                    {{ add_post.thumbnail }}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="title">Category</label>
+                                    {{ add_post.category }}
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12">
+                                <label for="title">Article Content</label>
+                                <textarea name="body" id="txtEditor" class="form-control" cols="30" rows="10"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <label for="title">Article Status</label>
+                                    {{ add_post.status }}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="title">Article Tags</label>
+                                    {{ add_post.tags }}
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <button type="submit" name="submit" class="btn btn-lg btn-success">Publish Article</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>Copyright Sunrise Admin <span>2016</span>.</footer>
+
+{% endblock content %}

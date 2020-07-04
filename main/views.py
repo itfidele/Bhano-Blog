@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, HttpResponse
 from django.contrib.auth.decorators import login_required
 import os
+from django.utils.text import slugify
 # Create your views here.
 from main.forms import PostForm, UserForm, CommentForm
 from django.views.generic import ListView, DetailView

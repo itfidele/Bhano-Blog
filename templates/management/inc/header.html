@@ -1,0 +1,23 @@
+{% load static %}
+<div class="vertical-nav">
+    <button class="collapse-menu">
+        <i class="icon-dehaze"></i></button>
+    <div class="logo"><a href="index.html"><img src="{% static 'logo.png' %}" alt="Byosehano"></a></div>
+    <div class="user-info">
+        <div class="user-img"><img src="{% static 'circled-logo.png' %}" alt="User Info"> <span class="likes-info">0</span></div>
+        <h5 class="user-name-o">Author</h5>
+        <p class="profile-complete">Profile Complete - 100%</p>
+    </div>
+    <ul class="menu clearfix">
+        <li><a href="{% url 'management:index' %}"><i class="icon-format_color_text"></i> <span
+            class="menu-item">Dashboard</span></a></li>
+        <li>
+            <a href="#"><i class="icon-pie_chart_outlined"></i> <span class="menu-item">Posts Management</span> <span
+                    class="down-arrow"></span></a>
+            <ul>
+                <li><a href="{% url 'management:new_post' %}">New Post</a></li>
+                <li><a href="{% url 'management:post_report' %}">Posts Report</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>

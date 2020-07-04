@@ -3,249 +3,98 @@
 {% load humanize %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{% static 'user/css/datatables/dataTables.bs.min.css' %}">
-    <link rel="stylesheet" href="{% static 'user/css/datatables/autoFill.bs.min.css' %}">
-    <link rel="stylesheet" href="{% static 'user/css/datatables/fixedHeader.bs.css' %}">
+<link rel="stylesheet" href="{% static 'user/css/datatables/dataTables.bs.min.css' %}">
+<link rel="stylesheet" href="{% static 'user/css/datatables/autoFill.bs.min.css' %}">
+<link rel="stylesheet" href="{% static 'user/css/datatables/fixedHeader.bs.css' %}">
 {% endblock stylesheets %}
 
 {% block javascripts %}
-    <script src="{% static 'user/js/datatables/dataTables.min.js' %}"></script>
-    <script src="{% static 'user/js/datatables/dataTables.bootstrap.min.js' %}"></script>
-    <script src="{% static 'user/js/datatables/autoFill.min.js' %}"></script>
-    <script src="{% static 'user/js/datatables/autoFill.bootstrap.min.js' %}"></script>
-    <script src="{% static 'user/js/datatables/fixedHeader.min.js' %}"></script>
-    <script src="{% static 'user/js/datatables/custom-datatables.js' %}"></script>
+<script src="{% static 'user/js/datatables/dataTables.min.js' %}"></script>
+<script src="{% static 'user/js/datatables/dataTables.bootstrap.min.js' %}"></script>
+<script src="{% static 'user/js/datatables/autoFill.min.js' %}"></script>
+<script src="{% static 'user/js/datatables/autoFill.bootstrap.min.js' %}"></script>
+<script src="{% static 'user/js/datatables/fixedHeader.min.js' %}"></script>
+<script src="{% static 'user/js/datatables/custom-datatables.js' %}"></script>
 {% endblock javascripts %}
 
 {% block content %}
-<div class="dashboard-wrapper dashboard-wrapper-lg">
-    <header>
-        <ul class="pull-left" id="left-nav">
-            <li class="dropdown pull-left"><a href="#" id="drop6" role="button" class="dropdown-toggle"
-                    data-toggle="dropdown">
-                    <div class="msg-chats"><img src="img/user1.png" alt="Chats"> <img class="add-user"
-                            src="img/user5.png" alt="Chats"> <span class="info-label"></span></div>
-                </a>
-                <ul class="dropdown-menu fadeInUp animated messages">
-                    <li class="dropdown-header">Meetings today</li>
-                    <li>
-                        <div class="meeting-container">
-                            <div class="meeting-block">
-                                <div class="meeting-with"><img src="img/user3.png" alt="Sunrise Admin"></div>
-                                <div class="meeting-personal line-through">
-                                    <h5>Alexey Anatolievich <span>@11:30am</span></h5><span>CTO</span>
-                                </div>
-                            </div>
-                            <div class="meeting-block">
-                                <div class="meeting-with"><img src="img/user8.png" alt="Sunrise Admin"></div>
-                                <div class="meeting-personal">
-                                    <h5>Ron Evgeniy <span>@12:45pm</span></h5><span>COO</span>
-                                </div>
-                            </div>
-                            <div class="meeting-block no-border">
-                                <div class="meeting-with"><img src="img/user7.png" alt="Sunrise Admin"></div>
-                                <div class="meeting-personal">
-                                    <h5>Kasper Christensen <span>@3:15pm</span></h5><span>VC</span>
-                                </div>
-                            </div>
-                            <div class="group-meeting">
-                                <h5>Meeting about our new product</h5>
-                                <p class="meeting-day">Today, @4:30pm</p>
-                                <div class="meeting-with"><img src="img/user1.png" alt="Sunrise Admin"> <img
-                                        src="img/user3.png" alt="Sunrise Admin"> <img src="img/user6.png"
-                                        alt="Sunrise Admin"> <span class="total-users">+6</span></div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <div class="pull-right">
-            <ul id="mini-nav" class="clearfix">
-                <li class="list-box dropdown hidden-xs"><a id="reviews" href="#" role="button"
-                        class="dropdown-toggle" data-toggle="dropdown"><i class="icon-globe2"></i> </a><span
-                        class="noti-label yellow-bg animated"></span>
-                    <ul class="dropdown-menu animated fadeInUp reviews">
-                        <li>
-                            <div class="user-pic clearfix"><img src="img/user6.png" alt="User Image"></div>
-                            <div class="review-details clearfix">
-                                <h4>Social Analytics <i class="icon-settings"></i></h4>
-                                <h5 class="clearfix"><span class="left-info"><i class="icon-photo"></i> 389
-                                        views</span></h5>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="user-pic clearfix"><img src="img/user18.png" alt="User Image"></div>
-                            <div class="review-details clearfix">
-                                <h4>Product Analytics <i class="icon-settings"></i></h4>
-                                <h5 class="clearfix"><span class="left-info"><i class="icon-photo"></i> 871
-                                        views</span></h5>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="user-pic clearfix"><img src="img/user1.png" alt="User Image"></div>
-                            <div class="review-details clearfix">
-                                <h4>Layouts <i class="icon-settings"></i></h4>
-                                <h5 class="clearfix"><span class="left-info"><i class="icon-photo"></i> 775
-                                        views</span></h5>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="list-box dropdown hidden-xs"><a id="drop1" href="#" role="button" class="dropdown-toggle"
-                        data-toggle="dropdown"><i class="icon-notifications_active"></i> </a><span
-                        class="info-label blue-bg animated rubberBand">4</span>
-                    <ul class="dropdown-menu fadeInUp animated imp-notify">
-                        <li class="dropdown-header">You have 3 notifications</li>
-                        <li class="clearfix">
-                            <div class="icon"><img src="img/user10.png" alt="Sunrise Admin"></div>
-                            <div class="details"><strong class="text-danger">Rogie King</strong> <span>Firefox is a
-                                    free, open-source web browser from Mozilla.</span></div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="icon"><img src="img/user19.png" alt="Sunrise Admin"></div>
-                            <div class="details"><strong class="text-success">Dan Cederholm</strong> <span>IE is a
-                                    free web browser from Microsoft.</span></div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="icon"><img src="img/user13.png" alt="Sunrise Admin"></div>
-                            <div class="details"><strong class="text-info">Justin Mezzell</strong> <span>Safari is
-                                    known for its sleek design and ease of use.</span></div>
-                        </li>
-                        <li class="dropdown-footer">See all the notifications<i class="icon-arrow_forward"></i></li>
-                    </ul>
-                </li>
-                <li class="list-box dropdown hidden-xs"><a id="drop10" href="#" role="button"
-                        class="dropdown-toggle" data-toggle="dropdown"><i class="icon-circle-check"></i> </a><span
-                        class="info-label red-bg animated rubberBand">7</span>
-                    <ul class="dropdown-menu animated flipInY progress-stats">
-                        <li class="dropdown-header">You have 7 pending tasks</li>
-                        <li>
-                            <div class="progress-info"><strong class="text-danger">Critical</strong> <span>New
-                                    Dashboard Design</span> <span class="pull-right text-danger">20%</span></div>
-                            <div class="progress progress-md no-margin">
-                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="20"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 20%"><span
-                                        class="sr-only">20% Complete (success)</span></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="progress-info"><strong class="text-info">Primary</strong> <span>UI Changes
-                                    in V2</span> <span class="pull-right">90%</span></div>
-                            <div class="progress progress-sm no-margin">
-                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="90"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 90%"><span
-                                        class="sr-only">90% Complete</span></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="progress-info"><strong class="text-warning">Urgent</strong> <span>Bug Fix
-                                    #123</span> <span class="pull-right">60%</span></div>
-                            <div class="progress progress-xs no-margin">
-                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 60%"><span
-                                        class="sr-only">60% Complete (warning)</span></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="progress-info"><span>Bug Fix #111</span> <span
-                                    class="pull-right text-success">Complete</span></div>
-                            <div class="progress progress-xs no-margin">
-                                <div class="progress-bar progress-bar-success" role="progressbar"
-                                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                                    <span class="sr-only">100% Complete (warning)</span></div>
-                            </div>
-                        </li>
-                        <li class="dropdown-footer">See all the notifications</li>
-                    </ul>
-                </li>
-                <li class="list-box dropdown hidden-xs"><a href="login.html"><i class="icon-exit_to_app"></i></a>
-                </li>
-                <li class="list-box hidden-lg hidden-md"><button type="button" id="toggleMenu"
-                        class="toggle-menu"><i class="icon-menu"></i></button></li>
-            </ul>
-        </div>
-        <div class="custom-search hidden-sm hidden-xs"><input type="text" class="search-query"
-                placeholder="Search here ..."> <i class="icon-search4"></i></div>
-    </header>
-    <div class="top-bar clearfix">
-        <div class="page-title">
-            <h4>Dynamic Tables</h4>
-        </div>
-        <ul class="sales-stats hidden-xs">
-            <li>
-                <div class="sales-block hidden-sm hidden-xs"><span id="sale_today"></span></div>
-                <div class="sales-details">
-                    <h4>$<span>580</span> <i class="icon-arrow-up-right2 up"></i></h4>
-                    <h5>Today's Income</h5>
-                </div>
-            </li>
-            <li>
-                <div class="sales-block hidden-sm hidden-xs"><span id="sale_weekly"></span></div>
-                <div class="sales-details">
-                    <h4>$<span>7235</span> <i class="icon-arrow-down-right2 down"></i></h4>
-                    <h5>Week's Income</h5>
-                </div>
-            </li>
-        </ul>
+
+<div class="top-bar clearfix">
+    <div class="page-title">
+        <h4>Dynamic Tables</h4>
     </div>
-    <div class="main-container">
-        <div class="container-fluid">
-            
-            <div class="row gutter">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="panel panel-blue">
-                        <div class="panel-heading">
-                            <h4>All Report Posts</h4>
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table id="responsiveTable" class="table table-striped table-bordered no-margin"
-                                    cellspacing="0" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Title</th>
-                                            <th>Category</th>
-                                            <th>Published</th>
-                                            <th>Views</th>
-                                            <th>Comments</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Title</th>
-                                            <th>Category</th>
-                                            <th>Published on</th>
-                                            <th>Views</th>
-                                            <th>Comments</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        {% for report in post_reports %}
-                                            <tr>
-                                                <td title="{{ report.title }}">{{ report.title|slice:":50" }}...</td>
-                                                <td>
-                                                    <span class="label label-danger">{{ report.category.name }}</span>
-                                                </td>
-                                                <td>{{ report.publish|naturalday }}</td>
-                                                <td>{{ report.views }}</td>
-                                                <td>{{ report.comments.count }}</td>
-                                                <td>
-                                                    <a href="#" style="color: red;">Delete</a> &nbsp; <a href="#">Edit</a>
-                                                </td>
-                                            </tr>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                            </div>
+    <ul class="sales-stats hidden-xs">
+        <li>
+            <div class="sales-block hidden-sm hidden-xs"><span id="sale_today"></span></div>
+            <div class="sales-details">
+                <h4>$<span>580</span> <i class="icon-arrow-up-right2 up"></i></h4>
+                <h5>Today's Income</h5>
+            </div>
+        </li>
+        <li>
+            <div class="sales-block hidden-sm hidden-xs"><span id="sale_weekly"></span></div>
+            <div class="sales-details">
+                <h4>$<span>7235</span> <i class="icon-arrow-down-right2 down"></i></h4>
+                <h5>Week's Income</h5>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="main-container">
+    <div class="container-fluid">
+
+        <div class="row gutter">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="panel panel-blue">
+                    <div class="panel-heading">
+                        <h4>All Report Posts</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="responsiveTable" class="table table-striped table-bordered no-margin"
+                                cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Category</th>
+                                        <th>Published</th>
+                                        <th>Views</th>
+                                        <th>Comments</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Category</th>
+                                        <th>Published on</th>
+                                        <th>Views</th>
+                                        <th>Comments</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    {% for report in post_reports %}
+                                    <tr>
+                                        <td title="{{ report.title }}">{{ report.title|slice:":50" }}...</td>
+                                        <td>
+                                            <span class="label label-danger">{{ report.category.name }}</span>
+                                        </td>
+                                        <td>{{ report.publish|naturalday }}</td>
+                                        <td>{{ report.views }}</td>
+                                        <td>{{ report.comments.count }}</td>
+                                        <td>
+                                            <a href="#" style="color: red;">Delete</a> &nbsp; <a href="#">Edit</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <footer>Copyright ByoseHano Author <span>2020</span>.</footer>
 </div>
 {% endblock content %}

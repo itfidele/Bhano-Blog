@@ -6,4 +6,6 @@ app_name="management"
 urlpatterns = [
     # website
     path('',index, name='index'),
+    path('new_post',new_post, name='new_post'),
+    path('post_report',post_report, name='post_report'),
 ]

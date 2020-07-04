@@ -2,555 +2,96 @@
 {% load static %}
 
 {% block content %}
-<div class="dashboard-wrapper dashboard-wrapper-lg">
-    <header>
-        <ul class="pull-left" id="left-nav">
-            <li class="dropdown pull-left"><a href="#" id="drop6" role="button" class="dropdown-toggle"
-                    data-toggle="dropdown">
-                    <div class="msg-chats"><img src="img/user1.png" alt="Chats"> <img class="add-user"
-                            src="img/user5.png" alt="Chats"> <span class="info-label"></span></div>
-                </a>
-                <ul class="dropdown-menu fadeInUp animated messages">
-                    <li class="dropdown-header">Meetings today</li>
-                    <li>
-                        <div class="meeting-container">
-                            <div class="meeting-block">
-                                <div class="meeting-with"><img src="img/user3.png" alt="Sunrise Admin"></div>
-                                <div class="meeting-personal line-through">
-                                    <h5>Alexey Anatolievich <span>@11:30am</span></h5><span>CTO</span>
-                                </div>
-                            </div>
-                            <div class="meeting-block">
-                                <div class="meeting-with"><img src="img/user8.png" alt="Sunrise Admin"></div>
-                                <div class="meeting-personal">
-                                    <h5>Ron Evgeniy <span>@12:45pm</span></h5><span>COO</span>
-                                </div>
-                            </div>
-                            <div class="meeting-block no-border">
-                                <div class="meeting-with"><img src="img/user7.png" alt="Sunrise Admin"></div>
-                                <div class="meeting-personal">
-                                    <h5>Kasper Christensen <span>@3:15pm</span></h5><span>VC</span>
-                                </div>
-                            </div>
-                            <div class="group-meeting">
-                                <h5>Meeting about our new product</h5>
-                                <p class="meeting-day">Today, @4:30pm</p>
-                                <div class="meeting-with"><img src="img/user1.png" alt="Sunrise Admin"> <img
-                                        src="img/user3.png" alt="Sunrise Admin"> <img src="img/user6.png"
-                                        alt="Sunrise Admin"> <span class="total-users">+6</span></div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <div class="pull-right">
-            <ul id="mini-nav" class="clearfix">
-                <li class="list-box dropdown hidden-xs"><a id="reviews" href="#" role="button" class="dropdown-toggle"
-                        data-toggle="dropdown"><i class="icon-globe2"></i> </a><span
-                        class="noti-label yellow-bg animated"></span>
-                    <ul class="dropdown-menu animated fadeInUp reviews">
-                        <li>
-                            <div class="user-pic clearfix"><img src="img/user6.png" alt="User Image"></div>
-                            <div class="review-details clearfix">
-                                <h4>Social Analytics <i class="icon-settings"></i></h4>
-                                <h5 class="clearfix"><span class="left-info"><i class="icon-photo"></i> 389
-                                        views</span></h5>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="user-pic clearfix"><img src="img/user18.png" alt="User Image"></div>
-                            <div class="review-details clearfix">
-                                <h4>Product Analytics <i class="icon-settings"></i></h4>
-                                <h5 class="clearfix"><span class="left-info"><i class="icon-photo"></i> 871
-                                        views</span></h5>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="user-pic clearfix"><img src="img/user1.png" alt="User Image"></div>
-                            <div class="review-details clearfix">
-                                <h4>Layouts <i class="icon-settings"></i></h4>
-                                <h5 class="clearfix"><span class="left-info"><i class="icon-photo"></i> 775
-                                        views</span></h5>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="list-box dropdown hidden-xs"><a id="drop1" href="#" role="button" class="dropdown-toggle"
-                        data-toggle="dropdown"><i class="icon-notifications_active"></i> </a><span
-                        class="info-label blue-bg animated rubberBand">4</span>
-                    <ul class="dropdown-menu fadeInUp animated imp-notify">
-                        <li class="dropdown-header">You have 3 notifications</li>
-                        <li class="clearfix">
-                            <div class="icon"><img src="img/user10.png" alt="Sunrise Admin"></div>
-                            <div class="details"><strong class="text-danger">Rogie King</strong> <span>Firefox is a
-                                    free, open-source web browser from Mozilla.</span></div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="icon"><img src="img/user19.png" alt="Sunrise Admin"></div>
-                            <div class="details"><strong class="text-success">Dan Cederholm</strong> <span>IE is a
-                                    free web browser from Microsoft.</span></div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="icon"><img src="img/user13.png" alt="Sunrise Admin"></div>
-                            <div class="details"><strong class="text-info">Justin Mezzell</strong> <span>Safari is
-                                    known for its sleek design and ease of use.</span></div>
-                        </li>
-                        <li class="dropdown-footer">See all the notifications<i class="icon-arrow_forward"></i></li>
-                    </ul>
-                </li>
-                <li class="list-box dropdown hidden-xs"><a id="drop10" href="#" role="button" class="dropdown-toggle"
-                        data-toggle="dropdown"><i class="icon-circle-check"></i> </a><span
-                        class="info-label red-bg animated rubberBand">7</span>
-                    <ul class="dropdown-menu animated flipInY progress-stats">
-                        <li class="dropdown-header">You have 7 pending tasks</li>
-                        <li>
-                            <div class="progress-info"><strong class="text-danger">Critical</strong> <span>New
-                                    Dashboard Design</span> <span class="pull-right text-danger">20%</span></div>
-                            <div class="progress progress-md no-margin">
-                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="20"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 20%"><span class="sr-only">20%
-                                        Complete (success)</span></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="progress-info"><strong class="text-info">Primary</strong> <span>UI Changes
-                                    in V2</span> <span class="pull-right">90%</span></div>
-                            <div class="progress progress-sm no-margin">
-                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="90"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 90%"><span class="sr-only">90%
-                                        Complete</span></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="progress-info"><strong class="text-warning">Urgent</strong> <span>Bug Fix
-                                    #123</span> <span class="pull-right">60%</span></div>
-                            <div class="progress progress-xs no-margin">
-                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 60%"><span class="sr-only">60%
-                                        Complete (warning)</span></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="progress-info"><span>Bug Fix #111</span> <span
-                                    class="pull-right text-success">Complete</span></div>
-                            <div class="progress progress-xs no-margin">
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                                    <span class="sr-only">100% Complete (warning)</span></div>
-                            </div>
-                        </li>
-                        <li class="dropdown-footer">See all the notifications</li>
-                    </ul>
-                </li>
-                <li class="list-box dropdown hidden-xs"><a href="login.html"><i class="icon-exit_to_app"></i></a>
-                </li>
-                <li class="list-box hidden-lg hidden-md"><button type="button" id="toggleMenu" class="toggle-menu"><i
-                            class="icon-menu"></i></button></li>
-            </ul>
-        </div>
-        <div class="custom-search hidden-sm hidden-xs"><input type="text" class="search-query"
-                placeholder="Search here ..."> <i class="icon-search4"></i></div>
-    </header>
-    <div class="top-bar clearfix">
-        <div class="page-title">
-            <h4>Overview</h4>
-        </div>
-        <ul class="sales-stats hidden-xs">
-            <li>
-                <div class="sales-block hidden-sm hidden-xs"><span id="sale_today"></span></div>
-                <div class="sales-details">
-                    <h4>$<span>580</span> <i class="icon-arrow-up-right2 up"></i></h4>
-                    <h5>Today's Income</h5>
-                </div>
-            </li>
-            <li>
-                <div class="sales-block hidden-sm hidden-xs"><span id="sale_weekly"></span></div>
-                <div class="sales-details">
-                    <h4>$<span>7235</span> <i class="icon-arrow-down-right2 down"></i></h4>
-                    <h5>Week's Income</h5>
-                </div>
-            </li>
-        </ul>
+
+<div class="top-bar clearfix">
+    <div class="page-title">
+        <h4>Overview</h4>
     </div>
-    <div class="main-container">
-        <div class="container-fluid">
-            <div class="row gutter">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="panel panel-grey spacer-sm">
-                        <div class="social-details clearfix">
-                            <div class="social-icon pull-left">
-                                <div class="round-icon red"><i class="icon-timer"></i></div>
-                            </div>
-                            <div class="social-num">
-                                <h4>24 <span class="label red-bg hidden-md">7%</span></h4>
-                                <p>Appointments</p>
-                                <div class="progress progress-sm">
-                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="65"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 65%">
-                                    </div>
-                                </div>
-                            </div>
+    <ul class="sales-stats hidden-xs">
+        <li>
+            <div class="sales-block hidden-sm hidden-xs"><span id="sale_today"></span></div>
+            <div class="sales-details">
+                <h4><span>0</span> Rwf <i class="icon-arrow-up-right2 up"></i></h4>
+                <h5>Today's Income</h5>
+            </div>
+        </li>
+        <li>
+            <div class="sales-block hidden-sm hidden-xs"><span id="sale_weekly"></span></div>
+            <div class="sales-details">
+                <h4><span>0</span> Rwf<i class="icon-arrow-down-right2 down"></i></h4>
+                <h5>Week's Income</h5>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="main-container">
+    <div class="container-fluid">
+        <div class="row gutter">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="panel panel-grey spacer-sm">
+                    <div class="social-details clearfix">
+                        <div class="social-icon pull-left">
+                            <div class="round-icon red"><i class="icon-timer"></i></div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="panel panel-grey spacer-sm">
-                        <div class="social-details clearfix">
-                            <div class="social-icon pull-left">
-                                <div class="round-icon tw-icon"><i class="icon-layers2"></i></div>
-                            </div>
-                            <div class="social-num">
-                                <h4>19<span class="label tw-bg hidden-md">18%</span></h4>
-                                <p>Projects</p>
-                                <div class="progress progress-sm">
-                                    <div class="progress-bar progress-bar-tw" role="progressbar" aria-valuenow="45"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 45%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="panel panel-grey spacer-sm">
-                        <div class="social-details clearfix">
-                            <div class="social-icon pull-left">
-                                <div class="round-icon green-icon"><i class="icon-stars"></i></div>
-                            </div>
-                            <div class="social-num">
-                                <h4>21.8k<span class="label green-bg hidden-md">7%</span></h4>
-                                <p>Shop</p>
-                                <div class="progress progress-sm">
-                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="72"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 72%">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="panel panel-grey spacer-sm">
-                        <div class="social-details clearfix">
-                            <div class="social-icon pull-left">
-                                <div class="round-icon pink-icon"><i class="icon-verified_user"></i></div>
-                            </div>
-                            <div class="social-num">
-                                <h4>09<span class="label pink-bg hidden-md">9+</span></h4>
-                                <p>Interviews</p>
-                                <div class="progress progress-sm">
-                                    <div class="progress-bar progress-bar-pink" role="progressbar" aria-valuenow="30"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 30%">
-                                    </div>
+                        <div class="social-num">
+                            <h4>24<span class="label red-bg hidden-md">7%</span></h4>
+                            <p>Your Total Posts</p>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="65"
+                                    aria-valuemin="0" aria-valuemax="100" style="width: 65%">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row gutter">
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-grey">
-                        <div class="panel-heading">
-                            <h4>Sales</h4>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="panel panel-grey spacer-sm">
+                    <div class="social-details clearfix">
+                        <div class="social-icon pull-left">
+                            <div class="round-icon tw-icon"><i class="icon-layers2"></i></div>
                         </div>
-                        <div class="sale-board">
-                            <div class="img-type"><img src="img/sunrse-sales.png" alt="Sales"></div>
-                            <ul class="sale-by-day clearfix">
-                                <li class="right-text text-muted">
-                                    <h4 class="sale-rate">$47,389</h4>
-                                    <h5 class="week-day">yesterday</h5>
-                                </li>
-                                <li>
-                                    <h4 class="sale-rate text-danger">$39,457</h4>
-                                    <h5 class="week-day text-danger">today</h5>
-                                </li>
-                            </ul>
-                            <div class="scroll-widget spacer-sm">
-                                <ul class="list-group no-margin">
-                                    <li class="list-group-item">This Week <span
-                                            class="pull-right text-danger">$95</span></li>
-                                    <li class="list-group-item">Last Week <span
-                                            class="pull-right text-info">$44,752</span></li>
-                                    <li class="list-group-item">Last Month <span
-                                            class="pull-right text-success">$56,367</span></li>
-                                </ul>
+                        <div class="social-num">
+                            <h4>208<span class="label tw-bg hidden-md">18%</span></h4>
+                            <p>Total ByoseHano Posts</p>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar progress-bar-tw" role="progressbar" aria-valuenow="45"
+                                    aria-valuemin="0" aria-valuemax="100" style="width: 45%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="panel panel-grey">
-                        <div class="panel-heading">
-                            <h4>Visits</h4>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="panel panel-grey spacer-sm">
+                    <div class="social-details clearfix">
+                        <div class="social-icon pull-left">
+                            <div class="round-icon green-icon"><i class="icon-stars"></i></div>
                         </div>
-                        <div class="sale-board">
-                            <div class="img-type"><img src="img/sunrse-visitors.png" alt="Stock"></div>
-                            <ul class="sale-by-day clearfix">
-                                <li class="right-text text-muted">
-                                    <h4 class="sale-rate">32,982</h4>
-                                    <h5 class="week-day">yesterday</h5>
-                                </li>
-                                <li>
-                                    <h4 class="sale-rate text-success">66,235</h4>
-                                    <h5 class="week-day text-success">today</h5>
-                                </li>
-                            </ul>
-                            <div class="scroll-widget spacer-sm">
-                                <ul class="list-group no-margin">
-                                    <li class="list-group-item"><span class="flag-icon flag-icon-us country"></span>
-                                        USA <span class="pull-right text-danger">24,278</span></li>
-                                    <li class="list-group-item"><span class="flag-icon flag-icon-gm country"></span>
-                                        Germany <span class="pull-right text-info">21,873</span></li>
-                                    <li class="list-group-item"><span class="flag-icon flag-icon-in country"></span>
-                                        India <span class="pull-right text-success">20,128</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="panel panel-grey">
-                        <div class="panel-heading">
-                            <h4>Stock</h4>
-                        </div>
-                        <div class="sale-board">
-                            <div class="img-type"><img src="img/sunrse-stock.png" alt="Stock"></div>
-                            <ul class="sale-by-day clearfix">
-                                <li class="right-text text-muted">
-                                    <h4 class="sale-rate"><span>+</span>02.76<sup>%</sup></h4>
-                                    <h5 class="week-day">yesterday</h5>
-                                </li>
-                                <li>
-                                    <h4 class="sale-rate text-info"><span>+</span>07.48<sup>%</sup></h4>
-                                    <h5 class="week-day text-info">today</h5>
-                                </li>
-                            </ul>
-                            <div class="scroll-widget spacer-sm">
-                                <div class="stock-wraper">
-                                    <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
-                                        <div class="carousel-inner">
-                                            <div class="active item">
-                                                <div class="stock-data">
-                                                    <div class="stock-graph">
-                                                        <div class="inline-sparkline" id="aapl"></div>
-                                                    </div><span class="stock-name">AAPL</span>
-                                                    <div class="stock-stats"><span><i class="icon-triangle-up"></i>
-                                                            + 1.97 (0.7%)</span></div>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="stock-data">
-                                                    <div class="stock-graph">
-                                                        <div class="inline-sparkline" id="goog"></div>
-                                                    </div><span class="stock-name">GOOG</span>
-                                                    <div class="stock-stats"><span><i class="icon-triangle-down"></i> -
-                                                            2.32
-                                                            (1.31%)</span></div>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="stock-data">
-                                                    <div class="stock-graph">
-                                                        <div class="inline-sparkline" id="nasdaq"></div>
-                                                    </div><span class="stock-name">NASDAQ</span>
-                                                    <div class="stock-stats"><span><i class="icon-triangle-up"></i>
-                                                            + 1.93 (2.08%)</span></div>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="stock-data">
-                                                    <div class="stock-graph">
-                                                        <div class="inline-sparkline" id="yahw"></div>
-                                                    </div><span class="stock-name">YAHW</span>
-                                                    <div class="stock-stats"><span><i class="icon-triangle-up"></i>
-                                                            - 4.33 (3.67%)</span></div>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="stock-data">
-                                                    <div class="stock-graph">
-                                                        <div class="inline-sparkline" id="sun"></div>
-                                                    </div><span class="stock-name">SUN</span>
-                                                    <div class="stock-stats"><span><i class="icon-triangle-up"></i>
-                                                            - 0.86 (0.12%)</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="social-num">
+                            <h4>21.8k<span class="label green-bg hidden-md">7%</span></h4>
+                            <p>Total Comments</p>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="72"
+                                    aria-valuemin="0" aria-valuemax="100" style="width: 72%">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row gutter">
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                    <div class="panel panel-grey">
-                        <div class="panel-heading">
-                            <h4>Sales<span>By location</span></h4><label class="switch pull-right"><input
-                                    type="checkbox" class="switch-input" checked="checked"> <span class="switch-label"
-                                    data-on="On" data-off="Off"></span> <span class="switch-handle"></span></label>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="panel panel-grey spacer-sm">
+                    <div class="social-details clearfix">
+                        <div class="social-icon pull-left">
+                            <div class="round-icon pink-icon"><i class="icon-verified_user"></i></div>
                         </div>
-                        <div class="panel-body">
-                            <div id="world-map-markers" class="chart-height-lg-x"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="panel panel-grey">
-                        <div class="panel-heading">
-                            <h4>Messages</h4>
-                        </div>
-                        <div class="panel-body">
-                            <ul class="message-wrapper">
-                                <li><span class="empty-avatar blue">EQ</span>
-                                    <div class="message"><span class="arrow"></span> <a href="#" class="name">Eion
-                                            Qwells</a> <span class="date-time">Jan 18th, 2017</span>
-                                        <div class="body">Convergence target enable syndicate <span>grow</span>
-                                            life-hacks <span>podcasting</span>."</div>
-                                    </div>
-                                </li>
-                                <li><span class="empty-avatar green">SM</span>
-                                    <div class="message"><span class="arrow"></span> <a href="#" class="name">Shawn
-                                            Morkel</a> <span class="date-time">Jan 15th, 2017</span>
-                                        <div class="body">Anyway sounds great! These cases <span>simple</span> to
-                                            distinguish.</div>
-                                    </div>
-                                </li>
-                                <li><span class="empty-avatar red">GS</span>
-                                    <div class="message"><span class="arrow"></span> <a href="#" class="name">Graham
-                                            Smith</a> <span class="date-time">Jan 10th, 2017</span>
-                                        <div class="body">Any chance to go out <span>trivial</span> example, which
-                                            of us ever undertakes.</div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row gutter">
-                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                    <div class="panel panel-grey">
-                        <div class="panel-heading">
-                            <h4>Social Mertics</h4>
-                        </div>
-                        <div class="panel-body center-text">
-                            <div class="social-mertics">
-                                <div class="full-chart inline-sparkline chart-two" id="demographyFemale"></div>
-                                <div class="full-chart inline-sparkline chart-one" id="demographyMale"></div>
-                                <h5><strong class="uppercase">Avg 27,659</strong><br>Visits our Sunrise Admin.</h5>
-                            </div>
-                            <div class="demography">
-                                <ul class="male-female">
-                                    <li>
-                                        <h2>38% <i class="male icon-man"></i></h2>
-                                    </li>
-                                    <li>
-                                        <h2><i class="female icon-woman"></i>61%</h2>
-                                    </li>
-                                </ul>
-                                <ul class="likes-wrapper clearfix">
-                                    <li>
-                                        <div class="percentage-graph"><span id="fb-stats"></span> <i
-                                                class="icon-facebook-with-circle"></i></div>
-                                    </li>
-                                    <li>
-                                        <div class="percentage-graph"><span id="tw-stats"></span> <i
-                                                class="icon-twitter-with-circle"></i></div>
-                                    </li>
-                                    <li>
-                                        <div class="percentage-graph"><span id="link-stats"></span> <i
-                                                class="icon-linkedin-with-circle"></i></div>
-                                    </li>
-                                    <li>
-                                        <div class="percentage-graph"><span id="gplus-stats"></span> <i
-                                                class="icon-google-with-circle"></i></div>
-                                    </li>
-                                    <li>
-                                        <div class="percentage-graph"><span id="pint-stats"></span> <i
-                                                class="icon-pinterest-with-circle"></i></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="panel panel-grey">
-                        <div class="panel-heading">
-                            <h4>Newsfeed</h4>
-                        </div>
-                        <div class="panel-body">
-                            <h5>Followers</h5>
-                            <ul class="friends-list clearfix">
-                                <li><img src="img/user1.png" alt="user"> <span class="status"></span> <span
-                                        class="online"></span></li>
-                                <li><img src="img/user2.png" alt="user"> <span class="status"></span> <span
-                                        class="online"></span></li>
-                                <li><img src="img/user3.png" alt="user"> <span class="status"></span> <span
-                                        class="online"></span></li>
-                                <li><img src="img/user4.png" alt="user"> <span class="status"></span> <span
-                                        class="busy"></span></li>
-                                <li><img src="img/user5.png" alt="user"> <span class="status"></span> <span
-                                        class="busy"></span></li>
-                                <li class="hidden-md"><img src="img/user6.png" alt="user"> <span class="status"></span>
-                                    <span class="busy"></span></li>
-                            </ul>
-                            <h5 class="text-info">Top three tweets</h5>
-                            <ul class="articles">
-                                <li><a href="#" data-original-title="" title=""><span class="label-bullet">&nbsp;
-                                        </span>Top twitter post of the week <span class="date">24th Feb @1:32am / 21
-                                            Comments</span></a></li>
-                                <li><a href="#" data-original-title="" title="" class="overflow-text"><span
-                                            class="label-bullet">&nbsp; </span>Skateboard dolor brunch and premium
-                                        dollar <span class="date">21st Feb @10:55am / 16 Comments</span></a></li>
-                                <li><a href="#" class="no-border overflow-text" data-original-title="" title=""><span
-                                            class="label-bullet">&nbsp; </span>My current employment way
-                                        better than the position before <span class="date">30th Jan @3:12am / 15
-                                            Comments</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="panel panel-grey">
-                        <div class="panel-heading">
-                            <h4>Tasks</h4>
-                        </div>
-                        <div class="panel-body">
-                            <ul class="todo-list">
-                                <li class="list"><span></span>Attend Seminar</li>
-                                <li class="list"><span></span>UX Workshop</li>
-                                <li class="list completed"><span></span>Redesign Application</li>
-                                <li class="list completed"><span></span>Hire Frontend Developer</li>
-                                <li class="list completed"><span></span>Good Food</li>
-                                <li class="list"><span></span>Send Greetings</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row gutter">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="panel panel-grey no-margin">
-                        <div class="panel-heading">
-                            <h4>Subscribed Users</h4>
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <div id="on-trials"></div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <div id="base-plan"></div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <div id="premium-plan"></div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <div id="platinum-plan"></div>
+                        <div class="social-num">
+                            <h4>109<span class="label pink-bg hidden-md">9+</span></h4>
+                            <p>Total Views</p>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar progress-bar-pink" role="progressbar" aria-valuenow="30"
+                                    aria-valuemin="0" aria-valuemax="100" style="width: 30%">
                                 </div>
                             </div>
                         </div>
@@ -558,7 +99,21 @@
                 </div>
             </div>
         </div>
+        <div class="row gutter">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="panel panel-grey">
+                    <div class="panel-heading">
+                        <h4><span>Locations</span></h4><label class="switch pull-right"><input type="checkbox"
+                                class="switch-input" checked="checked"> <span class="switch-label" data-on="On"
+                                data-off="Off"></span> <span class="switch-handle"></span></label>
+                    </div>
+                    <div class="panel-body">
+                        <div id="world-map-markers" class="chart-height-lg-x"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
-    <footer>Copyright Sunrise Admin <span>2016</span>.</footer>
 </div>
 {% endblock content %}

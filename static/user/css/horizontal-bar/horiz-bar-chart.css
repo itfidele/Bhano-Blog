@@ -1,0 +1,15 @@
+.chart-horiz ul.chart{width:80%;margin:0;padding:0;list-style-type:none;}
+.chart-horiz ul.chart li{display:block;height:20px;line-height:20px;margin-top:2px;position:relative}
+.chart-horiz ul.chart li:before{color:#fff;content:attr(title);left:5px;position:absolute}
+.chart-horiz ul.chart li.title:before{color:black;font-weight:bold;left:0;margin-top:5px;}
+.chart-horiz ul.chart li:first-child{margin-top:0}
+.chart-horiz ul.chart li .bar{background:#0084B4;height:100%}
+.chart-horiz ul.chart li .number{color:#0084B4;font-size:15px;font-weight:600;padding-left:5px;position:absolute;top:0px}
+.chart-horiz ul.chart li.past .bar{background:#3FC5AC}
+.chart-horiz ul.chart li.past .number{color:#000}
+@media screen and (max-width: 480px){
+	.chart-horiz ul.chart li{height:auto}.chart-horiz .chart li:before{color:black;display:block;left:0;position:relative}
+	.chart-horiz ul.chart li.title:before{border-bottom:1px solid}
+	.chart-horiz ul.chart li .bar{height:20px}
+	.chart-horiz ul.chart li .number{display:block;left:0 !important;padding-left:0;position:relative;top:-8px}
+}

@@ -4,4 +4,4 @@ env
 media
 static_root
 db.sqlite3
-static/user/
+static/user/img

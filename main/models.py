@@ -54,8 +54,6 @@ class Post(Model):
     updated = DateTimeField(auto_now=True)
     views=models.IntegerField(default=0,null=True)
     category=models.ForeignKey(Category,on_delete=models.CASCADE,null=True,blank=False)
-    post_category = CharField(
-        max_length=100, choices=POST_CATEGORY,default='Amakuru')
     status = CharField(max_length=100, choices=STATUS_CHOICES, default='draft')
     tags = TaggableManager()
     post_from=CharField(default='byosehano',max_length=100)
@@ -64,12 +62,19 @@ class Post(Model):
     class Meta:
         ordering = ('-publish',)
 
+    @property
+    def postcategory(self):
+        try:
+            return self.category.name
+        except Exception as e:
+            return '-'
+
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
         # new
-        return reverse('main:article_detail',args=[self.post_category,self.slug])
+        return reverse('main:article_detail',args=[self.category.name,self.slug])
 
     class Meta:
         db_table = ''

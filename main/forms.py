@@ -5,7 +5,7 @@ class PostForm(forms.ModelForm):
     
     class Meta:
         model = Post
-        fields = ("title","author","body","post_category","status","thumbnail","tags")
+        fields = ("title","author","body","status","thumbnail","tags")
         widgets={
             "body":forms.Textarea(attrs={
                 "id":"example",

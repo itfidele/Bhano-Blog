@@ -36,8 +36,12 @@ def new_post(request):
 
 @login_required()
 def post_report(request):
-    #user=User.objects.get(request.user)
-    post=Post.objects.filter(author=request.user)
+    user=User.objects.get(id=request.user.id)
+    if user.is_superuser == True:
+        post=Post.objects.all()
+    else:
+        post=Post.objects.filter(author=request.user)
     context['post_reports']=post
+    context['user']=user
     return render(request,'management/reports.html',context)
 

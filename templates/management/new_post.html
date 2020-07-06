@@ -76,17 +76,26 @@
                             
                             <div class="col-md-12">
                                 <label for="title">Article Content</label>
-                                <textarea name="body" id="txtEditor" class="form-control" cols="30" rows="10"></textarea>
+                                <div class="col-md-12 row">
+                                    {{ add_post.body }}
+                                </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-6">
-                                    <label for="title">Article Status</label>
-                                    {{ add_post.status }}
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="title">Article Tags</label>
-                                    {{ add_post.tags }}
-                                </div>
+                                {% if user.is_superuser %}
+                                    <div class="col-md-6">
+                                        <label for="title">Article Status</label>
+                                        {{ add_post.status }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="title">Article Tags</label>
+                                        {{ add_post.tags }}
+                                    </div>
+                                {% else %}
+                                    <div class="col-md-12">
+                                        <label for="title">Article Tags</label>
+                                        {{ add_post.tags }}
+                                    </div>
+                                {% endif %}
                             </div>
 
                             <div class="col-md-12">

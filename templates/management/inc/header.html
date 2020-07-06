@@ -5,7 +5,7 @@
     <div class="logo"><a href="index.html"><img src="{% static 'logo.png' %}" alt="Byosehano"></a></div>
     <div class="user-info">
         <div class="user-img"><img src="{% static 'circled-logo.png' %}" alt="User Info"> <span class="likes-info">0</span></div>
-        <h5 class="user-name-o">Author</h5>
+        <h5 class="user-name-o">{{ user.username|title }}</h5>
         <p class="profile-complete">Profile Complete - 100%</p>
     </div>
     <ul class="menu clearfix">

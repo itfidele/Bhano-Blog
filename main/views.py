@@ -36,8 +36,8 @@ class ArticleDetailView(DetailView):
     template_name = 'article_detail.html'
 
 
-def ArticleDetail(request, post_category, slug):
-    post = get_object_or_404(Post, post_category=post_category, slug=slug)
+def ArticleDetail(request, category, slug):
+    post = get_object_or_404(Post, category__name=category, slug=slug)
     post.views=post.views+1
     post.save()
     # get all comment of a given post
@@ -51,7 +51,7 @@ def ArticleDetail(request, post_category, slug):
         'tags')).order_by('-same_tags', '?')[:6]
     # context={}
     #if similar_posts.exists:
-    similar_posts = Post.objects.filter(post_category=post.post_category).order_by('?').exclude(id=post.id)[:6]
+    similar_posts = Post.objects.filter(category__name=post.category.name).order_by('?').exclude(id=post.id)[:6]
     context['similar_posts'] = similar_posts
     context['post'] = post
     context['form_comment'] = CommentForm()
@@ -118,17 +118,17 @@ def allPosts(request):
     return render(request, 'admin/all_posts.html', context)
 
 
-def ArticleCategory(request, post_category=None):
+def ArticleCategory(request, category=None):
 
     context = {}
     
-    if post_category:
-        context['category'] = post_category
+    if category:
+        context['category'] = category
         tags = Tag.objects.all()  # not working
-        post = Post.objects.filter(post_category=post_category)
+        post = Post.objects.filter(category__name=category)
         context['posts'] = post
         context['tags'] = tags
-        context['menu_title']=post_category
+        context['menu_title']=category
     return render(request, 'article_category.html', context)
 
 

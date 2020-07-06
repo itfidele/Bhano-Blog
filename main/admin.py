@@ -8,7 +8,7 @@ admin.site.register(Category)
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'post_category', 'created', 'status','post_from')
+    list_display = ('title', 'slug', 'created','postcategory', 'status','post_from')
     list_filter = ('publish', 'status','post_from')
     search_fields = ('title', 'publish', 'body')
 

@@ -13,4 +13,5 @@ class PostForm(forms.ModelForm):
             'category':forms.Select(attrs={'class':'form-control'}),
             'tags':forms.TextInput(attrs={'class':'form-control'}),
             'status':forms.Select(attrs={'class':'form-control'}),
+            'body':forms.TextInput(attrs={'class':'form-control'})
         }

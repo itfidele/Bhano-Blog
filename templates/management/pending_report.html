@@ -58,7 +58,6 @@
                                         <th>Title</th>
                                         <th>Category</th>
                                         <th>Published</th>
-                                        <th>Status</th>
                                         <th>Views</th>
                                         <th>Comments</th>
                                         <th>Action</th>
@@ -68,8 +67,7 @@
                                     <tr>
                                         <th>Title</th>
                                         <th>Category</th>
-                                        <th>Published</th>
-                                        <th>Status</th>
+                                        <th>Published on</th>
                                         <th>Views</th>
                                         <th>Comments</th>
                                         <th>Action</th>
@@ -82,18 +80,11 @@
                                         <td>
                                             <span class="label label-danger">{{ report.category.name }}</span>
                                         </td>
-                                        <td>
-                                            {% if report.status == 'published' %}
-                                              <label for="" class="label label-info">Published</label>
-                                            {% else %}
-                                              <label for="" class="label label-warning">Draft</label>
-                                            {% endif %}
-                                        </td>
                                         <td>{{ report.publish|naturalday }}</td>
                                         <td>{{ report.views }}</td>
                                         <td>{{ report.comments.count }}</td>
                                         <td>
-                                            <a href="#" style="color: red;">Delete</a> &nbsp; <a href="#">Edit</a>
+                                            <a href="#" style="color: red;">Approve</a> &nbsp; <a href="#">Edit</a>
                                         </td>
                                     </tr>
                                     {% endfor %}

@@ -118,17 +118,17 @@ def allPosts(request):
     return render(request, 'admin/all_posts.html', context)
 
 
-def ArticleCategory(request, category=None):
+def ArticleCategory(request, post_category=None):
 
     context = {}
     
-    if category:
-        context['category'] = category
+    if post_category:
+        context['category'] = post_category
         tags = Tag.objects.all()  # not working
-        post = Post.objects.filter(category__name=category)
+        post = Post.objects.filter(category__name=post_category)
         context['posts'] = post
         context['tags'] = tags
-        context['menu_title']=category
+        context['menu_title']=post_category
     return render(request, 'article_category.html', context)
 
 

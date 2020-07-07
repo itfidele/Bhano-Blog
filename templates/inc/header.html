@@ -1,77 +1,78 @@
 {% load static %}
 
 <!--/ Topbar Start -->
-    <div id="top-bar" class="top-bar">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <ul class="unstyled top-nav">
-                        <li><a href="#">Amakuru Mashya</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 top-social text-lg-right text-md-center">
-                    <ul class="unstyled">
-                        <li> <a title="Facebook" href="#"> <span class="social-icon"><i
-                                        class="fa fa-facebook"></i></span> </a> <a title="Twitter" href="#"> <span
-                                    class="social-icon"><i class="fa fa-twitter"></i></span> </a> <a title="Google+"
-                                href="#"> <span class="social-icon"><i class="fa fa-google-plus"></i></span> </a> <a
-                                title="Linkdin" href="#"> <span class="social-icon"><i
-                                        class="fa fa-linkedin"></i></span> </a> <a title="Rss" href="#"> <span
-                                    class="social-icon"><i class="fa fa-rss"></i></span> </a> <a title="Skype"
-                                href="#"> <span class="social-icon"><i class="fa fa-skype"></i></span> </a> </li>
-                    </ul>
-                </div>
+<div id="top-bar" class="top-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="unstyled top-nav">
+                    <li><a href="#">Amakuru Mashya</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 top-social text-lg-right text-md-center">
+                <ul class="unstyled">
+                    <li> <a title="Facebook" href="#"> <span class="social-icon"><i class="fa fa-facebook"></i></span>
+                        </a> <a title="Twitter" href="#"> <span class="social-icon"><i class="fa fa-twitter"></i></span>
+                        </a> <a title="Google+" href="#"> <span class="social-icon"><i
+                                    class="fa fa-google-plus"></i></span> </a> <a title="Linkdin" href="#"> <span
+                                class="social-icon"><i class="fa fa-linkedin"></i></span> </a> <a title="Rss" href="#">
+                            <span class="social-icon"><i class="fa fa-rss"></i></span> </a> <a title="Skype" href="#">
+                            <span class="social-icon"><i class="fa fa-skype"></i></span> </a> </li>
+                </ul>
             </div>
         </div>
     </div>
-    <!--/ Topbar end -->
+</div>
+<!--/ Topbar end -->
 
-    <!-- Header start -->
-    <header id="header" class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-12">
-                    <div class="logo"> <a href="#"> <img src="{% static 'logo.png' %}" alt=""> </a> </div>
-                </div>
-                <div class="col-md-9 col-sm-12 header-right">
-                    <div class="ad-banner float-right"> <a href="#"><img src="images/banner-ads/ad-top-header.png"
-                                class="img-fluid" alt=""></a> </div>
-                </div>
+<!-- Header start -->
+<header id="header" class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-12">
+                <div class="logo"> <a href="#"> <img src="{% static 'logo.png' %}" alt=""> </a> </div>
             </div>
-        </div>
-    </header>
-    <!--/ Header end -->
-
-    <!--/ Main Nav Start -->
-    <div class="utf_main_nav_area clearfix utf_sticky">
-        <div class="container">
-            <div class="row">
-                <nav class="navbar navbar-expand-lg col">
-                    <div class="utf_site_nav_inner float-left">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="true" aria-label="Toggle navigation"> <span
-                                class="navbar-toggler-icon"></span> </button>
-                        <div id="navbarSupportedContent"
-                            class="collapse navbar-collapse navbar-responsive-collapse">
-                            <ul class="nav navbar-nav">
-                                <li class="nav-item dropdown active"> <a href='{% url "web:index" %}'>🏠 Ahabanza</a>
-                                </li>
-                                <li> <a href="{% url 'main:article_category' 'Imikino' %}">🤸‍♂️ Imikino</a> </li>
-                                <li> <a href="{% url 'main:article_category' 'Politiki' %}">🏛️ Politiki</a> </li>
-                                <li> <a href="{% url 'main:article_category' 'Ubuzima' %}">👩‍⚕️Ubuzima</a> </li>
-                                <li> <a href="{% url 'main:article_category' 'Ikoranabuhanga' %}">📲 Ikoranabuhanaga</a> </li>
-                                <li><a href="#">✨ Andi makuru</a></li>
-                            </ul>
+            <div class="col-md-9 col-sm-12 header-right">
+                <div class="ad-banner float-right"> 
+                    <a href="#"><img src="http://utouchdesign.com/themes/envato/altroz_news/images/banner-ads/ad-top-header.png"
+                            class="img-fluid" alt=""></a> 
                         </div>
-                    </div>
-                </nav>
-                <div class="utf_nav_search"> <span id="search"><i class="fa fa-search"></i></span> </div>
-                <div class="utf_search_block" style="display: none;">
-                    <input type="text" class="form-control" placeholder="Shakishikiriza aha...">
-                    <span class="utf_search_close">×</span>
-                </div>
             </div>
         </div>
     </div>
-    <!--/ Main Nav End -->
+</header>
+<!--/ Header end -->
+
+<!--/ Main Nav Start -->
+<div class="utf_main_nav_area clearfix utf_sticky">
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg col">
+                <div class="utf_site_nav_inner float-left">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="true" aria-label="Toggle navigation"> <span class="fa fa-list"
+                            style="color: white;"></span></button>
+                    <div id="navbarSupportedContent" class="collapse navbar-collapse navbar-responsive-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item dropdown active"> <a href='{% url "web:index" %}'>🏠 Ahabanza</a>
+                            </li>
+                            <li> <a href="{% url 'main:article_category' 'Imikino' %}">🤸‍♂️ Imikino</a> </li>
+                            <li> <a href="{% url 'main:article_category' 'Politiki' %}">🏛️ Politiki</a> </li>
+                            <li> <a href="{% url 'main:article_category' 'Ubuzima' %}">👩‍⚕️Ubuzima</a> </li>
+                            <li> <a href="{% url 'main:article_category' 'Ikoranabuhanga' %}">📲 Ikoranabuhanaga</a>
+                            </li>
+                            <li><a href="#">✨ Andi makuru</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="utf_nav_search"> <span id="search"><i class="fa fa-search"></i></span> </div>
+            <div class="utf_search_block" style="display: none;">
+                <input type="text" class="form-control" placeholder="Shakishikiriza aha...">
+                <span class="utf_search_close">×</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ Main Nav End -->

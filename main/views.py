@@ -69,7 +69,7 @@ def ArticleDetail(request, category, slug):
     except Exception as e:
         context['prev_post'] = "#"
 
-    context['popular_news']=Post.objects.all().order_by('-views')[:6]
+    context['popular_news']=Post.published.all().order_by('-views')[:6]
     if request.method == 'POST':
         formcomment = CommentForm(request.POST)
         if formcomment.is_valid():

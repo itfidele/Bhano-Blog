@@ -19,6 +19,20 @@
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/colorbox.css' %}">
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171717652-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-171717652-1');
+    </script>
     <!--well -->
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Arimo:400,700&amp;display=swap" rel="stylesheet">
@@ -36,25 +50,12 @@
         {% include "inc/footer.html" %}
 
         <!-- Javascript Files -->
-        <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+        
         <script src="{% static 'js/popper.min.js' %}"></script>
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
-        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        
         <script src="{% static 'js/jquery.colorbox.js' %}"></script>
-        <script src="{% static 'js/smoothscroll.js' %}"></script>
         <script src="{% static 'js/custom.js' %}"></script>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171717652-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-
-            gtag('config', 'UA-171717652-1');
-        </script>
 
     </div>
 </body>

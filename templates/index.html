@@ -11,8 +11,8 @@
             <div class="col-lg-7 col-md-12 d-md-none d-lg-block" id="slider">
                 <div id="utf_featured_slider" class="owl-carousel owl-theme utf_featured_slider">
 
-                    {% for post in posts|slice:":4" %}
-                    <div class="item" style="background-image:url('{{ post.thumbnail.url }}')">
+                    {% for post in posts|slice:":4" %} 
+                    <div class="item" style="background-image:url('{{ post.thumbnail.url }}');">
                         <div class="utf_featured_post">
                             <div class="utf_post_content"> <a class="utf_post_cat"
                                     href="#">{{ post.category.name|title }}</a>

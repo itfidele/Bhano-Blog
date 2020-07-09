@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404, HttpResponse
+from django.shortcuts import render, get_object_or_404, HttpResponse,get_list_or_404
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 import os
 from django.utils.text import slugify
 # Create your views here.
@@ -9,9 +10,7 @@ from main.models import Post, Comment, Images, Author
 from django.db.models import Q, Count, QuerySet
 from taggit.models import Tag
 from django.contrib.auth.models import User
-from django.core.files import File
 from .categories import POST_CATEGORY
-from urllib.request import urlretrieve
 from taggit.models import Tag
 # get user IP
 #from django.contrib.gis.geoip2 import GeoIP2
@@ -87,6 +86,7 @@ def ArticleDetail(request, category, slug):
 def ArticlesByTag(request, tag_slug):
     posts = Post.objects.all()
     # context={}
+    context['popular_news']=Post.published.all().order_by('-views')[:6]
     tag = None
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
@@ -100,7 +100,7 @@ def addPost(request, slug=None):
     # context={}
     postform = PostForm()
     context['addform'] = postform
-
+    
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -119,16 +119,18 @@ def allPosts(request):
 
 
 def ArticleCategory(request, post_category=None):
-
-    context = {}
     
-    if post_category:
-        context['category'] = post_category
-        tags = Tag.objects.all()  # not working
-        post = Post.objects.filter(category__name=post_category)
-        context['posts'] = post
-        context['tags'] = tags
-        context['menu_title']=post_category
+    context = {}
+    context['popular_news']=Post.published.all().order_by('-views')[:6]
+    context['category'] = post_category
+    #tags = Tag.objects.all()  # not working
+    post = get_list_or_404(Post.objects.filter(category__name=post_category))
+    paginator = Paginator(post, 1)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
+    context['posts'] = posts
+    #context['tags'] = tags
+    context['menu_title']=post_category
     return render(request, 'article_category.html', context)
 
 

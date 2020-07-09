@@ -17,6 +17,12 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.sitemaps.views import sitemap
+from main.sitemaps import PostSitemap
+from main.feeds import LatestPostsFeed
+sitemaps = {
+    'posts': PostSitemap,
+}
 
 
 urlpatterns = [
@@ -26,5 +32,7 @@ urlpatterns = [
     path('category/',include('main.urls')),
     path("author/",include('management.urls',namespace='management')),
     path('',include('web.urls')),
+    path('feed/', LatestPostsFeed(), name='post_feed'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

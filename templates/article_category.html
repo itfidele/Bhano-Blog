@@ -41,18 +41,24 @@
                         </div>
 
                     {% endfor %}
+                        <div class="col-md-12">
+                            <div class="btn-grouped">
+                                {% if posts.has_previous %}
+                                    <a class="btn btn-primary" href="?page=1">First</a>
+                                    <a class="btn btn-primary" href="?page={{ posts.previous_page_number }}">Previous</a>
+                                {% endif %}
+                                {% for p in posts.page_range %}
+                                  range
+                                {% endfor %}
+                                {% if posts.has_next %}
+                                    <a class="btn btn-primary" href="?page={{ posts.next_page_number }}">Next</a></li>
+                                    <a class="btn btn-primary" href="?page={{ posts.paginator.num_pages }}">Last</a>
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="paging">
-                    <ul class="pagination">
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">»</a></li>
-                    </ul>
-                </div>
             </div>
 
             <div class="col-lg-4 col-md-12">

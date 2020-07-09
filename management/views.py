@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from main.models import Post
 from django.contrib.auth.models import User
@@ -12,8 +12,13 @@ def index(request):
 
 
 @login_required()
-def new_post(request):
-    postform=PostForm()
+def new_post(request,pk=None):
+    context['success_post']=''
+    if not pk == None:
+        post = get_object_or_404(Post,id=pk)
+        postform = PostForm(request.POST or None,instance=post)
+    else:
+        postform=PostForm()
     context['add_post']=postform
     if request.method == 'POST':
         formpost = PostForm(request.POST,request.FILES)

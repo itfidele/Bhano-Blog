@@ -2,6 +2,10 @@
 {% load static %}
 {% load humanize %}
 
+{% block disqus %}
+  <script id="dsq-count-scr" src="//byosehano.disqus.com/count.js" async></script>
+{% endblock disqus %}
+
 {% block content %}
     <style>
       .entry-content img{
@@ -23,7 +27,7 @@
                 <div class="entry-content">
                   {{ post.body|safe }}
                 </div>
-
+                <div class="sharethis-inline-share-buttons"></div>
                 <div class="tags-area clearfix">
                   <div class="post-tags">
                     <span>Tags:</span>
@@ -33,14 +37,7 @@
                   </div>
                 </div>
 
-                <div class="share-items clearfix">
-                  <ul class="post-social-icons unstyled">
-                    <li class="facebook"> <a href="#"> <i class="fa fa-facebook"></i> <span class="ts-social-title">Facebook</span></a> </li>
-                    <li class="twitter"> <a href="#"> <i class="fa fa-twitter"></i> <span class="ts-social-title">Twitter</span></a> </li>
-                    <li class="gplus"> <a href="#"> <i class="fa fa-google-plus"></i> <span class="ts-social-title">Google +</span></a> </li>
-                    <li class="pinterest"> <a href="#"> <i class="fa fa-pinterest"></i> <span class="ts-social-title">Pinterest</span></a> </li>
-                  </ul>
-                </div>
+                <div class="sharethis-inline-reaction-buttons"></div>
               </div>
             </div>
 
@@ -64,8 +61,32 @@
                 <p>Menya Byinshi igihe Nyacyo</p>
               </div>
             </div>
+
+            <div class="share-items clearfix">
+              <div id="disqus_thread"></div>
+              <script>
+
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                
+                var disqus_config = function () {
+                this.page.url ="{% url 'main:article_detail' post.category.name post.slug %}";  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = "{{ post.slug }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                
+                (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://byosehano.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                      
+            </div>
             <!-- Post comment start -->
-            <div id="comments" class="comments-area block">
+            <!--<div id="comments" class="comments-area block">
               <h3 class="utf_block_title"><span>{{ post.comments.count }} Comments</span></h3>
               <ul class="comments-list">
                 <li>
@@ -87,11 +108,11 @@
 
                 </li>
               </ul>
-            </div>
+            </div>-->
             <!-- Post comment end -->
 
             <!--/ Comments Form Start -->
-            <div class="comments-form">
+            <!--<div class="comments-form">
               <h3 class="title-normal">Siga ubutumwa</h3>
               <form method="POST" action="{{ post.get_absolute_url }}">
                 {% csrf_token %}
@@ -116,7 +137,7 @@
                   <button class="comments-btn btn btn-primary" type="submit">Post Comment</button>
                 </div>
               </form>
-            </div>
+            </div>-->
             <!-- Comments form end -->
           </div>
 
@@ -180,6 +201,9 @@
                       </form>
                   </div>
                 </div>
+
+                <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f06beeccc9fba0019cdd26e&product=inline-reaction-buttons&cms=sop' async='async'></script>
+
               </div>
             </div>
           </div>

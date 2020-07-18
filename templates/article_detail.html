@@ -2,6 +2,28 @@
 {% load static %}
 {% load humanize %}
 
+
+{% block metadatas %}
+    <!-- Primary Meta Tags -->
+      <title>{{ post.category.name }} - {{ post.title }}</title>
+      <meta name="title" content="{{ post.category.name }} - {{ post.title }}">
+      <meta name="description" content="{{ post.body|safe }}">
+
+      <!-- Open Graph / Facebook -->
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="https://byosehano.com/">
+      <meta property="og:title" content="{{ post.category.name }} - {{ post.title }}">
+      <meta property="og:description" content="{{ post.body|safe }}">
+      <meta property="og:image" content="https://byosehano.com{{ post.get_absolute_url }}">
+
+      <!-- Twitter -->
+      <meta property="twitter:card" content="summary_large_image">
+      <meta property="twitter:url" content="https://byosehano.com{{ post.get_absolute_url }}">
+      <meta property="twitter:title" content="{{ post.title }}">
+      <meta property="twitter:description" content="{{ post.body|safe }}">
+      <meta property="twitter:image" content="https://byosehano.com{{ post.thumbnail.url }}">
+{% endblock metadatas %}
+
 {% block disqus %}
   <script id="dsq-count-scr" src="//byosehano.disqus.com/count.js" async></script>
 {% endblock disqus %}
@@ -53,15 +75,6 @@
                 </a>
               </div>
             </nav>
-
-            <div class="author-box">
-              <div class="author-img pull-left"> <img src="images/news/author.png" alt=""> </div>
-              <div class="author-info">
-                <h3>ByoseHano</h3>
-                <p>Menya Byinshi igihe Nyacyo</p>
-              </div>
-            </div>
-
             <div class="share-items clearfix">
               <div id="disqus_thread"></div>
               <script>
@@ -85,6 +98,16 @@
                 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
                                       
             </div>
+            <div class="clearfix"></div>
+            <div class="author-box">
+              <div class="author-img pull-left"> <img src="{% static 'circled-logo.png' %}" style="height: 80px;width: 80px;" alt=""> </div>
+              <div class="author-info">
+                <h3>ByoseHano</h3>
+                <p>Menya Byinshi igihe Nyacyo</p>
+              </div>
+            </div>
+
+            
             <!-- Post comment start -->
             <!--<div id="comments" class="comments-area block">
               <h3 class="utf_block_title"><span>{{ post.comments.count }} Comments</span></h3>
@@ -175,7 +198,7 @@
                 </div>
               </div>
 
-              <div class="widget text-center"> <img class="banner img-fluid" src="http://utouchdesign.com/themes/envato/altroz_news/images/banner-ads/ad-sidebar.png" alt=""> </div>
+              <div class="widget text-center"> <img class="banner img-fluid" src="#" alt="Advertise here"> </div>
               <div class="widget widget-tags">
                 <h3 class="utf_block_title"><span>Ibyakunzwe</span></h3>
                 <ul class="unstyled clearfix">

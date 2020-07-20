@@ -1,8 +1,11 @@
 {% extends "layout.html" %}
 {% load static %}
 {% load humanize %}
-{% block content %}
+{% load user_agents %}
 
+
+{% block content %}
+{% if request|is_pc %}
 <!--/ Featured Post Area Start -->
 <div class="gap-40"></div>
 <section class="utf_featured_post_area no-padding">
@@ -10,28 +13,32 @@
         <div class="row">
             <div class="col-lg-7 col-md-12 d-md-none d-lg-block hidden-xs-up" id="slider">
                 <div id="utf_featured_slider" class="owl-carousel owl-theme utf_featured_slider">
-
-                    {% for post in posts|slice:":4" %} 
-                    <div class="item" style="background-image:url('{{ post.thumbnail.url }}');">
-                        <div class="utf_featured_post">
-                            <div class="utf_post_content"> <a class="utf_post_cat"
-                                    href="#">{{ post.category.name|title }}</a>
-                                <h2 class="utf_post_title title-extra-large"> <a
-                                        href="{{ post.get_absolute_url }}">{{ post.title|title }}</a> </h2>
-                                <span class="utf_post_author"><i class="fa fa-user"></i> <a
-                                        href="#">{{ post.author.username|title }}</a></span>
-                                <span class="utf_post_date"><i
-                                        class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span>
+                    
+                        {% for post in posts|slice:":4" %} 
+                        <div class="item" style="background-image:url('{{ post.thumbnail.url }}');">
+                            <div class="utf_featured_post">
+                                <div class="utf_post_content"> <a class="utf_post_cat"
+                                        href="#">{{ post.category.name|title }}</a>
+                                    <h2 class="utf_post_title title-extra-large"> <a
+                                            href="{{ post.get_absolute_url }}">{{ post.title|title }}</a> </h2>
+                                    <span class="utf_post_author"><i class="fa fa-user"></i> <a
+                                            href="#">{{ post.author.username|title }}</a></span>
+                                    <span class="utf_post_date"><i
+                                            class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    {% endfor %}
+                        {% endfor %}
+                    
+                    
 
                 </div>
             </div>
 
             <div class="col-lg-5 col-md-12 pad-l">
                 <div class="row">
+                    
+
                     {% for post in posts %}
 
                     {% if forloop.counter == 6 %}
@@ -95,7 +102,7 @@
     </div>
 </section>
 <!--/ Featured Post Area End -->
-
+{% endif %}
 <!--/ Latest News Area Start -->
 <section class="utf_latest_new_area pb-bottom-20">
     <div class="container">

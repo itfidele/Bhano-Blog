@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% load user_agents %}
+
+{% block content %}
+    <div class="container">
+        <div class="col-md-12">
+            <h1>Coronavirus</h1>
+            <p>
+                Ikarita y'isi yerekana ibihugu COVID-19 imaze kugeramo, imibare y'abantu bamaze kwandura, abamaze koroherwa nabo imaze guhitana. Nkuko tubikesha kaminuza ya Johns Hopkins, iyi karika iri gukomeza kongerwamo imibare mishya yaho iyi virusi igeze umunota ku munota.
+            </p>
+        </div>
+        {% if request|is_mobile %}
+          <iframe src="https://www.arcgis.com/apps/opsdashboard/index.html#/85320e2ea5424dfaaa75ae62e5c06e61"  width="100%" height="500" frameborder="0"></iframe>
+        {% else %}
+          <iframe src="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6" frameborder="0" width="100%" height="600"></iframe>
+        {% endif %}
+    </div>
+{% endblock content %}

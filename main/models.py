@@ -12,6 +12,7 @@ from autoslug import AutoSlugField
 from taggit.managers import TaggableManager
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
+
 # Create your models here.
 
 class Category(models.Model):
@@ -102,3 +103,5 @@ class Comment(Model):
 class Images(models.Model):
     image=models.ImageField(upload_to='images/')
     image_from=models.CharField(max_length=250)
+
+

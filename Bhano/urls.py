@@ -20,6 +20,7 @@ from django.conf import settings
 from django.contrib.sitemaps.views import sitemap
 from main.sitemaps import PostSitemap
 from main.feeds import LatestPostsFeed
+from web.views import coronovirus_report
 sitemaps = {
     'posts': PostSitemap,
 }
@@ -34,5 +35,6 @@ urlpatterns = [
     path('',include('web.urls')),
     path('feed/', LatestPostsFeed(), name='post_feed'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('coronovirus/',coronovirus_report,name='coronovirus'),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

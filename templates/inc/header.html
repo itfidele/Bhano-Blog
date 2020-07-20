@@ -6,16 +6,19 @@
         <div class="row">
             <div class="col-md-8">
                 <ul class="unstyled top-nav">
-                    <li><a href="#">Amakuru Mashya</a></li>
+                    <li><a href="{% url 'coronovirus' %}">Coronovirus Live Report</a></li>
                 </ul>
             </div>
             <div class="col-md-4 top-social text-lg-right text-md-center">
                 <ul class="unstyled">
-                    <li> <a title="Facebook" href="https://web.facebook.com/byosehano"> <span class="social-icon"><i class="fa fa-facebook"></i></span>
+                    <li> <a title="Facebook" href="https://web.facebook.com/byosehano"> <span class="social-icon"><i
+                                    class="fa fa-facebook"></i></span>
                         </a> <a title="Twitter" href="#"> <span class="social-icon"><i class="fa fa-twitter"></i></span>
-                        </a> <a title="Linkdin" href="#"> <span
-                                class="social-icon"><i class="fa fa-linkedin"></i></span> </a> <a title="Rss" href="https://byosehano.com/feed" target="_blank">
-                            <span class="social-icon"><i class="fa fa-rss"></i></span> </a> <a title="Instagram" href="https://instagram.com/byosehano" target="_blank">
+                        </a> <a title="Linkdin" href="#"> <span class="social-icon"><i
+                                    class="fa fa-linkedin"></i></span> </a> <a title="Rss"
+                            href="https://byosehano.com/feed" target="_blank">
+                            <span class="social-icon"><i class="fa fa-rss"></i></span> </a> <a title="Instagram"
+                            href="https://instagram.com/byosehano" target="_blank">
                             <span class="social-icon"><i class="fa fa-instagram"></i></span> </a> </li>
                 </ul>
             </div>
@@ -29,13 +32,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-12">
-                <div class="logo"> <a href="{% url 'web:index' %}"> <img src="{% static 'logo.png' %}" alt=""> </a> </div>
+                <div class="logo"> <a href="{% url 'web:index' %}"> <img src="{% static 'logo.png' %}" alt=""> </a>
+                </div>
             </div>
             <div class="col-md-9 col-sm-12 header-right">
-                <div class="ad-banner float-right"> 
-                    <a href="#"><img src="https://utouchdesign.com/themes/envato/altroz_news/images/banner-ads/ad-top-header.png"
-                            class="img-fluid" alt=""></a> 
-                        </div>
+                <div class="ad-banner float-right">
+                    <a href="#"><img
+                            src="https://utouchdesign.com/themes/envato/altroz_news/images/banner-ads/ad-top-header.png"
+                            class="img-fluid" alt=""></a>
+                </div>
             </div>
         </div>
     </div>
@@ -50,7 +55,7 @@
                 <div class="utf_site_nav_inner float-left">
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="true" aria-label="Toggle navigation"> <span class="fa fa-list"
+                        aria-expanded="true" aria-label="Toggle navigation"> <span class="fa fa-bars"
                             style="color: white;"></span></button>
                     <div id="navbarSupportedContent" class="collapse navbar-collapse navbar-responsive-collapse">
                         <ul class="nav navbar-nav">
@@ -61,7 +66,91 @@
                             <li> <a href="{% url 'main:article_category' 'Ubuzima' %}">👩‍⚕️Ubuzima</a> </li>
                             <li> <a href="{% url 'main:article_category' 'Ikoranabuhanga' %}">📲 Ikoranabuhanaga</a>
                             </li>
-                            <li><a href="#">✨ Andi makuru</a></li>
+                            <li class="nav-item dropdown utf_mega_dropdown"><a href="#">✨ Andi makuru</a>
+                                <div class="utf_dropdown_menu utf_mega_menu_content clearfix">
+                                    <div class="menu-tab">
+                                        <div class="row">
+                                            <ul class="nav nav-tabs flex-column col-2" data-toggle="tab-hover">
+                                                <li class="nav-item"> <a class="animated fadeIn active" href="#tan_one"
+                                                        data-toggle="tab"> <span class="tab-head"> <span
+                                                                class="tab-text-title"><i
+                                                                    class="fa fa-angle-double-right"></i>Hirya no Hino</span>
+                                                        </span> </a> </li>
+                                                <li class="nav-item"> <a class="animated fadeIn" href="#tab-two"
+                                                        data-toggle="tab"> <span class="tab-head"> <span
+                                                                class="tab-text-title"><i
+                                                                    class="fa fa-angle-double-right"></i>Sobanukirwa</span>
+                                                        </span> </a> </li>
+                                                <li class="nav-item"> <a class="animated fadeIn" href="#tab-three"
+                                                        data-toggle="tab"> <span class="tab-head"> <span
+                                                                class="tab-text-title"><i
+                                                                    class="fa fa-angle-double-right"></i>Urukundo</span>
+                                                        </span> </a> </li>
+                                            </ul>
+                                            <div class="tab-content col-10">
+                                                <div class="tab-pane fade show active" id="tab-one">
+                                                    <div class="row">
+                                                        {% for post in hiryanohino|slice:":4" %}
+                                                        <div class="col-md-3">
+                                                            <div class="utf_post_block_style clearfix">
+                                                                <div class="utf_post_thumb"> <a href="#"><img
+                                                                            class="img-fluid"
+                                                                            src="{{ post.thumbnail.url }}"
+                                                                            alt=""></a> </div>
+                                                                <a class="utf_post_cat" href="#">{{ post.category.name }}</a>
+                                                                <div class="utf_post_content">
+                                                                    <h2 class="utf_post_title title-small"> <a
+                                                                            href="{{ post.get_absolute_url }}">{{ post.title|slice:":70" }}...</a> </h2>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+
+                                                <div class="tab-pane animated fadeIn" id="tab-two">
+                                                    <div class="row">
+                                                        {% for post in sobanukirwas|slice:":4" %}
+                                                        <div class="col-md-3">
+                                                            <div class="utf_post_block_style clearfix">
+                                                                <div class="utf_post_thumb"> <a href="#"><img
+                                                                            class="img-fluid"
+                                                                            src="{{ post.thumbnail.url }}"
+                                                                            alt=""></a> </div>
+                                                                <a class="utf_post_cat" href="#">{{ post.category.name }}</a>
+                                                                <div class="utf_post_content">
+                                                                    <h2 class="utf_post_title title-small"> <a
+                                                                            href="{{ post.get_absolute_url }}">{{ post.title|slice:":70" }}...</a> </h2>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane animated fadeIn" id="tab-three">
+                                                    <div class="row">
+                                                        {% for post in urukundo|slice:":4" %}
+                                                        <div class="col-md-3">
+                                                            <div class="utf_post_block_style clearfix">
+                                                                <div class="utf_post_thumb"> <a href="#"><img
+                                                                            class="img-fluid"
+                                                                            src="{{ post.thumbnail.url }}"
+                                                                            alt=""></a> </div>
+                                                                <a class="utf_post_cat" href="#">{{ post.category.name }}</a>
+                                                                <div class="utf_post_content">
+                                                                    <h2 class="utf_post_title title-small"> <a
+                                                                            href="{{ post.get_absolute_url }}">{{ post.title|slice:":70" }}...</a> </h2>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>

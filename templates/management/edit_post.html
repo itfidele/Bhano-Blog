@@ -1,1 +1,65 @@
 {% extends "management/layout.html" %}
+
+{% block content %}
+  <style>
+    #id_tags {
+        border-radius: 0;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        display: block;
+        width: 100%;
+        border: 1px solid #bfbfbf;
+        height: 40px;
+        padding: 8px 12px;
+    }
+  </style>
+  <div class="top-bar clearfix">
+    <div class="page-title">
+        <h4>Form Elements</h4>
+    </div>
+    <ul class="sales-stats hidden-xs">
+        <li>
+            <div class="sales-block hidden-sm hidden-xs"><span id="sale_today"></span></div>
+            <div class="sales-details">
+                <h4>$<span>580</span> <i class="icon-arrow-up-right2 up"></i></h4>
+                <h5>Today's Income</h5>
+            </div>
+        </li>
+        <li>
+            <div class="sales-block hidden-sm hidden-xs"><span id="sale_weekly"></span></div>
+            <div class="sales-details">
+                <h4>$<span>7235</span> <i class="icon-arrow-down-right2 down"></i></h4>
+                <h5>Week's Income</h5>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="main-container">
+    <div class="container-fluid">
+        <div class="row gutter">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="panel panel-blue">
+                    <div class="panel-heading">
+                        <h4>Edit Post</h4>
+                    </div>
+                    
+                    <div class="panel-body">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            {{ success_post|safe }}
+                        </div>
+                        <form action="." method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <hr>
+                            <button type="submit" class="btn btn-lg btn-success" name="submit">
+                                Update Post
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+{% endblock content %}

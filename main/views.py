@@ -125,7 +125,7 @@ def ArticleCategory(request, post_category=None):
     context['category'] = post_category
     #tags = Tag.objects.all()  # not working
     post = get_list_or_404(Post.objects.filter(category__name=post_category))
-    paginator = Paginator(post, 1)
+    paginator = Paginator(post, 8)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
     context['posts'] = posts

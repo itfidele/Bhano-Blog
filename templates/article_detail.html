@@ -7,20 +7,20 @@
     <!-- Primary Meta Tags -->
       <title>{{ post.category.name }} - {{ post.title }}</title>
       <meta name="title" content="{{ post.category.name }} - {{ post.title }}">
-      <meta name="description" content="{{ post.body|striptags|slice:':100' }}">
+      <meta name="description" content="{{ post.body|striptags|slice:':200' }}">
 
       <!-- Open Graph / Facebook -->
       <meta property="og:type" content="website">
       <meta property="og:url" content="https://byosehano.com/">
       <meta property="og:title" content="{{ post.category.name }} - {{ post.title }}">
-      <meta property="og:description" content="{{ post.body|striptags|slice:':100' }}">
+      <meta property="og:description" content="{{ post.body|striptags|slice:':200' }}">
       <meta property="og:image" content="https://byosehano.com{{ post.thumbnail.url }}">
 
       <!-- Twitter -->
       <meta property="twitter:card" content="summary_large_image">
       <meta property="twitter:url" content="https://byosehano.com{{ post.get_absolute_url }}">
       <meta property="twitter:title" content="{{ post.title }}">
-      <meta property="twitter:description" content="{{ post.body|striptags|slice:':100' }}">
+      <meta property="twitter:description" content="{{ post.body|striptags|slice:':200' }}">
       <meta property="twitter:image" content="https://byosehano.com{{ post.thumbnail.url }}">
 {% endblock metadatas %}
 

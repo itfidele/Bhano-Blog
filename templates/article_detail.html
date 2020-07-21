@@ -187,7 +187,7 @@
                         <div class="utf_post_block_style post-float clearfix">
                           <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid" src="{{ post.thumbnail.url }}" alt="{{ post.title }}"> </a></div>
                           <div class="utf_post_content">
-                            <h2 class="utf_post_title title-small"> <a href="{{ post.get_absolute_url }}">{{ post.title|title }}</a> </h2>
+                            <h2 class="utf_post_title title-small"> <a href="{{ post.get_absolute_url }}">{{ post.title|title|slice:"70" }}...</a> </h2>
                             <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> <a href="#">{{ post.author.username|title }}</a></span> <span class="utf_post_date"><i class="fa fa-eye"></i>
                                 {{ post.views }}</span> </div>
                           </div>

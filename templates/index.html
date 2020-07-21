@@ -125,12 +125,12 @@
                         <li class="clearfix">
                             <div class="utf_post_block_style clearfix">
                                 <div class="utf_post_thumb"> <a href="#"><img class="img-fluid"
-                                            src="{{ post.thumbnail.url }}" style="height: 180px;" alt="{{ post.title }}"></a> </div>
+                                            src="{{ post.thumbnail.url }}" style="height: 200px;" alt="{{ post.title }}"></a> </div>
                                 <a class="utf_post_cat"
                                     href="{{ post.get_absolute_url }}">{{ post.category.name }}</a>
                                 <div class="utf_post_content">
                                     <h2 class="utf_post_title title-medium"> <a
-                                            href="{{ post.get_absolute_url }}">{{ post.title|slice:":60" }}...</a> </h2>
+                                            href="{{ post.get_absolute_url }}">{{ post.title|slice:":80" }}...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
                                             <a href="#">{{ post.author.username|title }}</a></span> <span
                                             class="utf_post_date"><i
@@ -186,7 +186,7 @@
                                         src="{{ post.thumbnail.url }}" style="height: 200px;" alt="{{ post.title }}"> </a> </div>
                             <div class="utf_post_content"> <a class="utf_post_cat" href="#">{{ post.category.name }}</a>
                                 <h2 class="utf_post_title"> <a
-                                        href="{{ post.get_absolute_url }}">{{ post.title|slice:":50" }}...</a> </h2>
+                                        href="{{ post.get_absolute_url }}">{{ post.title|slice:":70" }}...</a> </h2>
                                 <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> <a
                                             href="#">{{ post.author.username|title }}</a></span> <span
                                         class="utf_post_date"><i class="fa fa-eye"></i>
@@ -204,7 +204,7 @@
                                                     src="{{ post.thumbnail.url }}" alt=""> </a> </div>
                                         <div class="utf_post_content">
                                             <h2 class="utf_post_title title-small"> <a
-                                                    href="{{ post.get_absolute_url }}" title="{{ post.title }}">{{ post.title|slice:":50" }}...</a> </h2>
+                                                    href="{{ post.get_absolute_url }}" title="{{ post.title }}">{{ post.title|slice:":70" }}...</a> </h2>
                                             <div class="utf_post_meta"> <span class="utf_post_author"><i
                                                         class="fa fa-user"></i> <a
                                                         href="#">{{ post.author.username }}</a></span> <span
@@ -240,7 +240,7 @@
                                         <a class="utf_post_cat" href="#">{{ post.category.name }}</a>
                                         <div class="utf_post_content">
                                             <h2 class="utf_post_title"> <a
-                                                    href="{{ post.get_absolute_url }}">{{ post.title }}</a> </h2>
+                                                    href="{{ post.get_absolute_url }}">{{ post.title|slice:":70" }}...</a> </h2>
                                             <div class="utf_post_meta"> <span class="utf_post_author"><i
                                                         class="fa fa-user"></i> <a
                                                         href="#">{{ post.author.username|title }}</a></span>
@@ -262,7 +262,7 @@
                                                     </div>
                                                     <div class="utf_post_content">
                                                         <h2 class="utf_post_title title-small"> <a
-                                                                href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                                                                href="{{ post.get_absolute_url }}">{{ post.title|slice:":70" }}...</a>
                                                         </h2>
                                                         <div class="utf_post_meta"> <span class="utf_post_author"><i
                                                                     class="fa fa-user"></i> <a

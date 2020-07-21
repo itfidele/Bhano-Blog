@@ -28,7 +28,7 @@ sitemaps = {
 
 urlpatterns = [
     path('grappelli/', include('grappelli.urls')),
-    path('admin/', admin.site.urls),
+    path('admii/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('category/',include('main.urls')),
     path("author/",include('management.urls',namespace='management')),

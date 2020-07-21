@@ -2,6 +2,9 @@
 {% load static %}
 {% load humanize %}
 
+{% block sharethis %}
+  
+{% endblock sharethis %}
 
 {% block metadatas %}
     <!-- Primary Meta Tags -->
@@ -24,9 +27,9 @@
       <meta property="twitter:image" content="https://byosehano.com{{ post.thumbnail.url }}">
 {% endblock metadatas %}
 
-{% block disqus %}
-  <script id="dsq-count-scr" src="//byosehano.disqus.com/count.js" async></script>
-{% endblock disqus %}
+{% block sharethis %}
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f06beeccc9fba0019cdd26e&product=inline-share-buttons&cms=sop' async='async'></script>
+{% endblock sharethis %}
 
 {% block content %}
     <style>
@@ -76,29 +79,6 @@
                 </a>
               </div>
             </nav>
-            <div class="share-items clearfix">
-              <div id="disqus_thread"></div>
-              <script>
-
-                /**
-                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-                
-                var disqus_config = function () {
-                this.page.url ="https://byosehano.com{% url 'main:article_detail' post.category.name post.slug %}";  // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = "{{ post.slug }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                };
-                
-                (function() { // DON'T EDIT BELOW THIS LINE
-                var d = document, s = d.createElement('script');
-                s.src = 'https://byosehano.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-                })();
-                </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                                      
-            </div>
             <div class="clearfix"></div>
             <div class="author-box">
               <div class="author-img pull-left"> <img src="{% static 'circled-logo.png' %}" style="height: 80px;width: 80px;" alt=""> </div>
@@ -110,7 +90,7 @@
 
             
             <!-- Post comment start -->
-            <!--<div id="comments" class="comments-area block">
+            <div id="comments" class="comments-area block">
               <h3 class="utf_block_title"><span>{{ post.comments.count }} Comments</span></h3>
               <ul class="comments-list">
                 <li>
@@ -132,11 +112,11 @@
 
                 </li>
               </ul>
-            </div>-->
+            </div>
             <!-- Post comment end -->
 
             <!--/ Comments Form Start -->
-            <!--<div class="comments-form">
+            <div class="comments-form">
               <h3 class="title-normal">Siga ubutumwa</h3>
               <form method="POST" action="{{ post.get_absolute_url }}">
                 {% csrf_token %}
@@ -161,7 +141,7 @@
                   <button class="comments-btn btn btn-primary" type="submit">Post Comment</button>
                 </div>
               </form>
-            </div>-->
+            </div>
             <!-- Comments form end -->
           </div>
 

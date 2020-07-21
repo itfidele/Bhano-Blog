@@ -3,7 +3,7 @@
 {% load humanize %}
 
 {% block sharethis %}
-  
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f06beeccc9fba0019cdd26e&product=inline-share-buttons&cms=sop' async='async'></script>
 {% endblock sharethis %}
 
 {% block metadatas %}
@@ -27,9 +27,6 @@
       <meta property="twitter:image" content="https://byosehano.com{{ post.thumbnail.url }}">
 {% endblock metadatas %}
 
-{% block sharethis %}
-<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f06beeccc9fba0019cdd26e&product=inline-share-buttons&cms=sop' async='async'></script>
-{% endblock sharethis %}
 
 {% block content %}
     <style>

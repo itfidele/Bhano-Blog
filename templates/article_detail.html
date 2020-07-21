@@ -34,11 +34,16 @@
     <style>
       .entry-content img{
         max-width: 100%;
+        max-height: auto;
       }
     </style>
 
     {% if request|is_mobile %}
-
+      <style>
+        .entry-content img{
+          max-height: 200px;
+        }
+      </style>
     {% endif %}
 
     <section class="utf_block_wrapper">

@@ -25,6 +25,7 @@
       <meta property="twitter:title" content="{{ post.title }}">
       <meta property="twitter:description" content="{{ post.body|striptags|slice:':200' }}">
       <meta property="twitter:image" content="https://byosehano.com{{ post.thumbnail.url }}">
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d76150985115dd4"></script>
 {% endblock metadatas %}
 
 
@@ -43,12 +44,20 @@
               <div class="utf_post_title-area"> <a class="utf_post_cat" href="#">{{ post.category.name }}</a>
                 <h2 class="utf_post_title">{{ post.title|title }}</h2>
                 <div class="utf_post_meta"> <span class="utf_post_author"> By <a href="#">{{ post.author.username|title }}</a> </span> <span class="utf_post_date"><i class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span> <span class="post-hits"><i class="fa fa-eye"></i>{{ post.views }}</span> <span class="post-comment"><i class="fa fa-comments-o"></i> <a href="#" class="comments-link"><span>{{ post.comments.count }}</span></a></span> </div>
+
+                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                <div class="addthis_inline_share_toolbox_hjqg"></div>
+            
               </div>
 
               <div class="utf_post_content-area">
                 <div class="sharethis-inline-share-buttons"></div>
                 <div class="entry-content">
                   {{ post.body|safe }}
+
+                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                <div class="addthis_inline_share_toolbox_hjqg"></div>
+            
                 </div>
                 <div class="sharethis-inline-share-buttons"></div>
                 <div class="tags-area clearfix">

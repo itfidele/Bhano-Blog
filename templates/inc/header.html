@@ -11,15 +11,15 @@
             </div>
             <div class="col-md-4 top-social text-lg-right text-md-center">
                 <ul class="unstyled">
-                    <li> <a title="Facebook" href="https://web.facebook.com/byosehano"> <span class="social-icon"><i
+                    <li> <a title="Facebook" href="https://fb.me/byosehano"> <span class="social-icon"><i
                                     class="fa fa-facebook"></i></span>
-                        </a> <a title="Twitter" href="#"> <span class="social-icon"><i class="fa fa-twitter"></i></span>
-                        </a> <a title="Linkdin" href="#"> <span class="social-icon"><i
-                                    class="fa fa-linkedin"></i></span> </a> <a title="Rss"
-                            href="https://byosehano.com/feed" target="_blank">
-                            <span class="social-icon"><i class="fa fa-rss"></i></span> </a> <a title="Instagram"
-                            href="https://instagram.com/byosehano" target="_blank">
-                            <span class="social-icon"><i class="fa fa-instagram"></i></span> </a> </li>
+                            <!--</a> <a title="Twitter" href="#"> <span class="social-icon"><i class="fa fa-twitter"></i></span>
+                        </a><a title="Linkdin" href="#"> <span class="social-icon"><i
+                                        class="fa fa-linkedin"></i></span>--> </a> <a title="Rss"
+                                href="https://byosehano.com/feed" target="_blank">
+                                <span class="social-icon"><i class="fa fa-rss"></i></span> </a> <a title="Instagram"
+                                href="https://instagram.com/byosehano" target="_blank">
+                                <span class="social-icon"><i class="fa fa-instagram"></i></span> </a> </li>
                 </ul>
             </div>
         </div>
@@ -37,8 +37,7 @@
             </div>
             <div class="col-md-9 col-sm-12 header-right">
                 <div class="ad-banner float-right">
-                    <a href="https://smartagri.org" target="_blank"><img
-                            src="{% static 'smartagri_ad.gif' %}"
+                    <a href="https://smartagri.org" target="_blank"><img src="{% static 'smartagri_ad.gif' %}"
                             class="img-fluid" alt="SmartAgri"></a>
                 </div>
             </div>
@@ -74,7 +73,8 @@
                                                 <li class="nav-item"> <a class="animated fadeIn active" href="#tan_one"
                                                         data-toggle="tab"> <span class="tab-head"> <span
                                                                 class="tab-text-title"><i
-                                                                    class="fa fa-angle-double-right"></i>Hirya no Hino</span>
+                                                                    class="fa fa-angle-double-right"></i>Hirya no
+                                                                Hino</span>
                                                         </span> </a> </li>
                                                 <li class="nav-item"> <a class="animated fadeIn" href="#tab-two"
                                                         data-toggle="tab"> <span class="tab-head"> <span
@@ -95,12 +95,14 @@
                                                             <div class="utf_post_block_style clearfix">
                                                                 <div class="utf_post_thumb"> <a href="#"><img
                                                                             class="img-fluid"
-                                                                            src="{{ post.thumbnail.url }}"
-                                                                            alt=""></a> </div>
-                                                                <a class="utf_post_cat" href="#">{{ post.category.name }}</a>
+                                                                            src="{{ post.thumbnail.url }}" alt=""></a>
+                                                                </div>
+                                                                <a class="utf_post_cat"
+                                                                    href="#">{{ post.category.name }}</a>
                                                                 <div class="utf_post_content">
                                                                     <h2 class="utf_post_title title-small"> <a
-                                                                            href="{{ post.get_absolute_url }}">{{ post.title|slice:":70" }}...</a> </h2>
+                                                                            href="{{ post.get_absolute_url }}">{{ post.title|slice:":70" }}...</a>
+                                                                    </h2>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -115,12 +117,14 @@
                                                             <div class="utf_post_block_style clearfix">
                                                                 <div class="utf_post_thumb"> <a href="#"><img
                                                                             class="img-fluid"
-                                                                            src="{{ post.thumbnail.url }}"
-                                                                            alt=""></a> </div>
-                                                                <a class="utf_post_cat" href="#">{{ post.category.name }}</a>
+                                                                            src="{{ post.thumbnail.url }}" alt=""></a>
+                                                                </div>
+                                                                <a class="utf_post_cat"
+                                                                    href="#">{{ post.category.name }}</a>
                                                                 <div class="utf_post_content">
                                                                     <h2 class="utf_post_title title-small"> <a
-                                                                            href="{{ post.get_absolute_url }}">{{ post.title|slice:":70" }}...</a> </h2>
+                                                                            href="{{ post.get_absolute_url }}">{{ post.title|slice:":70" }}...</a>
+                                                                    </h2>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -134,12 +138,14 @@
                                                             <div class="utf_post_block_style clearfix">
                                                                 <div class="utf_post_thumb"> <a href="#"><img
                                                                             class="img-fluid"
-                                                                            src="{{ post.thumbnail.url }}"
-                                                                            alt=""></a> </div>
-                                                                <a class="utf_post_cat" href="#">{{ post.category.name }}</a>
+                                                                            src="{{ post.thumbnail.url }}" alt=""></a>
+                                                                </div>
+                                                                <a class="utf_post_cat"
+                                                                    href="#">{{ post.category.name }}</a>
                                                                 <div class="utf_post_content">
                                                                     <h2 class="utf_post_title title-small"> <a
-                                                                            href="{{ post.get_absolute_url }}">{{ post.title|slice:":70" }}...</a> </h2>
+                                                                            href="{{ post.get_absolute_url }}">{{ post.title|slice:":70" }}...</a>
+                                                                    </h2>
                                                                 </div>
                                                             </div>
                                                         </div>

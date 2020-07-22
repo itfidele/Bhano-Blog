@@ -17,7 +17,8 @@ def index(request):
     hiryanohino=Post.published.filter(category__name='Hirya no Hino').order_by('-publish')[:5]
     urukundo=Post.published.filter(category__name='Urukundo').order_by('-publish')[:5]
     ntibisanzwe=Post.published.filter(category__name='Ntibisanzwe').order_by('-publish')[:5]
-    
+    enterntainment=Post.published.filter(category__name='Enterntainment').order_by('-publish')[:5]
+
     context['ntibisanzwe']=ntibisanzwe
     context['urukundo']=urukundo
     context['hiryanohino']=hiryanohino
@@ -26,6 +27,7 @@ def index(request):
     context['imikino']=imikino
     context['sobanukirwas']=sobanukirwas
     context['ubuzimas']=ubuzimas
+    context['enterntainment']=enterntainment
     #context['imyidagaduro_posts']=imyidagaduro
     context['posts'] = posts
     context['amakurumashya'] = amakurumashya

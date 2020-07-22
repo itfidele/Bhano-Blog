@@ -32,9 +32,9 @@
                                     <h2 class="utf_post_title title-large"> <a href="{{ post.get_absolute_url }}">{{ post.title|title }}</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
                                             <a href="#">{{ post.author.username }}</a></span> <span
-                                            class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan, 2020</span>
+                                            class="utf_post_date"><i class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span>
                                         <span class="post-comment pull-right"><i class="fa fa-comments-o"></i> <a
-                                                href="#" class="comments-link"><span>03</span></a></span> </div>
+                                                href="#" class="comments-link"><span>{{ post.comments.count }}</span></a></span> </div>
                                 
                                 </div>
                             </div>
@@ -64,14 +64,11 @@
             <div class="col-lg-4 col-md-12">
                 <div class="sidebar utf_sidebar_right">
                     <div class="widget">
-                        <h3 class="utf_block_title"><span>Follow Us</span></h3>
+                        <h3 class="utf_block_title"><span>Dukurikire</span></h3>
                         <ul class="social-icon">
-                            <li><a href="#" target="_blank"><i class="fa fa-rss"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-vimeo-square"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="https://fb.me/byosehano/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://instagram.com/byosehano/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="https://byosehano.com/feed" target="_blank"><i class="fa fa-rss"></i></a></li>
                         </ul>
                     </div>
 

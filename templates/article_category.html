@@ -25,7 +25,7 @@
                         {% endif %}
                         <div class="col-md-6">
                             <div class="utf_post_block_style post-grid clearfix">
-                                <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
+                                <div class="utf_post_thumb"> <a href="{{ post.get_absolute_url }}"> <img class="img-fluid"
                                             src="{{ post.thumbnail.url }}" alt="{{ post.title|title }}"> </a> </div>
                                 <a class="utf_post_cat" href="#">{{ post.category.name }}</a>
                                 <div class="utf_post_content">

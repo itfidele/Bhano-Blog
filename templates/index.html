@@ -15,7 +15,7 @@
             <div class="col-lg-7 col-md-12 d-md-none d-lg-block hidden-xs-up" id="slider">
                 <div id="utf_featured_slider" class="owl-carousel owl-theme utf_featured_slider">
                     
-                        {% for post in posts|slice:":4" %} 
+                        {% for post in posts|slice:":3" %} 
                         <div class="item" style="background-image:url('{{ post.thumbnail.url }}');">
                             <div class="utf_featured_post">
                                 <div class="utf_post_content"> <a class="utf_post_cat"
@@ -40,9 +40,9 @@
                 <div class="row">
                     
 
-                    {% for post in posts %}
+                    {% for post in posts|slice:":1" %}
 
-                    {% if forloop.counter == 6 %}
+                    {% if forloop.counter == 1 %}
                     <div class="col-md-12">
                         <div class="utf_post_overaly_style contentTop hot-post-top clearfix">
                             <div class="utf_post_thumb"> <a href="#"><img class="img-fluid"
@@ -62,9 +62,9 @@
                     {% endfor %}
                     <div class="col-md-12">
                     </div>
-                    {% for post in posts %}
+                    {% for post in posts|slice:":3" %}
 
-                    {% if forloop.counter == 7 %}
+                    {% if forloop.counter == 2 %}
                     <div class="col-md-6 pad-r-small">
                         <div class="utf_post_overaly_style contentTop utf_hot_post_bottom clearfix">
                             <div class="utf_post_thumb"> <a href="#"><img class="img-fluid"
@@ -79,7 +79,7 @@
                     </div>
                     {% endif %}
 
-                    {% if forloop.counter == 8 %}
+                    {% if forloop.counter == 3 %}
                     <div class="col-md-6 pad-l-small">
                         <div class="utf_post_overaly_style contentTop utf_hot_post_bottom clearfix">
                             <div class="utf_post_thumb"> <a href="#"><img class="img-fluid"
@@ -166,6 +166,7 @@
                                     </div>
                                 </div>
                             </li>
+
                         </ul>
                     </div>
 

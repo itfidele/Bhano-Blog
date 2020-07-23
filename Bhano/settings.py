@@ -137,8 +137,11 @@ USE_TZ = True
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_CONFIGS = {
     'default': {
-        #'skin':'moono'
-        #'toolbar': 'full',
+        #'skin':'moono',
+        'toolbar': 'full',
+        'width':'100%',
+        'height': 520,
+        
     },
 }
 GRAPPELLI_ADMIN_TITLE = "ByoseHano"

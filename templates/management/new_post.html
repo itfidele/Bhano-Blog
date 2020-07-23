@@ -12,16 +12,6 @@
 {% endblock stylesheets %}
 
 
-{% block javascripts %}
-<!-- wysiwyg editor js -->
-<script src="{% static 'user/js/wysiwyg-editor/editor.js' %}"></script>
-<script type="text/javascript">
-    $(function () {
-        $("#txtEditor").Editor();
-    });
-</script>
-{% endblock javascripts %}
-
 {% block content %}
 <style>
     #id_tags {
@@ -88,10 +78,10 @@
                             </div>
                             
                             <div class="col-md-12">
-                                <label for="title">Article Content</label>
-                                <div class="col-md-12 row">
-                                    {{ add_post.body }}
-                                </div>
+                                <p><label for="title">Article Content</label></p>
+                                
+                                {{ add_post.body }}
+                               
                             </div>
                             <div class="form-group">
                                 {% if user.is_superuser %}

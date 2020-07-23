@@ -6,175 +6,33 @@
 
 
 {% block content %}
-{% if request|is_pc %}
-<!--/ Featured Post Area Start -->
-<div class="gap-40"></div>
-<section class="utf_featured_post_area no-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7 col-md-12 d-md-none d-lg-block hidden-xs-up" id="slider">
-                <div id="utf_featured_slider" class="owl-carousel owl-theme utf_featured_slider">
-
-                    {% for post in posts|slice:":3" %}
-                    <div class="item" style="background-image:url('{{ post.thumbnail.url }}');">
-                        <div class="utf_featured_post">
-                            <div class="utf_post_content"> <a class="utf_post_cat"
-                                    href="#">{{ post.category.name|title }}</a>
-                                <h2 class="utf_post_title title-extra-large"> <a
-                                        href="{{ post.get_absolute_url }}">{{ post.title|title }}</a> </h2>
-                                <span class="utf_post_author"><i class="fa fa-user"></i> <a
-                                        href="#">{{ post.author.username|title }}</a></span>
-                                <span class="utf_post_date"><i
-                                        class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-
-
-
-                </div>
-            </div>
-
-            <div class="col-lg-5 col-md-12 pad-l">
-                <div class="row">
-
-
-                    {% for post in posts|slice:":1" %}
-
-                    {% if forloop.counter == 1 %}
-                    <div class="col-md-12">
-                        <div class="utf_post_overaly_style contentTop hot-post-top clearfix">
-                            <div class="utf_post_thumb"> <a href="#"><img class="img-fluid"
-                                        src="{{ post.thumbnail.url }}" alt="{{ post.title|title }}"></a> </div>
-                            <div class="utf_post_content"> <a class="utf_post_cat" href="#">{{ post.category.name }}</a>
-                                <h2 class="utf_post_title title-large"> <a
-                                        href="{{ post.get_absolute_url }}">{{ post.title }}</a> </h2>
-                                <span class="utf_post_author"><i class="fa fa-user"></i> <a
-                                        href="#">{{ post.author.username|title }}</a></span>
-                                <span class="utf_post_date"><i
-                                        class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span>
-                            </div>
-                        </div>
-                    </div>
-                    {% endif %}
-
-                    {% endfor %}
-                    <div class="col-md-12">
-                    </div>
-                    {% for post in posts|slice:":3" %}
-
-                    {% if forloop.counter == 2 %}
-                    <div class="col-md-6 pad-r-small">
-                        <div class="utf_post_overaly_style contentTop utf_hot_post_bottom clearfix">
-                            <div class="utf_post_thumb"> <a href="#"><img class="img-fluid"
-                                        src="{{ post.thumbnail.url }}" alt="{{ post.title }}"></a> </div>
-                            <div class="utf_post_content">
-                                <h2 class="utf_post_title title-medium"> <a href="{{ post.get_absolute_url }}"
-                                        title="{{ post.title }}">{{ post.title|slice:":35" }}...</a> </h2>
-                                <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> <a
-                                            href="#">{{ post.author.username|title }}</a></span></div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endif %}
-
-                    {% if forloop.counter == 3 %}
-                    <div class="col-md-6 pad-l-small">
-                        <div class="utf_post_overaly_style contentTop utf_hot_post_bottom clearfix">
-                            <div class="utf_post_thumb"> <a href="#"><img class="img-fluid"
-                                        src="{{ post.thumbnail.url }}" alt="{{ post.title }}"></a> </div>
-                            <div class="utf_post_content">
-                                <h2 class="utf_post_title title-medium"> <a href="{{ post.get_absolute_url }}"
-                                        title="{{ post.title }}">{{ post.title|slice:":35" }}...</a> </h2>
-                                <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> <a
-                                            href="#">{{ post.author.username|title }}</a></span> </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endif %}
-
-                    {% endfor %}
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<div class="gap-40"></div>
-<div class="utf_ad_content_area text-center utf_banner_area no-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12"> <img class="img-fluid" src="holder.js/1200x120?text=Advertise here now&auto=yes"
-                    alt="">
-            </div>
-        </div>
-    </div>
-</div>
-<!--/ Featured Post Area End -->
-{% endif %}
 <!--/ Latest News Area Start -->
 <section class="utf_latest_new_area pb-bottom-20">
     <div class="container">
-        <div class="utf_latest_news block color-red">
-            <h3 class="utf_block_title"><span>Amakuru Mashya</span></h3>
-            <div id="utf_latest_news_slide" class="owl-carousel owl-theme utf_latest_news_slide">
-
-                {% if request|is_mobile %}
-                {% for post in amakurumashya|slice:":5" %}
-                <div class="item">
-                    <ul class="utf_list_post">
-                        <li class="clearfix">
-                            <div class="utf_post_block_style clearfix">
-                                <div class="utf_post_thumb"> <a href="#"><img class="img-fluid"
-                                            src="{{ post.thumbnail.url }}" style="height: 200px;"
-                                            alt="{{ post.title }}"></a> </div>
-                                <a class="utf_post_cat" href="{{ post.get_absolute_url }}">{{ post.category.name }}</a>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title title-medium"> <a
-                                            href="{{ post.get_absolute_url }}">{{ post.title|slice:":80" }}...</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">{{ post.author.username|title }}</a></span> <span
-                                            class="utf_post_date"><i
-                                                class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span> </div>
-                                </div>
-                            </div>
-                        </li>
-
-                    </ul>
+        <div class="row">
+            {% for post in amakurumashya|slice:":8" %}
+                <div class="col-md-3">
+                    <div class="utf_post_block_style clearfix">
+                        <div class="utf_post_thumb" onclick="location.href='{{ post.get_absolute_url }}';" style="cursor: pointer;"> <a href="#"><img class="img-fluid" src="{{ post.thumbnail.url }}"
+                                    style="height: 200px;" alt="{{ post.title }}"></a> </div>
+                        <a class="utf_post_cat" href="{{ post.get_absolute_url }}">{{ post.category.name }}</a>
+                        <div class="utf_post_content">
+                            <h2 class="utf_post_title title-medium"> <a
+                                    href="{{ post.get_absolute_url }}">{{ post.title|slice:":80" }}...</a> </h2>
+                            <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
+                                    <a href="#">{{ post.author.username|title }}</a></span> <span class="utf_post_date"><i
+                                        class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span> </div>
+                        </div>
+                    </div>
                 </div>
-
-                {% endfor %}
-                {% else %}
-                {% for post in amakurumashya|slice:":10" %}
-                <div class="item">
-                    <ul class="utf_list_post">
-                        <li class="clearfix">
-                            <div class="utf_post_block_style clearfix">
-                                <div class="utf_post_thumb"> <a href="#"><img class="img-fluid"
-                                            src="{{ post.thumbnail.url }}" style="height: 200px;"
-                                            alt="{{ post.title }}"></a> </div>
-                                <a class="utf_post_cat" href="{{ post.get_absolute_url }}">{{ post.category.name }}</a>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title title-medium"> <a
-                                            href="{{ post.get_absolute_url }}">{{ post.title|slice:":80" }}...</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">{{ post.author.username|title }}</a></span> <span
-                                            class="utf_post_date"><i
-                                                class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span> </div>
-                                </div>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-
-                {% endfor %}
+                {% if forloop.counter == 4 %}
+                    </div>
+                    <div class="row">
                 {% endif %}
-
+            {% endfor %}
             </div>
         </div>
+
     </div>
 </section>
 
@@ -433,8 +291,8 @@
                         </ul>
                     </div>
                 </div>
-                
-                
+
+
                 <div class="widget color-default m-bottom-0">
                     <h3 class="utf_block_title"><span>Kwamamaza</span></h3>
                     <div id="utf_post_slide" class="owl-carousel owl-theme utf_post_slide">

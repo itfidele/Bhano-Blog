@@ -132,23 +132,3 @@ def ArticleCategory(request, post_category=None):
     #context['tags'] = tags
     context['menu_title']=post_category
     return render(request, 'article_category.html', context)
-
-
-def scrape(request):
-    from operations.sa import PamakeoPress
-    pama=PamakeoPress()
-    #pama.news_items(links=pamakeolinks)
-    
-
-    return HttpResponse("<h1>scraped</h1>")
-
-
-def SiteAdd(request,domain=None,name=None):
-    if not domain==None and not name==None:
-        from django.contrib.sites.models import Site
-        site=Site()
-        site.domain=domain
-        site.name=name
-        site.save()
-        
-    return HttpResponse('<h2>Setup Karabaye</h2>')

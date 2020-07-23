@@ -4,7 +4,7 @@
 {% load user_agents %}
 
 {% block sharethis %}
-<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f06beeccc9fba0019cdd26e&product=inline-share-buttons&cms=sop' async='async'></script>
+<script async type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f06beeccc9fba0019cdd26e&product=inline-share-buttons&cms=sop' async='async'></script>
 {% endblock sharethis %}
 
 {% block metadatas %}
@@ -26,7 +26,7 @@
       <meta property="twitter:title" content="{{ post.title }}">
       <meta property="twitter:description" content="{{ post.body|striptags|slice:':200' }}">
       <meta property="twitter:image" content="https://byosehano.com{{ post.thumbnail.url }}">
-      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d76150985115dd4"></script>
+      <script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d76150985115dd4"></script>
 {% endblock metadatas %}
 
 
@@ -98,7 +98,7 @@
                 </a>
               </div>
             </nav>
-            <div class="clearfix"></div>
+            
             <div class="author-box">
               <div class="author-img pull-left"> <img src="{% static 'circled-logo.png' %}" style="height: 80px;width: 80px;" alt=""> </div>
               <div class="author-info">

@@ -17,7 +17,7 @@
                 <div class="col-md-3">
                     <div class="utf_post_block_style clearfix">
                         <div class="utf_post_thumb" onclick="location.href='{{ post.get_absolute_url }}';" style="cursor: pointer;"> <a href="#"><img class="img-fluid" src="{{ post.thumbnail.url }}"
-                                    style="height: 200px;" alt="{{ post.title }}"></a> </div>
+                                    style="object-fit: cover;height: 200px;" alt="{{ post.title }}"></a> </div>
                         <a class="utf_post_cat" href="{{ post.get_absolute_url }}">{{ post.category.name }}</a>
                         <div class="utf_post_content">
                             <h2 class="utf_post_title title-medium"> <a

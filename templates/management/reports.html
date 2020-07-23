@@ -93,7 +93,7 @@
                                         <td>{{ report.views }}</td>
                                         <td>{{ report.comments.count }}</td>
                                         <td>
-                                            <a href="#" style="color: red;">Delete</a> &nbsp; <a href="{% url 'management:edit_post' report.id %}">Edit</a>
+                                            <a href="{{ report.get_absolute_url }}" style="color:green">View post</a> &nbsp; <a href="{% url 'management:edit_post' report.id %}">Edit</a>
                                         </td>
                                     </tr>
                                     {% endfor %}

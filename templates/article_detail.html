@@ -23,6 +23,7 @@
       <!-- Twitter -->
       <meta property="twitter:card" content="summary_large_image">
       <meta property="twitter:url" content="https://byosehano.com{{ post.get_absolute_url }}">
+      
       <meta property="twitter:title" content="{{ post.title }}">
       <meta property="twitter:description" content="{{ post.body|striptags|slice:':200' }}">
       <meta property="twitter:image" content="https://byosehano.com{{ post.thumbnail.url }}">
@@ -98,7 +99,7 @@
                 </a>
               </div>
             </nav>
-            
+
             <div class="author-box">
               <div class="author-img pull-left"> <img src="{% static 'circled-logo.png' %}" style="height: 80px;width: 80px;" alt=""> </div>
               <div class="author-info">

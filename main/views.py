@@ -124,7 +124,7 @@ def ArticleCategory(request, post_category=None):
     context['popular_news']=Post.published.all().order_by('-views')[:6]
     context['category'] = post_category
     #tags = Tag.objects.all()  # not working
-    post = get_list_or_404(Post.objects.filter(category__name=post_category))
+    post = get_list_or_404(Post.objects.filter(category__name=post_category).order_by('-publish'))
     paginator = Paginator(post, 8)
     page = request.GET.get('page')
     posts = paginator.get_page(page)

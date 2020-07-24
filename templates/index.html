@@ -14,28 +14,29 @@
     <div class="container">
         <div class="row">
             {% for post in amakurumashya|slice:":8" %}
-                <div class="col-md-3">
-                    <div class="utf_post_block_style clearfix">
-                        <div class="utf_post_thumb" onclick="location.href='{{ post.get_absolute_url }}';" style="cursor: pointer;"> <a href="#"><img class="img-fluid" src="{{ post.thumbnail.url }}"
-                                    style="object-fit: cover;height: 200px;" alt="{{ post.title }}"></a> </div>
-                        <a class="utf_post_cat" href="{{ post.get_absolute_url }}">{{ post.category.name }}</a>
-                        <div class="utf_post_content">
-                            <h2 class="utf_post_title title-medium"> <a
-                                    href="{{ post.get_absolute_url }}">{{ post.title|slice:":80" }}...</a> </h2>
-                            <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                    <a href="#">{{ post.author.username|title }}</a></span> <span class="utf_post_date"><i
-                                        class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span> </div>
-                        </div>
+            <div class="col-md-3">
+                <div class="utf_post_block_style clearfix">
+                    <div class="utf_post_thumb" onclick="location.href='{{ post.get_absolute_url }}';"
+                        style="cursor: pointer;"> <a href="#"><img class="img-fluid" src="{{ post.thumbnail.url }}"
+                                style="object-fit: cover;height: 200px;" alt="{{ post.title }}"></a> </div>
+                    <a class="utf_post_cat" href="{{ post.get_absolute_url }}">{{ post.category.name }}</a>
+                    <div class="utf_post_content">
+                        <h2 class="utf_post_title title-medium"> <a
+                                href="{{ post.get_absolute_url }}">{{ post.title|slice:":80" }}...</a> </h2>
+                        <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
+                                <a href="#">{{ post.author.username|title }}</a></span> <span class="utf_post_date"><i
+                                    class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span> </div>
                     </div>
                 </div>
-                {% if forloop.counter == 4 %}
-                    </div>
-                    <div class="gap-40"></div>
-                    <div class="row">
-                {% endif %}
-            {% endfor %}
             </div>
+            {% if forloop.counter == 4 %}
         </div>
+        <div class="gap-40"></div>
+        <div class="row">
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
 
     </div>
 </section>
@@ -50,32 +51,10 @@
                     <div class="tab-content">
                         <div class="tab-pane active animated fadeInRight" id="tab_a">
                             <div class="row">
-
-                                {% for post in amakurumashya|slice:":6" %}
-
-                                {% if forloop.first %}
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="utf_post_block_style clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="{{ post.thumbnail.url }}" alt=""> </a> </div>
-                                        <a class="utf_post_cat" href="#">{{ post.category.name }}</a>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title"> <a
-                                                    href="{{ post.get_absolute_url }}">{{ post.title }}...</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a
-                                                        href="#">{{ post.author.username|title }}</a></span>
-                                                <span class="utf_post_date"><i
-                                                        class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span>
-                                            </div>
-                                            <p>{{ post.body|striptags|slice:":180"|safe }}...</p>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="utf_list_post_block">
                                         <ul class="utf_list_post">
-                                            {% else %}
+                                            {% for post in amakurumashya|slice:":6" %}
                                             <li class="clearfix">
                                                 <div class="utf_post_block_style post-float clearfix">
                                                     <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
@@ -95,8 +74,6 @@
                                                     </div>
                                                 </div>
                                             </li>
-                                            {% endif %}
-
                                             {% endfor %}
                                         </ul>
                                     </div>

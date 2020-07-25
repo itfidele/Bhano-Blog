@@ -18,9 +18,16 @@ from ckeditor_uploader.fields import RichTextUploadingField
 class Category(models.Model):
     name=models.CharField(max_length=100)
     about_page=models.TextField(null=True,blank=False)
+    publish = DateTimeField(default=timezone.now,null=True)
+    created = DateTimeField(auto_now_add=True,null=True)
+    updated = DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("main:article_category", kwargs={"post_category": self.name})
+    
     
 
 class Author(Model):

@@ -2,7 +2,7 @@ from django.contrib.sitemaps import Sitemap
 from .models import Post,Category
 
 class PostSitemap(Sitemap):
-    changefreq = 'weekly'
+    changefreq = 'always'
     priority = 0.9
     
     def items(self):
@@ -11,7 +11,7 @@ class PostSitemap(Sitemap):
         return obj.updated
 
 class CategorySitemap(Sitemap):
-    changefreq = 'weekly'
+    changefreq = 'always'
     priority = 0.9
     
     def items(self):

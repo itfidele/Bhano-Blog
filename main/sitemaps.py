@@ -6,7 +6,7 @@ class PostSitemap(Sitemap):
     priority = 0.9
     
     def items(self):
-        return Post.published.all()
+        return Post.published.all().order_by('-publish')
     def lastmod(self, obj):
         return obj.updated
 
@@ -15,6 +15,6 @@ class CategorySitemap(Sitemap):
     priority = 0.9
     
     def items(self):
-        return Category.objects.all()
+        return Category.objects.all().order_by('-publish')
     def lastmod(self, obj):
         return obj.updated

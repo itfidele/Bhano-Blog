@@ -9,7 +9,6 @@ POST_CATEGORY = (
 
 USER_CATEGORY = (
     ('user', 'User'),
-    ('admin', 'Admin'),
 )
 
 STATUS_CHOICES = (

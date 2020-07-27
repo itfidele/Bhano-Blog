@@ -1,5 +1,5 @@
 from django import forms
-from main.models import Post,User,Comment
+from main.models import Post,Comment
 
 class PostForm(forms.ModelForm):
     
@@ -20,13 +20,6 @@ class PostForm(forms.ModelForm):
                 "class":"uniform-input text select2-offscreen",
             })
         }
-
-
-class UserForm(forms.ModelForm):
-    
-    class Meta:
-        model = User
-        fields = ("__all__")
 
 
 class CommentForm(forms.ModelForm):

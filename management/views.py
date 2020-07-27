@@ -2,7 +2,9 @@ from django.shortcuts import render,get_object_or_404,redirect
 from django.contrib.auth.decorators import login_required
 from main.models import Post
 from django.contrib.auth.models import User
-from .forms import PostForm,EditPostForm
+from .forms import PostForm,EditPostForm,UserForm
+from django.contrib.auth.hashers import make_password
+from main.models import Author
 # Create your views here.
 context={}
 
@@ -13,6 +15,10 @@ def index(request):
         post_num=Post.objects.filter(author=user).count
         all_num_posts=Post.objects.all().count
         context['all_num_posts']=all_num_posts
+    if user.is_staff:
+        context['canview']=True
+    else:
+        context['canview']=False
     post_num=Post.objects.filter(author=user).count
     context['post_num']=post_num
     return render(request,'management/index.html',context)
@@ -46,6 +52,7 @@ def new_post(request,pk=None):
                 print("Not now karabaye iyi comment ntibaho")
 
         else:
+            context['add_post']=formpost
             print('Invalid Form')
             
     
@@ -63,3 +70,27 @@ def post_report(request):
     context['user']=user
     return render(request,'management/reports.html',context)
 
+
+@login_required()
+def adduser(request):
+    userform=UserForm()
+    context['userform']=userform
+    if request.method == 'POST':
+        form=UserForm(request.POST)
+        if form.is_valid():
+            insert=form.save(commit=False)
+            insert.save()
+            author=Author()
+            author.user=insert
+            author.added_by=request.user
+            author.save()
+            context['usersuccess']=True
+        else:
+            userform=form
+            context['userform']=userform
+        #print('ahahaha')
+    return render(request,'management/add-user.html',context)
+
+@login_required
+def allusers(request):
+    pass

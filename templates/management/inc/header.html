@@ -19,5 +19,15 @@
                 <li><a href="{% url 'management:post_report' %}">Posts Report</a></li>
             </ul>
         </li>
+        {% if request.user.is_staff %}
+            <li>
+                <a href="#"><i class="icon-pie_chart_outlined"></i> <span class="menu-item">Users Management</span> <span
+                        class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="{% url 'management:adduser' %}">Add User</a></li>
+                    <li><a href="{% url 'management:allusers' %}">All Users</a></li>
+                </ul>
+            </li>
+        {% endif %}
     </ul>
 </div>

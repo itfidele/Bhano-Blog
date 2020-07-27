@@ -32,7 +32,8 @@ class Category(models.Model):
 
 class Author(Model):
     user = ForeignKey(User, on_delete=models.CASCADE)
-    category = models.CharField(max_length=50, choices=USER_CATEGORY)
+    active = models.BooleanField(default=True)
+    added_by = models.ForeignKey(User,on_delete=models.CASCADE,related_name='addedby',null=True)
 
 
     def __str__(self):

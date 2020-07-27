@@ -9,4 +9,6 @@ urlpatterns = [
     path('new_post',new_post, name='new_post'),
     path('edit_post/<int:pk>/',new_post, name='edit_post'),
     path('post_report',post_report, name='post_report'),
+    path('adduser/',adduser, name='adduser'),
+    path('allusers/',allusers, name='allusers'),
 ]

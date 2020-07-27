@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 import os
 from django.utils.text import slugify
 # Create your views here.
-from main.forms import PostForm, UserForm, CommentForm
+from main.forms import PostForm,CommentForm
 from django.views.generic import ListView, DetailView
 from main.models import Post, Comment, Images, Author
 from django.db.models import Q, Count, QuerySet

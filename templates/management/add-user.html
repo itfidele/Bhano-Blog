@@ -1,0 +1,97 @@
+{% extends "management/layout.html" %}
+{% load static %}
+
+{% block stylesheets %}
+<!-- Font Awesome Icons -->
+<link href="{% static 'user/fonts/font-awesome.css' %}" rel="stylesheet" />
+
+<!-- Icomoon Icons -->
+<link href="{% static 'user/fonts/icomoon/icomoon.css' %}" rel="stylesheet" />
+<!-- Wysiwyg CSS -->
+<link href="{% static 'user/css/wysiwyg-editor/editor.css' %}" rel="stylesheet" />
+{% endblock stylesheets %}
+
+
+{% block content %}
+<style>
+    #id_tags {
+        border-radius: 0;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        display: block;
+        width: 100%;
+        border: 1px solid #bfbfbf;
+        height: 40px;
+        padding: 8px 12px;
+    }
+</style>
+<div class="top-bar clearfix">
+    <div class="page-title">
+        <h4>Add User</h4>
+    </div>
+    <ul class="sales-stats hidden-xs">
+        <li>
+            <div class="sales-block hidden-sm hidden-xs"><span id="sale_today"></span></div>
+            <div class="sales-details">
+                <h4>$<span>580</span> <i class="icon-arrow-up-right2 up"></i></h4>
+                <h5>Today's Income</h5>
+            </div>
+        </li>
+        <li>
+            <div class="sales-block hidden-sm hidden-xs"><span id="sale_weekly"></span></div>
+            <div class="sales-details">
+                <h4>$<span>7235</span> <i class="icon-arrow-down-right2 down"></i></h4>
+                <h5>Week's Income</h5>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="main-container">
+    <div class="container-fluid">
+        <div class="row gutter">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="panel panel-blue">
+                    <div class="panel-heading">
+                        <h4>Add User</h4>
+                    </div>
+                    <div class="panel-body">
+                        <form action="." method="POST">
+                            {% if usersuccess %}
+                              <div class="alert alert-success" >
+                                User Added Successfully
+                              </div>
+                            {% endif %}
+                            {% if userform.errors %}
+                                {% for field in userform %}
+                                    {% for error in field.errors %}
+                                    <div class="alert alert-danger">
+                                        <strong>{{ error|escape }}</strong>
+                                    </div>
+                                    {% endfor %}
+                                {% endfor %}
+                                {% for error in userform.non_field_errors %}
+                                    <div class="alert alert-danger">
+                                        <strong>{{ error|escape }}</strong>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+
+                            {% csrf_token %}
+
+                            {{ userform.as_p }}
+
+                            <p>
+                                <button type="submit" name="submit" class="btn btn-md btn-success">
+                                    Add user
+                                </button>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>Copyright Byosehano Admin <span>2020</span>.</footer>
+
+{% endblock content %}

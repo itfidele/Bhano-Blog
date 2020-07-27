@@ -36,7 +36,13 @@ class ArticleDetailView(DetailView):
 
 
 def ArticleDetail(request, category, slug):
-    post = get_object_or_404(Post, category__name=category, slug=slug)
+    try:
+        post = get_object_or_404(Post, category__name=category, slug=slug)
+    except Exception as e:
+        if category == 'Enterntainment':
+            post = get_object_or_404(Post,slug=slug)
+        else:
+            post = get_object_or_404(Post, category__name=category, slug=slug)
     post.views=post.views+1
     post.save()
     # get all comment of a given post

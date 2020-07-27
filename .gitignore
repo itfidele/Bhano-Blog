@@ -1,7 +1,8 @@
-env
+env/
 .idea
 .vscode
 media
 static_root
 db.sqlite3
 static/user/img
+.env

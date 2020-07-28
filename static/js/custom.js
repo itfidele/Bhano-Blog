@@ -1,11 +1,17 @@
 jQuery(function($) {
   "use strict";
+	
+  	$(window).on('load', function() {
+		$('.vfx-loader').delay(400).fadeOut(500);
+	});
+
 
 	/* Mobile Menu */
 	jQuery(".nav.navbar-nav li a").on("click", function() { 
 		jQuery(this).parent("li").find(".utf_dropdown_menu").slideToggle();
 		jQuery(this).find("li i").toggleClass("fa-angle-down fa-angle-up");
 	});
+	
 
 	$('.nav-tabs[data-toggle="tab-hover"] > li > a').hover( function(){
     	$(this).tab('show');

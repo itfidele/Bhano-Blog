@@ -54,6 +54,7 @@
 </head>
 
 <body>
+    {% if not request|is_mobile %}
     <div class="vfx-loader">
         <div class="loader-wrapper">
             <div class="loader-content">
@@ -69,6 +70,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
     
     <div>
 

@@ -320,7 +320,7 @@
                                                 <span class="utf_post_date"><i
                                                         class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span>
                                             </div>
-                                            <p>{{ post.body|slice:":120"|safe }}...</p>
+                                            <p>{{ post.body|striptags|slice:":120"|safe }}...</p>
                                         </div>
                                     </div>
                                 </div>

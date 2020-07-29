@@ -17,6 +17,11 @@
             <ul>
                 <li><a href="{% url 'management:new_post' %}">New Post</a></li>
                 <li><a href="{% url 'management:post_report' %}">Posts Report</a></li>
+                {% if request.user.is_staff %}
+                  <li>
+                      <a href="">Pending Posts</a>
+                  </li>
+                {% endif %}
             </ul>
         </li>
         {% if request.user.is_staff %}

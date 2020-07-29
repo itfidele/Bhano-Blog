@@ -6,7 +6,7 @@ class PostForm(forms.ModelForm):
     
     class Meta:
         model = Post
-        exclude = ("views","author","slug",'publish','post_category','post_from')
+        exclude = ("views","author","slug",'publish','post_category','post_from','status')
 
         widgets={
             'title':forms.TextInput(attrs={'class':'form-control'}),

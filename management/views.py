@@ -79,6 +79,8 @@ def adduser(request):
         form=UserForm(request.POST)
         if form.is_valid():
             insert=form.save(commit=False)
+            password=form.cleaned_data.get('password')
+            insert.set_password(password)
             insert.save()
             author=Author()
             author.user=insert

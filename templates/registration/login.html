@@ -18,6 +18,20 @@
 </head>
 
 <body>
+    {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
     <form action="." method="POST" id="wrapper">
         {% csrf_token %}
         <div id="box" class="animated bounceIn">
@@ -25,6 +39,7 @@
                 <h3><img src="{% static 'logo.png' %}" alt="Logo"></h3>
                 <h5>Sign in to continue to your<br>ByoseHano Account.</h5>
             </div>
+            
             <div id="inputs">
                 <div class="form-control"><input type="text" name="username" placeholder="Username"> <i class="icon-email"></i></div>
                 <div class="form-control"><input type="password" name="password" placeholder="Password"> <i class="icon-lock2"></i>

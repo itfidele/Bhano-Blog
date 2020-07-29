@@ -27,14 +27,14 @@
         <li>
             <div class="sales-block hidden-sm hidden-xs"><span id="sale_today"></span></div>
             <div class="sales-details">
-                <h4>$<span>580</span> <i class="icon-arrow-up-right2 up"></i></h4>
+                <h4>Rwf<span>0</span> <i class="icon-arrow-up-right2 up"></i></h4>
                 <h5>Today's Income</h5>
             </div>
         </li>
         <li>
             <div class="sales-block hidden-sm hidden-xs"><span id="sale_weekly"></span></div>
             <div class="sales-details">
-                <h4>$<span>7235</span> <i class="icon-arrow-down-right2 down"></i></h4>
+                <h4>Rwf<span>0</span> <i class="icon-arrow-down-right2 down"></i></h4>
                 <h5>Week's Income</h5>
             </div>
         </li>
@@ -93,7 +93,10 @@
                                         <td>{{ report.views }}</td>
                                         <td>{{ report.comments.count }}</td>
                                         <td>
-                                            <a href="{{ report.get_absolute_url }}" style="color:green">View post</a> &nbsp; <a href="{% url 'management:edit_post' report.id %}">Edit</a>
+                                            <a href="{{ report.get_absolute_url }}" style="color:green">View post</a> 
+                                            {% if request.user.is_staff %}
+                                                &nbsp; <a href="{% url 'management:edit_post' report.id %}">Edit</a>
+                                            {% endif %}
                                         </td>
                                     </tr>
                                     {% endfor %}

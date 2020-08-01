@@ -4,29 +4,29 @@
         <i class="icon-dehaze"></i></button>
     <div class="logo"><a href="{% url 'web:index' %}"><img src="{% static 'logo.png' %}" alt="Byosehano"></a></div>
     <div class="user-info">
-        <div class="user-img"><img src="{% static 'circled-logo.png' %}" alt="User Info"> <span class="likes-info">0</span></div>
+        <div class="user-img"><img src="{% static 'circled-logo.png' %}" alt="{{ request.user.username }}"> <span class="likes-info">0</span></div>
         <h5 class="user-name-o">{{ request.user.username|title }}</h5>
         <p class="profile-complete">Profile Complete - 100%</p>
     </div>
     <ul class="menu clearfix">
-        <li><a href="{% url 'management:index' %}"><i class="icon-format_color_text"></i> <span
+        <li><a href="{% url 'management:index' %}"><i class="icon-home2"></i> <span
             class="menu-item">Dashboard</span></a></li>
         <li>
-            <a href="#"><i class="icon-pie_chart_outlined"></i> <span class="menu-item">Posts Management</span> <span
+            <a href="#"><i class="icon-write"></i> <span class="menu-item">Posts Management</span> <span
                     class="down-arrow"></span></a>
             <ul>
                 <li><a href="{% url 'management:new_post' %}">New Post</a></li>
                 <li><a href="{% url 'management:post_report' %}">Posts Report</a></li>
                 {% if request.user.is_staff %}
                   <li>
-                      <a href="#">Pending Posts</a>
+                      <a href="{% url 'management:pending_report' %}">Pending Posts</a>
                   </li>
                 {% endif %}
             </ul>
         </li>
         {% if request.user.is_staff %}
             <li>
-                <a href="#"><i class="icon-pie_chart_outlined"></i> <span class="menu-item">Users Management</span> <span
+                <a href="#"><i class="icon-user2"></i> <span class="menu-item">Users Management</span> <span
                         class="down-arrow"></span></a>
                 <ul>
                     <li><a href="{% url 'management:adduser' %}">Add User</a></li>
@@ -34,5 +34,11 @@
                 </ul>
             </li>
         {% endif %}
+        <li>
+            <a href="#"><i class="icon-perm_data_setting"></i><span class="menu-item">Settings</span></a>
+        </li>
+        <li>
+            <a href="/accounts/logout"><i class="icon-log-out"></i><span class="menu-item">Logout</span></a>
+        </li>
     </ul>
 </div>

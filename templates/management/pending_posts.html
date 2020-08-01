@@ -21,24 +21,8 @@
 
 <div class="top-bar clearfix">
     <div class="page-title">
-        <h4>Dynamic Tables</h4>
+        <h4>Report -</h4>
     </div>
-    <ul class="sales-stats hidden-xs">
-        <li>
-            <div class="sales-block hidden-sm hidden-xs"><span id="sale_today"></span></div>
-            <div class="sales-details">
-                <h4>$<span>580</span> <i class="icon-arrow-up-right2 up"></i></h4>
-                <h5>Today's Income</h5>
-            </div>
-        </li>
-        <li>
-            <div class="sales-block hidden-sm hidden-xs"><span id="sale_weekly"></span></div>
-            <div class="sales-details">
-                <h4>$<span>7235</span> <i class="icon-arrow-down-right2 down"></i></h4>
-                <h5>Week's Income</h5>
-            </div>
-        </li>
-    </ul>
 </div>
 <div class="main-container">
     <div class="container-fluid">
@@ -55,36 +39,43 @@
                                 cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
+                                        <th>Post Image</th>
                                         <th>Title</th>
                                         <th>Category</th>
-                                        <th>Published</th>
-                                        <th>Views</th>
-                                        <th>Comments</th>
+                                        <th>Status</th>
+                                        <th>Post By</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
+                                        <th>Post Image</th>
                                         <th>Title</th>
                                         <th>Category</th>
-                                        <th>Published on</th>
-                                        <th>Views</th>
-                                        <th>Comments</th>
-                                        <th>Action</th>
+                                        <th>Status</th>
+                                        <th>Status</th>
+                                        <th>Post by</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                     {% for report in post_reports %}
                                     <tr>
-                                        <td title="{{ report.title }}">{{ report.title|slice:":50" }}...</td>
+                                        <td>
+                                            <img src="{{ report.thumbnail.url }}" width="50" alt="">
+                                        </td>
+                                        <td title="{{ report.title }}">{{ report.title }}</td>
                                         <td>
                                             <span class="label label-danger">{{ report.category.name }}</span>
                                         </td>
-                                        <td>{{ report.publish|naturalday }}</td>
-                                        <td>{{ report.views }}</td>
-                                        <td>{{ report.comments.count }}</td>
                                         <td>
-                                            <a href="#" style="color: red;">Approve</a> &nbsp; <a href="#">Edit</a>
+                                            <label for="" class="label label-warning">Draft</label>
+                                        </td>
+                                        <td>{{ report.author.username }}</td>
+                                        <td>
+                                            <a href="{{ report.get_absolute_url }}" style="color:green"> View post</a> 
+                                            {% if request.user.is_staff %}
+                                                &nbsp; <a href="{% url 'management:edit_post' report.id %}">Edit</a>
+                                            {% endif %}
                                         </td>
                                     </tr>
                                     {% endfor %}

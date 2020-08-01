@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'Bhano.wsgi.application'
 
 
 LOGIN_REDIRECT_URL = '/author/'
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/author/'
 LOGIN_URL = '/accounts/login/'
 
 # Database

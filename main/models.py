@@ -49,11 +49,17 @@ class PublishedManager(models.Manager):
     def get_queryset(self):
         return super(PublishedManager,self).get_queryset().filter(status='published')
 
+class DraftsManager(models.Manager):
+    def get_queryset(self):
+        return super(DraftsManager,self).get_queryset().filter(status='draft')
+
 
 class Post(Model):
 
     objects = models.Manager() # The default manager.
     published = PublishedManager() # Our custom manager.
+    draft = DraftsManager() # Our custom manager.
+
     title = CharField(max_length=250,unique=True)
     thumbnail = ImageField(upload_to='uploads/%Y/%m/%d')
     slug = AutoSlugField(populate_from='title',unique=True,unique_for_date='publish', null=True)

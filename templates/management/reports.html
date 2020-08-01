@@ -21,24 +21,8 @@
 
 <div class="top-bar clearfix">
     <div class="page-title">
-        <h4>Dynamic Tables</h4>
+        <h4>Report</h4>
     </div>
-    <ul class="sales-stats hidden-xs">
-        <li>
-            <div class="sales-block hidden-sm hidden-xs"><span id="sale_today"></span></div>
-            <div class="sales-details">
-                <h4>Rwf<span>0</span> <i class="icon-arrow-up-right2 up"></i></h4>
-                <h5>Today's Income</h5>
-            </div>
-        </li>
-        <li>
-            <div class="sales-block hidden-sm hidden-xs"><span id="sale_weekly"></span></div>
-            <div class="sales-details">
-                <h4>Rwf<span>0</span> <i class="icon-arrow-down-right2 down"></i></h4>
-                <h5>Week's Income</h5>
-            </div>
-        </li>
-    </ul>
 </div>
 <div class="main-container">
     <div class="container-fluid">
@@ -78,7 +62,7 @@
                                 <tbody>
                                     {% for report in post_reports %}
                                     <tr>
-                                        <td title="{{ report.title }}">{{ report.title|slice:":50" }}...</td>
+                                        <td title="{{ report.title }}">{{ report.title }}</td>
                                         <td>
                                             <span class="label label-danger">{{ report.category.name }}</span>
                                         </td>

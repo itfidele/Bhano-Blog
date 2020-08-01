@@ -49,13 +49,10 @@ def new_post(request,pk=None):
                 formpost.save_m2m()
                 context['success_post'] = '<div class="alert alert-success">Post yawe yageze Kuri Website, Komeza ushyireho Inkuru nyinshi... Murakoze </div>'
             else:
-                print("Not now karabaye iyi comment ntibaho")
+                context['add_post']=formpost
 
         else:
             context['add_post']=formpost
-            print('Invalid Form')
-            
-    
 
     return render(request,'management/new_post.html',context)
 
@@ -95,4 +92,20 @@ def adduser(request):
 
 @login_required
 def allusers(request):
-    pass
+    users=User.objects.filter(is_staff=False)
+    context['users']=users
+
+    return render(request,'management/all-users.html',context)
+
+
+@login_required()
+def pending_report(request):
+    user=User.objects.get(id=request.user.id)
+    if user.is_superuser == True:
+        post=Post.draft.all()
+    else:
+        post=Post.draft.all()
+    context['post_reports']=post
+    context['user']=user
+    return render(request,'management/pending_posts.html',context)
+

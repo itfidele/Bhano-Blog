@@ -84,6 +84,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Bhano.wsgi.application'
 
 
+
+LOGIN_REDIRECT_URL = '/author/'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/accounts/login/'
+
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 

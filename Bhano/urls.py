@@ -22,7 +22,7 @@ from main.sitemaps import PostSitemap,CategorySitemap
 from main.feeds import LatestPostsFeed
 from web.views import coronovirus_report
 sitemaps = {
-    'category':CategorySitemap,
+    #'category':CategorySitemap,
     'posts': PostSitemap,
 }
 

@@ -65,97 +65,12 @@
                             <li> <a href="{% url 'main:article_category' 'Ubuzima' %}">👩‍⚕️Ubuzima</a> </li>
                             <li> <a href="{% url 'main:article_category' 'Ikoranabuhanga' %}">📲 Ikoranabuhanaga</a>
                             </li>
-                            <li class="nav-item dropdown utf_mega_dropdown"><a href="#">✨ Andi makuru</a>
-                                <div class="utf_dropdown_menu utf_mega_menu_content clearfix">
-                                    <div class="menu-tab">
-                                        <div class="row">
-                                            <ul class="nav nav-tabs flex-column col-2" data-toggle="tab-hover">
-                                                <li class="nav-item"> <a class="animated fadeIn active" href="#tan_one"
-                                                        data-toggle="tab"> <span class="tab-head"> <span
-                                                                class="tab-text-title"><i
-                                                                    class="fa fa-angle-double-right"></i>Hirya no
-                                                                Hino</span>
-                                                        </span> </a> </li>
-                                                <li class="nav-item"> <a class="animated fadeIn" href="#tab-two"
-                                                        data-toggle="tab"> <span class="tab-head"> <span
-                                                                class="tab-text-title"><i
-                                                                    class="fa fa-angle-double-right"></i>Sobanukirwa</span>
-                                                        </span> </a> </li>
-                                                <li class="nav-item"> <a class="animated fadeIn" href="#tab-three"
-                                                        data-toggle="tab"> <span class="tab-head"> <span
-                                                                class="tab-text-title"><i
-                                                                    class="fa fa-angle-double-right"></i>Urukundo</span>
-                                                        </span> </a> </li>
-                                            </ul>
-                                            <div class="tab-content col-10">
-                                                <div class="tab-pane fade show active" id="tab-one">
-                                                    <div class="row">
-                                                        {% for post in hiryanohino|slice:":4" %}
-                                                        <div class="col-md-3">
-                                                            <div class="utf_post_block_style clearfix">
-                                                                <div class="utf_post_thumb"> <a href="#"><img
-                                                                            class="img-fluid"
-                                                                            src="{{ post.thumbnail.url }}" alt=""></a>
-                                                                </div>
-                                                                <a class="utf_post_cat"
-                                                                    href="#">{{ post.category.name }}</a>
-                                                                <div class="utf_post_content">
-                                                                    <h2 class="utf_post_title title-small"> <a
-                                                                            href="{{ post.get_absolute_url }}">{{ post.title|slice:":70" }}...</a>
-                                                                    </h2>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        {% endfor %}
-                                                    </div>
-                                                </div>
-
-                                                <div class="tab-pane animated fadeIn" id="tab-two">
-                                                    <div class="row">
-                                                        {% for post in sobanukirwas|slice:":4" %}
-                                                        <div class="col-md-3">
-                                                            <div class="utf_post_block_style clearfix">
-                                                                <div class="utf_post_thumb"> <a href="#"><img
-                                                                            class="img-fluid"
-                                                                            src="{{ post.thumbnail.url }}" alt=""></a>
-                                                                </div>
-                                                                <a class="utf_post_cat"
-                                                                    href="#">{{ post.category.name }}</a>
-                                                                <div class="utf_post_content">
-                                                                    <h2 class="utf_post_title title-small"> <a
-                                                                            href="{{ post.get_absolute_url }}">{{ post.title|slice:":70" }}...</a>
-                                                                    </h2>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        {% endfor %}
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane animated fadeIn" id="tab-three">
-                                                    <div class="row">
-                                                        {% for post in urukundo|slice:":4" %}
-                                                        <div class="col-md-3">
-                                                            <div class="utf_post_block_style clearfix">
-                                                                <div class="utf_post_thumb"> <a href="#"><img
-                                                                            class="img-fluid"
-                                                                            src="{{ post.thumbnail.url }}" alt=""></a>
-                                                                </div>
-                                                                <a class="utf_post_cat"
-                                                                    href="#">{{ post.category.name }}</a>
-                                                                <div class="utf_post_content">
-                                                                    <h2 class="utf_post_title title-small"> <a
-                                                                            href="{{ post.get_absolute_url }}">{{ post.title|slice:":70" }}...</a>
-                                                                    </h2>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        {% endfor %}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <li class="nav-item dropdown"><a href="#">✨ Andi makuru</a>
+                                <ul class="utf_dropdown_menu" role="menu">
+                                    <li><a href="{% url 'main:article_category' 'Sobanukirwa' %}"><i class="fa fa-angle-double-right"></i>Sobanukirwa</a></li>
+                                    <li><a href="{% url 'main:article_category' 'Urukundo' %}"><i class="fa fa-angle-double-right"></i>Urukundo</a></li>
+                                    <li><a href="{% url 'main:article_category' 'Hirya no Hino' %}"><i class="fa fa-angle-double-right"></i>Hirya no Hino</a></li>
+                                  </ul>
                             </li>
                         </ul>
                     </div>

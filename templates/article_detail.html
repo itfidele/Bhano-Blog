@@ -56,7 +56,7 @@
             <div class="single-post">
               <div class="post-media post-featured-image"> <img src="{{ post.thumbnail.url }}" class="img-fluid" alt=""> </div>
               <div class="utf_post_title-area"> <a class="utf_post_cat" href="#">{{ post.category.name }}</a>
-                <h2 class="utf_post_title">{{ post.title|title }}</h2>
+                <h1 class="utf_post_title">{{ post.title|title }}</h1>
                 <div class="utf_post_meta"> <span class="utf_post_author"> By <a href="#">{{ post.author.username|title }}</a> </span> <span class="utf_post_date"><i class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span> <span class="post-hits"><i class="fa fa-eye"></i>{{ post.views }}</span> <span class="post-comment"><i class="fa fa-comments-o"></i> <a href="#" class="comments-link"><span>{{ post.comments.count }}</span></a></span> </div>
 
                 <!-- Go to www.addthis.com/dashboard to customize your tools -->

@@ -2,6 +2,24 @@
 {% load static %}
 {% load humanize %}
 
+{% block metadatas %}
+<title>{{ post.category.name }} - {{ post.title }}</title>
+<meta name="title" content="Byosehano | {{ menu_title }}">
+<meta name="description" content="{{ post.body|striptags|slice:':200' }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://byosehano.com{{ post.get_absolute_url }}">
+<meta property="og:title" content="{{ menu_title }}">
+<meta property="og:description" content="{{ post.body|striptags|slice:':200' }}">
+<meta property="og:image" content="https://byosehano.com{{ post.thumbnail.url }}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://byosehano.com{{ post.get_absolute_url }}">
+
+<meta property="twitter:title" content="{{ menu_title }}">
+{% endblock metadatas %}
 
 
 {% block content %}

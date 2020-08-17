@@ -40,10 +40,11 @@ def ArticlesByTag(request, tag_slug):
     posts = Post.objects.all()
     # context={}
     tag = None
-    context['menu_title']='Tags'
+    
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
         posts = posts.filter(tags__in=[tag])
+        context['menu_title']=tag_slug
     context['posts'] = posts
     return render(request, 'article_category.html', context)
 

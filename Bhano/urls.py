@@ -20,6 +20,7 @@ from django.conf import settings
 from django.contrib.sitemaps.views import sitemap
 from main.sitemaps import PostSitemap,CategorySitemap
 from main.feeds import LatestPostsFeed
+from django.views.generic import TemplateView
 from web.views import coronovirus_report
 sitemaps = {
     #'category':CategorySitemap,
@@ -34,6 +35,7 @@ urlpatterns = [
     path('category/',include('main.urls')),
     path("author/",include('management.urls',namespace='management')),
     path('',include('web.urls')),
+    path('ads.txt',TemplateView.as_view(template_name="ads.txt")),
     path('feed/', LatestPostsFeed(), name='post_feed'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('coronovirus/',coronovirus_report,name='coronovirus'),

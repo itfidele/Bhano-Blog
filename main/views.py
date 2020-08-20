@@ -61,7 +61,7 @@ def ArticleDetail(request, category, slug):
     context['post'] = post
     context['form_comment'] = CommentForm()
     context['comments'] = comments
-
+    context['popular_tags']=Post.tags.most_common()[:8]
     try:
         next_post = Post.get_next_by_publish(post)
         context['next_post'] = next_post

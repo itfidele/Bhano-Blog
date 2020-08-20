@@ -3,7 +3,7 @@ from main.models import Post
 from taggit.models import Tag
 # Create your views here.
 context={}
-context['popular_news']=Post.objects.all().order_by('-views')[:6]
+context['popular_news']=Post.objects.all().order_by('-publish','-views')[:6]
 
 def index(request):
 

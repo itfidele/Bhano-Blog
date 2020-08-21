@@ -32,13 +32,16 @@
             </div>
             {% if forloop.counter == 4 %}
         </div>
-        <div class="gap-40"></div>
-        <!-- home_responsive_ad -->
+        <div class="gap-40">
+            <!-- home_responsive_ad -->
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3242762948116825"
-            data-ad-slot="9578311895" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        data-ad-slot="9578311895" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        </div>
         
         <div class="row">
             {% endif %}
+
+
             {% endfor %}
         </div>
     </div>
@@ -64,12 +67,6 @@
 
                                             {% for post in amakurumashya|slice:":6" %}
 
-                                                {% if forloop.counter|divisibleby:3  %}
-                                                    <ins class="adsbygoogle" style="display:block" data-ad-format="fluid"
-                                                    data-ad-layout-key="-hx-v-z-56+l6"
-                                                    data-ad-client="ca-pub-3242762948116825"
-                                                    data-ad-slot="7937927161"></ins>
-                                                {% endif %}
                                             <li class="clearfix">
                                                 <div class="utf_post_block_style post-float clearfix">
                                                     <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"

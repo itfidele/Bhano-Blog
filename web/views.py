@@ -8,7 +8,7 @@ context['popular_news']=Post.objects.all().order_by('-publish','-views')[:6]
 def index(request):
 
     posts = Post.published.all().order_by('-publish')[:8]
-    amakurumashya = Post.published.all().order_by('-publish')
+    amakurumashya = Post.published.all().order_by('-publish')[:8]
     politiki=Post.published.filter(category__name='Politiki').order_by('-publish')[:5]
     imikino=Post.published.filter(category__name='Imikino').order_by('-publish')[:8]
     sobanukirwas=Post.published.filter(category__name='Sobanukirwa').order_by('-publish')[:8]

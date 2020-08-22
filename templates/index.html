@@ -170,7 +170,7 @@
                     <h3 class="utf_block_title"><span>Imyindagaduro</span></h3>
                     <div class="utf_list_post_block">
                         <ul class="utf_list_post">
-                            {% for post in enterntainment|slice:":5" %}
+                            {% for post in enterntainment|safe|slice:":5" %}
 
                             <li class="clearfix">
                                 <div class="utf_post_block_style post-float clearfix">
@@ -181,7 +181,7 @@
                                         <h2 class="utf_post_title title-small"> <a href="{{ post.get_absolute_url }}"
                                                 title="{{ post.title }}">{{ post.title|slice:":50" }}...</a> </h2>
                                         
-                                            {{ post.body|striptags|slice:':100' }}...
+                                            {{ post.body|striptags|safe|slice:':100' }}...
                                         
                                         <div class="utf_post_meta"> <span class="utf_post_author"><i
                                                     class="fa fa-user"></i>

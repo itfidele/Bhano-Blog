@@ -150,6 +150,8 @@
                                     <div class="utf_post_content">
                                         <h2 class="utf_post_title title-small"> <a href="{{ post.get_absolute_url }}"
                                                 title="{{ post.title }}">{{ post.title|slice:":50" }}...</a> </h2>
+
+                                                <div class="utf_post_meta">
                                                 {{ post.body|striptags|safe|slice:':110' }}...
                                         </div>
                                     </div>

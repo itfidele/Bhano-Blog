@@ -13,9 +13,8 @@
                 <ul class="unstyled">
                     <li> <a title="Facebook" href="https://fb.me/byosehano"> <span class="social-icon"><i
                                     class="fa fa-facebook"></i></span>
-                            <!--</a> <a title="Twitter" href="#"> <span class="social-icon"><i class="fa fa-twitter"></i></span>
-                        </a><a title="Linkdin" href="#"> <span class="social-icon"><i
-                                        class="fa fa-linkedin"></i></span>--> </a> <a title="Rss"
+                            </a> <a title="Twitter" target="_blank" href="https://twitter.com/byosehano"> <span class="social-icon"><i class="fa fa-twitter"></i></span>
+                        </a></a> <a title="Rss"
                                 href="https://byosehano.com/feed" target="_blank">
                                 <span class="social-icon"><i class="fa fa-rss"></i></span> </a> <a title="Instagram"
                                 href="https://instagram.com/byosehano" target="_blank">
@@ -70,6 +69,8 @@
                             </li>
                             <li class="nav-item dropdown"><a href="#">✨ Andi makuru</a>
                                 <ul class="utf_dropdown_menu" role="menu">
+                                    <li><a href="{% url 'main:article_category' 'Umuco' %}"><i class="fa fa-angle-double-right"></i>Umuco</a></li>
+                                    <li><a href="{% url 'main:article_category' 'Ntibisanzwe' %}"><i class="fa fa-angle-double-right"></i>Ntibisanzwe</a></li>
                                     <li><a href="{% url 'main:article_category' 'Sobanukirwa' %}"><i class="fa fa-angle-double-right"></i>Sobanukirwa</a></li>
                                     <li><a href="{% url 'main:article_category' 'Urukundo' %}"><i class="fa fa-angle-double-right"></i>Urukundo</a></li>
                                     <li><a href="{% url 'main:article_category' 'Hirya no Hino' %}"><i class="fa fa-angle-double-right"></i>Hirya no Hino</a></li>

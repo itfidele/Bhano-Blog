@@ -181,7 +181,7 @@
                                         <h2 class="utf_post_title title-small"> <a href="{{ post.get_absolute_url }}"
                                                 title="{{ post.title }}">{{ post.title|slice:":50" }}...</a> </h2>
                                         
-                                            {{ post.body|striptags|safe|slice:':100' }}...
+                                            {{ post.body|safe|striptags|slice:':100' }}...
                                         
                                         <div class="utf_post_meta"> <span class="utf_post_author"><i
                                                     class="fa fa-user"></i>

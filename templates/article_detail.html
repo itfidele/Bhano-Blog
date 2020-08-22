@@ -180,6 +180,31 @@
 
       <div class="col-lg-4 col-md-12">
         <div class="sidebar utf_sidebar_right">
+          
+          <div class="widget color-default">
+            <h3 class="utf_block_title"><span>Izindi wasoma</span></h3>
+            <div class="utf_list_post_block">
+              <ul class="utf_list_post">
+                {% for post in similar_posts %}
+                <li class="clearfix">
+                  <div class="utf_post_block_style post-float clearfix">
+                    <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid" src="{{ post.thumbnail.url }}"
+                          alt="{{ post.title }}"> </a></div>
+                    <div class="utf_post_content">
+                      <h2 class="utf_post_title title-small"> <a
+                          href="{{ post.get_absolute_url }}">{{ post.title|title|slice:"70" }}...</a> </h2>
+                      <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> <a
+                            href="#">{{ post.author.username|title }}</a></span> <span class="utf_post_date"><i
+                            class="fa fa-eye"></i>
+                          {{ post.views }}</span> </div>
+                    </div>
+                  </div>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
           <div class="widget m-bottom-0">
             <h3 class="utf_block_title"><span>Like our Page</span></h3>
             <div class="utf_newsletter_block">
@@ -205,31 +230,7 @@
 
           </div>
 
-          <div class="widget color-default">
-            <h3 class="utf_block_title"><span>Izindi wasoma</span></h3>
-            <div class="utf_list_post_block">
-              <ul class="utf_list_post">
-                {% for post in similar_posts %}
-                <li class="clearfix">
-                  <div class="utf_post_block_style post-float clearfix">
-                    <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid" src="{{ post.thumbnail.url }}"
-                          alt="{{ post.title }}"> </a></div>
-                    <div class="utf_post_content">
-                      <h2 class="utf_post_title title-small"> <a
-                          href="{{ post.get_absolute_url }}">{{ post.title|title|slice:"70" }}...</a> </h2>
-                      <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> <a
-                            href="#">{{ post.author.username|title }}</a></span> <span class="utf_post_date"><i
-                            class="fa fa-eye"></i>
-                          {{ post.views }}</span> </div>
-                    </div>
-                  </div>
-                </li>
-                {% endfor %}
-              </ul>
-            </div>
-          </div>
-
-          <div class="widget text-center"> <img class="banner img-fluid" src="#" alt="Advertise here"> </div>
+        
           <div class="widget widget-tags">
             <h3 class="utf_block_title"><span>Ibyakunzwe</span></h3>
             <ul class="unstyled clearfix">

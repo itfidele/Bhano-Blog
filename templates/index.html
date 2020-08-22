@@ -172,7 +172,7 @@
                         <ul class="utf_list_post">
                             {% for post in enterntainment|slice:":5" %}
 
-                            <li class="clearfix">
+                            <li>
                                 <div class="utf_post_block_style post-float clearfix">
                                     <div class="utf_post_thumb"> <a href="{{ post.get_absolute_url }}"> <img
                                                 class="img-fluid" src="{{ post.thumbnail.url }}" alt="{{ post.title }}">
@@ -190,6 +190,9 @@
                                                     class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span></div>
                                     </div>
                                 </div>
+                            </li>
+                            <li class="clearfix">
+                                
                             </li>
                             {% endfor %}
 

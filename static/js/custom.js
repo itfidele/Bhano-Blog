@@ -3,7 +3,7 @@ jQuery(function($) {
   "use strict";
 	
   	$(window).on('load', function() {
-		$('.vfx-loader').delay(100).fadeOut(200);
+		$('.vfx-loader').delay(10).fadeOut(20);
 	});
 
 

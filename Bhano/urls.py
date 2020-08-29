@@ -38,6 +38,7 @@ urlpatterns = [
     path('ads.txt',TemplateView.as_view(template_name="ads.txt")),
     path('feed/', LatestPostsFeed(), name='post_feed'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('search/',TemplateView.as_view(template_name="search.html")),
     path('coronovirus/',coronovirus_report,name='coronovirus'),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

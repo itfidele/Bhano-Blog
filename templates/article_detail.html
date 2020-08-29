@@ -23,9 +23,11 @@
 <meta property="twitter:title" content="{{ post.title }}">
 <meta property="twitter:description" content="{{ post.body|striptags|slice:':200' }}">
 <meta property="twitter:image" content="https://byosehano.com{{ post.thumbnail.url }}">
-<script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d76150985115dd4"></script>
 {% endblock metadatas %}
 
+{% block dij %}
+<script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d76150985115dd4"></script>
+{% endblock dij %}
 
 {% block content %}
 

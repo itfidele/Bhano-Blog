@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from main.models import Post
 from taggit.models import Tag
+
 # Create your views here.
 context={}
 context['popular_news']=Post.objects.all().order_by('-views','-publish')[:6]
@@ -8,7 +9,11 @@ context['popular_news']=Post.objects.all().order_by('-views','-publish')[:6]
 def index(request):
 
     posts = Post.published.all().order_by('-publish')[:8]
-    amakurumashya = Post.published.all().order_by('-publish')[:8]
+    
+    if request.user_agent.is_mobile:
+        amakurumashya = Post.published.all().order_by('-publish')[:16]
+    else:
+        amakurumashya = Post.published.all().order_by('-publish')[:8]
     politiki=Post.published.filter(category__name='Politiki').order_by('-publish')[:5]
     imikino=Post.published.filter(category__name='Imikino').order_by('-publish')[:8]
     sobanukirwas=Post.published.filter(category__name='Sobanukirwa').order_by('-publish')[:8]

@@ -12,6 +12,10 @@ from taggit.models import Tag
 from django.contrib.auth.models import User
 from .categories import POST_CATEGORY
 from taggit.models import Tag
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.template import loader
+from django.http import JsonResponse
+
 # get user IP
 #from django.contrib.gis.geoip2 import GeoIP2
 
@@ -138,3 +142,30 @@ def ArticleCategory(request, post_category=None):
     #context['tags'] = tags
     context['menu_title']=post_category
     return render(request, 'article_category.html', context)
+
+
+def lazy_load_posts(request):
+    page = request.POST.get('page')
+    posts = Post.published.all().order_by('-publish')
+    # use Django's pagination
+    # https://docs.djangoproject.com/en/dev/topics/pagination/
+    results_per_page = 4
+    paginator = Paginator(posts, results_per_page)
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(2)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+    # build a html posts list with the paginated posts
+    posts_html = loader.render_to_string(
+        'inc/posts.html',
+        {'amakurumashya': posts}
+    )
+    # package output data and return it as a JSON object
+    output_data = {
+        'posts_html': posts_html,
+        'has_next': posts.has_next()
+    }
+
+    return JsonResponse(output_data)

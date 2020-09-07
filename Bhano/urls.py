@@ -22,6 +22,7 @@ from main.sitemaps import PostSitemap,CategorySitemap
 from main.feeds import LatestPostsFeed
 from django.views.generic import TemplateView
 from web.views import coronovirus_report
+from main.views import lazy_load_posts
 sitemaps = {
     #'category':CategorySitemap,
     'posts': PostSitemap,
@@ -40,5 +41,6 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('search/',TemplateView.as_view(template_name="search.html")),
     path('coronovirus/',coronovirus_report,name='coronovirus'),
+    path('lazy_load_posts/', lazy_load_posts, name='lazy_load_posts'),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

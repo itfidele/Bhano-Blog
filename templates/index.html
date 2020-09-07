@@ -5,7 +5,6 @@
 
 
 {% block dij %}
-{% if not request|is_mobile %}
 <script>
     window.CSRF_TOKEN = "{{ csrf_token }}";
     (function ($) {
@@ -45,48 +44,6 @@
         });
     }(jQuery));
 </script>
-{% else %}
-<script>
-    window.CSRF_TOKEN = "{{ csrf_token }}";
-
-    $(window).scroll(function () {
-        if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-            var link = $("#lazyLoadLink");
-            var page = link.data('page');
-            $.ajax({
-                type: 'post',
-                url: '/lazy_load_posts/',
-                data: {
-                    'page': page,
-                    'csrfmiddlewaretoken': window.CSRF_TOKEN // from index.html
-                },
-                beforeSend:function (){
-                    $("#lazyLoadLink").html("tegereza gato...");
-                },
-                success: function (data) {
-                    // if there are still more pages to load,
-                    // add 1 to the "Load More Posts" link's page data attribute
-                    // else hide the link
-                    if (data.has_next) {
-                        link.data('page', page + 1);
-                    } else {
-                        link.hide();
-                    }
-                    var ade="<ins class='adsbygoogle'style='display:block'data-ad-client='ca-pub-3242762948116825'data-ad-slot='2782038480'data-ad-format='auto'data-full-width-responsive='true'></ins>";
-
-                    var fi = "</div><div class='gap-40'></div><div class='row'>"+ade;
-                    // append html to the posts div
-                    $('#posts').append(data.posts_html + fi);
-                    $("#lazyLoadLink").html("izindi nkuru");
-                },
-                error: function (xhr, status, error) {
-                    // shit happens friends!
-                }
-            });
-        }
-    });
-</script>
-{% endif %}
 
 {% endblock dij %}
 

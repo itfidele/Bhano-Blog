@@ -149,6 +149,12 @@ def lazy_load_posts(request):
     posts = Post.published.all().order_by('-publish')
     # use Django's pagination
     # https://docs.djangoproject.com/en/dev/topics/pagination/
+
+    if request.user_agent.is_mobile:
+        results_per_page = 8
+    else:
+        results_per_page = 16
+
     results_per_page = 4
     paginator = Paginator(posts, results_per_page)
     try:

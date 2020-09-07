@@ -11,9 +11,9 @@ def index(request):
     posts = Post.published.all().order_by('-publish')[:8]
     
     if request.user_agent.is_mobile:
-        amakurumashya = Post.published.all().order_by('-publish')[:16]
-    else:
         amakurumashya = Post.published.all().order_by('-publish')[:8]
+    else:
+        amakurumashya = Post.published.all().order_by('-publish')[:16]
     politiki=Post.published.filter(category__name='Politiki').order_by('-publish')[:5]
     imikino=Post.published.filter(category__name='Imikino').order_by('-publish')[:8]
     sobanukirwas=Post.published.filter(category__name='Sobanukirwa').order_by('-publish')[:8]

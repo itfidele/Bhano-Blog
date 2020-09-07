@@ -19,6 +19,9 @@
                     'page': page,
                     'csrfmiddlewaretoken': window.CSRF_TOKEN // from index.html
                 },
+                beforeSend:function (){
+                    $("#lazyLoadLink").html("tegereza gato...");
+                },
                 success: function (data) {
                     // if there are still more pages to load,
                     // add 1 to the "Load More Posts" link's page data attribute
@@ -31,6 +34,7 @@
                     var fi = "</div><div class='gap-40'></div><div class='row'>";
                     // append html to the posts div
                     $('#posts').append(data.posts_html + fi);
+                    $("#lazyLoadLink").html("izindi nkuru");
                 },
                 error: function (xhr, status, error) {
                     // shit happens friends!
@@ -54,6 +58,9 @@
                     'page': page,
                     'csrfmiddlewaretoken': window.CSRF_TOKEN // from index.html
                 },
+                beforeSend:function (){
+                    $("#lazyLoadLink").html("tegereza gato...");
+                },
                 success: function (data) {
                     // if there are still more pages to load,
                     // add 1 to the "Load More Posts" link's page data attribute
@@ -66,6 +73,7 @@
                     var fi = "</div><div class='gap-40'></div><div class='row'>";
                     // append html to the posts div
                     $('#posts').append(data.posts_html + fi);
+                    $("#lazyLoadLink").html("izindi nkuru");
                 },
                 error: function (xhr, status, error) {
                     // shit happens friends!

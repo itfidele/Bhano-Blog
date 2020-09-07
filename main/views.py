@@ -151,7 +151,7 @@ def lazy_load_posts(request):
     # https://docs.djangoproject.com/en/dev/topics/pagination/
 
     if request.user_agent.is_mobile:
-        results_per_page = 1
+        results_per_page = 8
     else:
         results_per_page = 16
 

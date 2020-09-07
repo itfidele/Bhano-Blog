@@ -155,7 +155,6 @@ def lazy_load_posts(request):
     else:
         results_per_page = 16
 
-    results_per_page = 4
     paginator = Paginator(posts, results_per_page)
     try:
         posts = paginator.page(page)

@@ -23,10 +23,28 @@ from main.feeds import LatestPostsFeed
 from django.views.generic import TemplateView
 from web.views import coronovirus_report
 from main.views import lazy_load_posts
+from main.models import Post
+from rest_framework import routers, serializers, viewsets
+
+
+# Serializers define the API representation.
+class PostSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Post
+        fields = ['title', 'body', 'thumbnail','publish','views']
+        
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+router = routers.DefaultRouter()
+router.register(r'posts', PostViewSet)
+
 sitemaps = {
     #'category':CategorySitemap,
     'posts': PostSitemap,
 }
+
 
 
 urlpatterns = [
@@ -42,5 +60,7 @@ urlpatterns = [
     path('search/',TemplateView.as_view(template_name="search.html")),
     path('coronovirus/',coronovirus_report,name='coronovirus'),
     path('lazy_load_posts/', lazy_load_posts, name='lazy_load_posts'),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap')
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap'),
+    path('well/', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

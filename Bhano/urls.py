@@ -34,7 +34,7 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['title', 'body', 'thumbnail','publish','views']
         
 class PostViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.all()
+    queryset = Post.objects.all().order_by('-publish')[:10]
     serializer_class = PostSerializer
 
 router = routers.DefaultRouter()

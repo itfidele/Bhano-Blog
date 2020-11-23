@@ -30,229 +30,430 @@
 {% endblock dij %}
 
 {% block content %}
+    <!-- Start News Details Area -->
+        <section class="news-details-area ptb-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="blog-details-desc">
+                            <div class="article-image">
+                                <img src="{{ post.thumbnail.url }}" alt="image">
+                            </div>
 
-{% if request|is_mobile %}
-<style>
-  .entry-content img {
-    max-width: 100%;
-    max-height: auto;
-  }
-</style>
-{% else %}
-<style>
-  .entry-content img {
-    max-width: 100%;
-    max-height: auto;
-  }
-</style>
-{% endif %}
+                            <div class="article-content">
+                                <span><a href="#">{{ post.author.username|title }}</a> / {{ post.publish|naturalday }} / <a href="#">{{ post.comments.count }} Comment</a></span>
+                                <h3>{{ post.title|title }}</h3>
+                                <div>
+                                    {{ post.body|safe }}
+                                </div>
+                            </div>
 
-<section class="utf_block_wrapper">
+                            <div class="article-footer">
+                                <div class="article-share">
+                                    <ul class="social">
+                                        <li><span>Share:</span></li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class='bx bxl-facebook'></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class='bx bxl-twitter'></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class='bx bxl-instagram'></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
 
+                            <div class="post-navigation">
+                                <div class="navigation-links">
+                                    <div class="nav-previous">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-left'></i>
+                                            Prev Post
+                                        </a>
+                                    </div>
+                                    <div class="nav-next">
+                                        <a href="#">
+                                            Next Post
+                                            <i class='bx bx-chevron-right'></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-12">
-        <div class="single-post">
-          <div class="post-media post-featured-image"> <img src="{{ post.thumbnail.url }}" style="object-fit: cover;max-height: 500px;" class="img-fluid" alt="{{ post.title }}">
-          </div>
-          <div class="utf_post_title-area"> <a class="utf_post_cat" href="#">{{ post.category.name }}</a>
-            <h1 class="utf_post_title">{{ post.title }}</h1>
-            <div class="utf_post_meta"> <span class="utf_post_author"> By <a
-                  href="#">{{ post.author.username|title }}</a> </span> <span class="utf_post_date"><i
-                  class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span> <span class="post-hits"><i
-                  class="fa fa-eye"></i>{{ post.views }}</span> <span class="post-comment"><i
-                  class="fa fa-comments-o"></i> <a href="#"
-                  class="comments-link"><span>{{ post.comments.count }}</span></a></span> </div>
+                            <div class="comments-area">
+                                <h3 class="comments-title">3 Comments:</h3>
 
+                                <ol class="comment-list">
+                                    <li class="comment">
+                                        <div class="comment-body">
+                                            <footer class="comment-meta">
+                                                <div class="comment-author vcard">
+                                                    <img src="assets/img/client/client-1.jpg" class="avatar" alt="image">
+                                                    <b class="fn">John Jones</b>
+                                                </div>
+                                                <div class="comment-metadata">
+                                                    <a href="index.html">
+                                                        <span>April 24, 2020 at 10:59 am</span>
+                                                    </a>
+                                                </div>
+                                            </footer>
+                                            <div class="comment-content">
+                                                <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
+                                            </div>
+                                            <div class="reply">
+                                                <a href="#" class="comment-reply-link">Reply</a>
+                                            </div>
+                                        </div>
 
-          </div>
+                                        <ol class="children">
+                                            <li class="comment">
+                                                <div class="comment-body">
+                                                    <footer class="comment-meta">
+                                                        <div class="comment-author vcard">
+                                                            <img src="assets/img/client/client-2.jpg" class="avatar" alt="image">
+                                                            <b class="fn">Steven Smith</b>
+                                                        </div>
+                                                        <div class="comment-metadata">
+                                                            <a href="index.html">
+                                                                <span>April 24, 2020 at 10:59 am</span>
+                                                            </a>
+                                                        </div>
+                                                    </footer>
+                                                    <div class="comment-content">
+                                                        <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
+                                                    </div>
+                                                    <div class="reply">
+                                                        <a href="#" class="comment-reply-link">Reply</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ol>
 
-          <div class="utf_post_content-area">
-            <div class="entry-content">
-              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-              <!-- link_article_ase -->
-              <ins class="adsbygoogle"
-                  style="display:block"
-                  data-ad-client="ca-pub-3242762948116825"
-                  data-ad-slot="5571681914"
-                  data-ad-format="auto"
-                  data-full-width-responsive="true"></ins>
-              <script>
-                  (adsbygoogle = window.adsbygoogle || []).push({});
-              </script>
-              {{ post.body|safe }}
-              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-              <ins class="adsbygoogle"
-                  style="display:block"
-                  data-ad-format="autorelaxed"
-                  data-ad-client="ca-pub-3242762948116825"
-                  data-ad-slot="6139822818"></ins>
-              <script>
-                  (adsbygoogle = window.adsbygoogle || []).push({});
-              </script>
+                                        <div class="comment-body">
+                                            <footer class="comment-meta">
+                                                <div class="comment-author vcard">
+                                                    <img src="assets/img/client/client-3.jpg" class="avatar" alt="image">
+                                                    <b class="fn">Sarah Taylor</b>
+                                                </div>
+                                                <div class="comment-metadata">
+                                                    <a href="index.html">
+                                                        <span>April 24, 2020 at 10:59 am</span>
+                                                    </a>
+                                                </div>
+                                            </footer>
+                                            <div class="comment-content">
+                                                <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
+                                            </div>
+                                            <div class="reply">
+                                                <a href="#" class="comment-reply-link">Reply</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ol>
 
-            </div>
-            <div class="tags-area clearfix">
-              <div class="post-tags">
-                <span>Tags:</span>
-                {% for tag in post.tags.all %}
-                <a href="{% url 'web:article_tag' tag.slug %}"># {{ tag }}</a>
-                {% endfor %}
-              </div>
-            </div>
-            
-          </div>
-        </div>
+                                <div class="comment-respond">
+                                    <h3 class="comment-reply-title">Leave a Reply</h3>
 
-        <nav class="post-navigation clearfix">
-          <div class="post-previous">
-            <a href="{{ prev_post.get_absolute_url }}"> <span><i class="fa fa-angle-left"></i>Previous Post</span>
-              <h3>{{ prev_post.title }}</h3>
-            </a>
-          </div>
-          <div class="post-next">
-            <a href="{{ next_post.get_absolute_url }}"> <span>Next Post <i class="fa fa-angle-right"></i></span>
-              <h3>{{ next_post.title }}</h3>
-            </a>
-          </div>
-        </nav>
-
-        <div class="author-box">
-          <div class="author-img pull-left"> <img src="{% static 'circled-logo.png' %}"
-              style="height: 80px;width: 80px;" alt=""> </div>
-          <div class="author-info">
-            <h3>ByoseHano</h3>
-            <p>Menya Byinshi igihe Nyacyo</p>
-          </div>
-        </div>
-
-
-        <!-- Post comment start -->
-        <div id="comments" class="comments-area block">
-          <h3 class="utf_block_title"><span>{{ post.comments.count }} Comments</span></h3>
-          <ul class="comments-list">
-            <li>
-
-              {% for comment in post.comments.all %}
-
-              <div class="comment {% if forloop.last %} last {% endif %}"> <img class="comment-avatar pull-left" alt=""
-                  src="images/news/user1.png">
-                <div class="comment-body">
-                  <div class="meta-data"> <span class="comment-author">{{ comment.name }}</span> <span
-                      class="comment-date pull-right">{{ commment.publish|naturalday }}</span> </div>
-                  <div class="comment-content">
-                    {{ comment.body }}
-                  </div>
-                  <div class="text-left"> <a class="comment-reply" href="#"><i class="fa fa-share"></i> Reply</a>
-                  </div>
-                </div>
-              </div>
-
-              {% endfor %}
-
-            </li>
-          </ul>
-        </div>
-        <!-- Post comment end -->
-
-        <!--/ Comments Form Start -->
-        <div class="comments-form">
-          <h3 class="title-normal">Siga ubutumwa</h3>
-          <form method="POST" action="{{ post.get_absolute_url }}">
-            {% csrf_token %}
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  {{ form_comment.name }}
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  {{ form_comment.email }}
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="form-group">
-                  {{ form_comment.body }}
-                </div>
-              </div>
-            </div>
-            <div class="clearfix">
-              <button class="comments-btn btn btn-primary" type="submit">Post Comment</button>
-            </div>
-          </form>
-        </div>
-        <!-- Comments form end -->
-      </div>
-
-      <div class="col-lg-4 col-md-12">
-        <div class="sidebar utf_sidebar_right">
-          
-          <div class="widget color-default">
-            <h3 class="utf_block_title"><span>Izindi wasoma</span></h3>
-            <div class="utf_list_post_block">
-              <ul class="utf_list_post">
-                {% for post in similar_posts %}
-                <li class="clearfix">
-                  <div class="utf_post_block_style post-float clearfix">
-                    <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid" src="{{ post.thumbnail.url }}"
-                          alt="{{ post.title }}"> </a></div>
-                    <div class="utf_post_content">
-                      <h2 class="utf_post_title title-small"> <a
-                          href="{{ post.get_absolute_url }}">{{ post.title|title|slice:"70" }}...</a> </h2>
-                      <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> <a
-                            href="#">{{ post.author.username|title }}</a></span> <span class="utf_post_date"><i
-                            class="fa fa-eye"></i>
-                          {{ post.views }}</span> </div>
+                                    <form class="comment-form">
+                                        <p class="comment-notes">
+                                            <span id="email-notes">Your email address will not be published.</span>
+                                            Required fields are marked
+                                        </p>
+                                        <p class="comment-form-author">
+                                            <label>Name</label>
+                                            <input type="text" id="author" placeholder="Your Name*" name="author" required="required">
+                                        </p>
+                                        <p class="comment-form-email">
+                                            <label>Email</label>
+                                            <input type="email" id="email" placeholder="Your Email*" name="email" required="required">
+                                        </p>
+                                        <p class="comment-form-url">
+                                            <label>Website</label>
+                                            <input type="url" id="url" placeholder="Website" name="url">
+                                        </p>
+                                        <p class="comment-form-comment">
+                                            <label>Comment</label>
+                                            <textarea name="comment" id="comment" cols="45" placeholder="Your Comment..." rows="5" maxlength="65525" required="required"></textarea>
+                                        </p>
+                                        <p class="comment-form-cookies-consent">
+                                            <input type="checkbox" value="yes" name="wp-comment-cookies-consent" id="wp-comment-cookies-consent">
+                                            <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label>
+                                        </p>
+                                        <p class="form-submit">
+                                            <input type="submit" name="submit" id="submit" class="submit" value="Post a comment">
+                                        </p>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                </li>
-                {% endfor %}
-              </ul>
+
+                    <div class="col-lg-4">
+                        <aside class="widget-area">
+                            <div class="widget widget_search">
+                                <form class="search-form">
+                                    <label>
+                                        <span class="screen-reader-text">Search for:</span>
+                                        <input type="search" class="search-field" placeholder="Search...">
+                                    </label>
+                                    <button type="submit">
+                                        <i class='bx bx-search'></i>
+                                    </button>
+                                </form>
+                            </div>
+
+                            <section class="widget widget_latest_news_thumb">
+                                <h3 class="widget-title">Latest news</h3>
+
+                                <article class="item">
+                                    <a href="#" class="thumb">
+                                        <span class="fullimage cover bg1" role="img"></span>
+                                    </a>
+                                    <div class="info">
+                                        <h4 class="title usmall"><a href="#">Negotiations on a peace agreement between the two countries</a></h4>
+                                        <span>28 September, 2020</span>
+                                    </div>
+                                </article>
+
+                                <article class="item">
+                                    <a href="#" class="thumb">
+                                        <span class="fullimage cover bg2" role="img"></span>
+                                    </a>
+                                    <div class="info">
+                                        <h4 class="title usmall"><a href="#">Love songs helped me through heartbreak</a></h4>
+                                        <span>28 September, 2020</span>
+                                    </div>
+                                </article>
+
+                                <article class="item">
+                                    <a href="#" class="thumb">
+                                        <span class="fullimage cover bg3" role="img"></span>
+                                    </a>
+                                    <div class="info">
+                                        <h4 class="title usmall"><a href="#">This movement aims to establish women rights</a></h4>
+                                        <span>28 September, 2020</span>
+                                    </div>
+                                </article>
+
+                                <article class="item">
+                                    <a href="#" class="thumb">
+                                        <span class="fullimage cover bg4" role="img"></span>
+                                    </a>
+                                    <div class="info">
+                                        <h4 class="title usmall"><a href="#">Giving special powers to police officers to prevent crime</a></h4>
+                                        <span>28 September, 2020</span>
+                                    </div>
+                                </article>
+                            </section>
+
+                            <section class="widget widget_popular_posts_thumb">
+                                <h3 class="widget-title">Popular posts</h3>
+
+                                <article class="item">
+                                    <a href="#" class="thumb">
+                                        <span class="fullimage cover bg1" role="img"></span>
+                                    </a>
+                                    <div class="info">
+                                        <h4 class="title usmall"><a href="#">Match between United States and England at AGD stadium</a></h4>
+                                        <span>28 September, 2020</span>
+                                    </div>
+                                </article>
+
+                                <article class="item">
+                                    <a href="#" class="thumb">
+                                        <span class="fullimage cover bg2" role="img"></span>
+                                    </a>
+                                    <div class="info">
+                                        <h4 class="title usmall"><a href="#">For the last time, he addressed the people</a></h4>
+                                        <span>28 September, 2020</span>
+                                    </div>
+                                </article>
+
+                                <article class="item">
+                                    <a href="#" class="thumb">
+                                        <span class="fullimage cover bg3" role="img"></span>
+                                    </a>
+                                    <div class="info">
+                                        <h4 class="title usmall"><a href="#">The coronavairus is finished and the outfit is busy</a></h4>
+                                        <span>28 September, 2020</span>
+                                    </div>
+                                </article>
+
+                                <article class="item">
+                                    <a href="#" class="thumb">
+                                        <span class="fullimage cover bg4" role="img"></span>
+                                    </a>
+                                    <div class="info">
+                                        <h4 class="title usmall"><a href="#">A fierce battle is going on between the two in the game</a></h4>
+                                        <span>28 September, 2020</span>
+                                    </div>
+                                </article>
+                            </section>
+
+                            <section class="widget widget_stay_connected">
+                                <h3 class="widget-title">Stay connected</h3>
+
+                                <ul class="stay-connected-list">
+                                    <li>
+                                        <a href="#">
+                                            <i class='bx bxl-facebook'></i>
+                                            120,345 Fans
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="twitter">
+                                            <i class='bx bxl-twitter'></i>
+                                            25,321 Followers
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="linkedin">
+                                            <i class='bx bxl-linkedin'></i>
+                                            7,519 Connect
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="youtube">
+                                            <i class='bx bxl-youtube'></i>
+                                            101,545 Subscribers
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="instagram">
+                                            <i class='bx bxl-instagram'></i>
+                                            10,129 Followers
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="wifi">
+                                            <i class='bx bx-wifi'></i>
+                                            952 Subscribers
+                                        </a>
+                                    </li>
+                                </ul>
+                            </section>
+
+                            <section class="widget widget_newsletter">
+                                <div class="newsletter-content">
+                                    <h3>Subscribe to our newsletter</h3>
+                                    <p>Subscribe to our newsletter to get the new updates!</p>
+                                </div>
+
+                                <form class="newsletter-form" data-toggle="validator">
+                                    <input type="email" class="input-newsletter" placeholder="Enter your email" name="EMAIL" required autocomplete="off">
+
+                                    <button type="submit">Subscribe</button>
+                                    <div id="validator-newsletter" class="form-result"></div>
+                                </form>
+                            </section>
+
+                            <section class="widget widget_most_shared">
+                                <h3 class="widget-title">Most shared</h3>
+
+                                <div class="single-most-shared">
+                                    <div class="most-shared-image">
+                                        <a href="#">
+                                            <img src="assets/img/most-shared/most-shared-2.jpg" alt="image">
+                                        </a>
+
+                                        <div class="most-shared-content">
+                                            <h3>
+                                                <a href="#">All the highlights from western fashion week summer 2020</a>
+                                            </h3>
+                                            <p><a href="#">Patricia</a> / 28 September, 2020</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="widget widget_tag_cloud">
+                                <h3 class="widget-title">Tags</h3>
+
+                                <div class="tagcloud">
+                                    <a href="#">News</a>
+                                    <a href="#">Business</a>
+                                    <a href="#">Health</a>
+                                    <a href="#">Politics</a>
+                                    <a href="#">Magazine</a>
+                                    <a href="#">Sport</a>
+                                    <a href="#">Tech</a>
+                                    <a href="#">Video</a>
+                                    <a href="#">Global</a>
+                                    <a href="#">Culture</a>
+                                    <a href="#">Fashion</a>
+                                </div>
+                            </section>
+
+                            <section class="widget widget_instagram">
+                                <h3 class="widget-title">Instagram</h3>
+
+                                <ul>
+                                    <li>
+                                        <div class="box">
+                                            <img src="assets/img/latest-news/latest-news-1.jpg" alt="image">
+                                            <i class="bx bxl-instagram"></i>
+                                            <a href="#" target="_blank" class="link-btn"></a>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="box">
+                                            <img src="assets/img/latest-news/latest-news-2.jpg" alt="image">
+                                            <i class="bx bxl-instagram"></i>
+                                            <a href="#" target="_blank" class="link-btn"></a>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="box">
+                                            <img src="assets/img/latest-news/latest-news-3.jpg" alt="image">
+                                            <i class="bx bxl-instagram"></i>
+                                            <a href="#" target="_blank" class="link-btn"></a>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="box">
+                                            <img src="assets/img/latest-news/latest-news-4.jpg" alt="image">
+                                            <i class="bx bxl-instagram"></i>
+                                            <a href="#" target="_blank" class="link-btn"></a>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="box">
+                                            <img src="assets/img/latest-news/latest-news-5.jpg" alt="image">
+                                            <i class="bx bxl-instagram"></i>
+                                            <a href="#" target="_blank" class="link-btn"></a>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="box">
+                                            <img src="assets/img/latest-news/latest-news-6.jpg" alt="image">
+                                            <i class="bx bxl-instagram"></i>
+                                            <a href="#" target="_blank" class="link-btn"></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </section>
+                        </aside>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div class="widget m-bottom-0">
-            <h3 class="utf_block_title"><span>Like our Page</span></h3>
-            <div class="utf_newsletter_block">
-              <iframe
-                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbyosehano%2F&tabs=pages&width=340&height=213&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-                width="340" height="213" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                allowTransparency="true" allow="encrypted-media"></iframe>
-            </div>
-
-          </div>
-
-          <div class="widget">
-            <h3 class="utf_block_title"><span>Dukurikire</span></h3>
-            <ul class="social-icon">
-              <li><a href="https://twitter.com/byosehano/" target="_blank"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="https://fb.me/byosehano/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="https://instagram.com/byosehano/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-              <li><a href="https://byosehano.com/feed" target="_blank"><i class="fa fa-rss"></i></a></li>
-              <!--<li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                  <li><a href="#" target="_blank"><i class="fa fa-vimeo-square"></i></a></li>
-                  <li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>-->
-            </ul>
-
-          </div>
-
-        
-          <div class="widget widget-tags">
-            <h3 class="utf_block_title"><span>Ibyakunzwe</span></h3>
-            <ul class="unstyled clearfix">
-              {% for tag in popular_tags %}
-              <li><a href="{% url 'web:article_tag' tag.slug %}">{{ tag }}</a></li>
-              {% endfor %}
-
-            </ul>
-          </div>
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        </section>
+        <!-- Start News Details Area -->
 {% endblock content %}

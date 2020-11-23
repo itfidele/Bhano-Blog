@@ -1,0 +1,258 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load humanize %}
+{% load user_agents %}
+
+{% block metadatas %}
+<!-- Primary Meta Tags -->
+<title>{{ post.category.name }} - {{ post.title }}</title>
+<meta name="title" content="{{ post.category.name }} - {{ post.title }}">
+<meta name="description" content="{{ post.body|striptags|slice:':200' }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://byosehano.com{{ post.get_absolute_url }}">
+<meta property="og:title" content="{{ post.title }}">
+<meta property="og:description" content="{{ post.body|striptags|slice:':200' }}">
+<meta property="og:image" content="https://byosehano.com{{ post.thumbnail.url }}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://byosehano.com{{ post.get_absolute_url }}">
+
+<meta property="twitter:title" content="{{ post.title }}">
+<meta property="twitter:description" content="{{ post.body|striptags|slice:':200' }}">
+<meta property="twitter:image" content="https://byosehano.com{{ post.thumbnail.url }}">
+{% endblock metadatas %}
+
+{% block dij %}
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f06beeccc9fba0019cdd26e&product=sop' async='async'></script>
+{% endblock dij %}
+
+{% block content %}
+
+{% if request|is_mobile %}
+<style>
+  .entry-content img {
+    max-width: 100%;
+    max-height: auto;
+  }
+</style>
+{% else %}
+<style>
+  .entry-content img {
+    max-width: 100%;
+    max-height: auto;
+  }
+</style>
+{% endif %}
+
+<section class="utf_block_wrapper">
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-12">
+        <div class="single-post">
+          <div class="post-media post-featured-image"> <img src="{{ post.thumbnail.url }}" style="object-fit: cover;max-height: 500px;" class="img-fluid" alt="{{ post.title }}">
+          </div>
+          <div class="utf_post_title-area"> <a class="utf_post_cat" href="#">{{ post.category.name }}</a>
+            <h1 class="utf_post_title">{{ post.title }}</h1>
+            <div class="utf_post_meta"> <span class="utf_post_author"> By <a
+                  href="#">{{ post.author.username|title }}</a> </span> <span class="utf_post_date"><i
+                  class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span> <span class="post-hits"><i
+                  class="fa fa-eye"></i>{{ post.views }}</span> <span class="post-comment"><i
+                  class="fa fa-comments-o"></i> <a href="#"
+                  class="comments-link"><span>{{ post.comments.count }}</span></a></span> </div>
+
+
+          </div>
+
+          <div class="utf_post_content-area">
+            <div class="entry-content">
+              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <!-- link_article_ase -->
+              <ins class="adsbygoogle"
+                  style="display:block"
+                  data-ad-client="ca-pub-3242762948116825"
+                  data-ad-slot="5571681914"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"></ins>
+              <script>
+                  (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+              {{ post.body|safe }}
+              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <ins class="adsbygoogle"
+                  style="display:block"
+                  data-ad-format="autorelaxed"
+                  data-ad-client="ca-pub-3242762948116825"
+                  data-ad-slot="6139822818"></ins>
+              <script>
+                  (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+
+            </div>
+            <div class="tags-area clearfix">
+              <div class="post-tags">
+                <span>Tags:</span>
+                {% for tag in post.tags.all %}
+                <a href="{% url 'web:article_tag' tag.slug %}"># {{ tag }}</a>
+                {% endfor %}
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <nav class="post-navigation clearfix">
+          <div class="post-previous">
+            <a href="{{ prev_post.get_absolute_url }}"> <span><i class="fa fa-angle-left"></i>Previous Post</span>
+              <h3>{{ prev_post.title }}</h3>
+            </a>
+          </div>
+          <div class="post-next">
+            <a href="{{ next_post.get_absolute_url }}"> <span>Next Post <i class="fa fa-angle-right"></i></span>
+              <h3>{{ next_post.title }}</h3>
+            </a>
+          </div>
+        </nav>
+
+        <div class="author-box">
+          <div class="author-img pull-left"> <img src="{% static 'circled-logo.png' %}"
+              style="height: 80px;width: 80px;" alt=""> </div>
+          <div class="author-info">
+            <h3>ByoseHano</h3>
+            <p>Menya Byinshi igihe Nyacyo</p>
+          </div>
+        </div>
+
+
+        <!-- Post comment start -->
+        <div id="comments" class="comments-area block">
+          <h3 class="utf_block_title"><span>{{ post.comments.count }} Comments</span></h3>
+          <ul class="comments-list">
+            <li>
+
+              {% for comment in post.comments.all %}
+
+              <div class="comment {% if forloop.last %} last {% endif %}"> <img class="comment-avatar pull-left" alt=""
+                  src="images/news/user1.png">
+                <div class="comment-body">
+                  <div class="meta-data"> <span class="comment-author">{{ comment.name }}</span> <span
+                      class="comment-date pull-right">{{ commment.publish|naturalday }}</span> </div>
+                  <div class="comment-content">
+                    {{ comment.body }}
+                  </div>
+                  <div class="text-left"> <a class="comment-reply" href="#"><i class="fa fa-share"></i> Reply</a>
+                  </div>
+                </div>
+              </div>
+
+              {% endfor %}
+
+            </li>
+          </ul>
+        </div>
+        <!-- Post comment end -->
+
+        <!--/ Comments Form Start -->
+        <div class="comments-form">
+          <h3 class="title-normal">Siga ubutumwa</h3>
+          <form method="POST" action="{{ post.get_absolute_url }}">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  {{ form_comment.name }}
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  {{ form_comment.email }}
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  {{ form_comment.body }}
+                </div>
+              </div>
+            </div>
+            <div class="clearfix">
+              <button class="comments-btn btn btn-primary" type="submit">Post Comment</button>
+            </div>
+          </form>
+        </div>
+        <!-- Comments form end -->
+      </div>
+
+      <div class="col-lg-4 col-md-12">
+        <div class="sidebar utf_sidebar_right">
+          
+          <div class="widget color-default">
+            <h3 class="utf_block_title"><span>Izindi wasoma</span></h3>
+            <div class="utf_list_post_block">
+              <ul class="utf_list_post">
+                {% for post in similar_posts %}
+                <li class="clearfix">
+                  <div class="utf_post_block_style post-float clearfix">
+                    <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid" src="{{ post.thumbnail.url }}"
+                          alt="{{ post.title }}"> </a></div>
+                    <div class="utf_post_content">
+                      <h2 class="utf_post_title title-small"> <a
+                          href="{{ post.get_absolute_url }}">{{ post.title|title|slice:"70" }}...</a> </h2>
+                      <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> <a
+                            href="#">{{ post.author.username|title }}</a></span> <span class="utf_post_date"><i
+                            class="fa fa-eye"></i>
+                          {{ post.views }}</span> </div>
+                    </div>
+                  </div>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <div class="widget m-bottom-0">
+            <h3 class="utf_block_title"><span>Like our Page</span></h3>
+            <div class="utf_newsletter_block">
+              <iframe
+                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbyosehano%2F&tabs=pages&width=340&height=213&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                width="340" height="213" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                allowTransparency="true" allow="encrypted-media"></iframe>
+            </div>
+
+          </div>
+
+          <div class="widget">
+            <h3 class="utf_block_title"><span>Dukurikire</span></h3>
+            <ul class="social-icon">
+              <li><a href="https://twitter.com/byosehano/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="https://fb.me/byosehano/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="https://instagram.com/byosehano/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="https://byosehano.com/feed" target="_blank"><i class="fa fa-rss"></i></a></li>
+              <!--<li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                  <li><a href="#" target="_blank"><i class="fa fa-vimeo-square"></i></a></li>
+                  <li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>-->
+            </ul>
+
+          </div>
+
+        
+          <div class="widget widget-tags">
+            <h3 class="utf_block_title"><span>Ibyakunzwe</span></h3>
+            <ul class="unstyled clearfix">
+              {% for tag in popular_tags %}
+              <li><a href="{% url 'web:article_tag' tag.slug %}">{{ tag }}</a></li>
+              {% endfor %}
+
+            </ul>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

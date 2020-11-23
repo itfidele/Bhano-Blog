@@ -17,7 +17,7 @@
 
                             <div class="single-main-default-news">
                                 <a href="#">
-                                    <img src="{{ post.thumbnail.url }}" alt="image">
+                                    <img src="{{ post.thumbnail.url }}" loading="lazy" alt="image" height="20%">
                                 </a>
                                 <div class="news-content">
                                     <div class="tag">{{ post.category.name }}</div>
@@ -34,7 +34,7 @@
                             <div class="col-lg-6">
                                 <div class="single-main-default-news-inner">
                                     <a href="#">
-                                        <img src="{{ post.thumbnail.url }}" alt="image">
+                                        <img src="{{ post.thumbnail.url }}" loading="lazy" alt="image">
                                     </a>
                                     <div class="news-content">
                                         <div class="tag">{{ post.category.name }}</div>
@@ -47,11 +47,6 @@
                             </div>
                         {% endif %}
                     {% endfor %}
-
-
-
-
-
                 </div>
             </div>
         </section>

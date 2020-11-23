@@ -136,11 +136,11 @@
 
                                 {% for post in similar_posts %}
                                     <article class="item">
-                                        <a href="#" class="thumb">
+                                        <a href="{{ post.get_absolute_url }}" class="thumb">
                                             <img src="{{ post.thumbnail.url }}" style="width: 100%;object-fit: cover;" loading="lazy" role="img"/>
                                         </a>
                                         <div class="info">
-                                            <h4 class="title usmall"><a href="#">{{ post.title }}</a></h4>
+                                            <h4 class="title usmall"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
                                             <span>{{ post.publish|naturalday }}</span>
                                         </div>
                                     </article>

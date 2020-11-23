@@ -8,7 +8,7 @@
         <section class="main-default-news-area">
             <div class="container">
                 <div class="row">
-                    {% for post in posts %}
+                    {% for post in posts|slice:":5" %}
                         {% if forloop.counter != 3 %}
 
                             {% if forloop.counter == 1 or forloop.counter == 4 %}

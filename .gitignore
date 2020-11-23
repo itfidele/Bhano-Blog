@@ -1,4 +1,5 @@
 env/
+static/assets/img/
 .idea
 .vscode
 media

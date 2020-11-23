@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% load static %}
+{% load user_agents %}
+<html lang="rw">
+<head>
+    <meta name="author" content="Byosehano">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://byosehano.com{% static 'apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://byosehano.com{% static 'favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://byosehano.com{% static 'favicon-16x16.png' %}">
+    <link rel="manifest" href="https://byosehano.com{% static 'site.webmanifest' %}">
+    <link rel="mask-icon" href="https://byosehano.com{% static 'safari-pinned-tab.svg' %}" color="#e7851b">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="xwK6KipA6VMe9lYQEZbPwTociOzJSy59qAEJ1iEil3Y" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171717652-1"></script>
+    <script data-ad-client="ca-pub-3242762948116825" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- End Google Tag Manager -->
+    {% block metadatas %}
+    <!-- Primary Meta Tags -->
+    <title>Byosehano | Sobanukirwa, Imikino, Ikoranabuhanga, Ubuzima, Politiki, Urukundo, no Hirya no Hino</title>
+    <meta name="title"
+        content="Byosehano | Sobanukirwa, Imikino, Ikoranabuhanga, Ubuzima, Politiki, Urukundo, no Hirya no Hino">
+    <meta name="description"
+        content="Byosehano ni urubuga rukugezaho amakuru atandukanye anjyanye na Sobanukirwa, Imikino, Ikoranabuhanga, Ubuzima, Politiki, Urukundo, no Hirya no Hino nibindi byinshi bitandukanye.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://byosehano.com/">
+    <meta property="og:title"
+        content="Byosehano | Sobanukirwa, Imikino, Ikoranabuhanga, Ubuzima, Politiki, Urukundo, no Hirya no Hino">
+    <meta property="og:description"
+        content="Byosehano ni urubuga rukugezaho amakuru atandukanye anjyanye na Sobanukirwa, Imikino, Ikoranabuhanga, Ubuzima, Politiki, Urukundo, no Hirya no Hino nibindi byinshi bitandukanye.">
+    <meta property="og:image" content="https://byosehano.com{% static 'apple-touch-icon.png' %}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://byosehano.com/">
+    <meta property="twitter:title"
+        content="Byosehano | Sobanukirwa, Imikino, Ikoranabuhanga, Ubuzima, Politiki, Urukundo, no Hirya no Hino">
+    <meta property="twitter:description"
+        content="Byosehano ni urubuga rukugezaho amakuru atandukanye anjyanye na Sobanukirwa, Imikino, Ikoranabuhanga, Ubuzima, Politiki, Urukundo, no Hirya no Hino nibindi byinshi bitandukanye.">
+    <meta property="twitter:image" content="https://byosehano.com{% static 'apple-touch-icon.png' %}">
+    {% endblock metadatas %}
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Arimo:400,700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <div>
+
+        {% include 'inc/header.html' %}
+        {% block content %}
+
+        {% endblock content %}
+
+        {% include "inc/footer.html" %}
+        <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <!--<script src="{% static 'js/aes.js' %}"></script>-->
+        <script src="{% static 'js/custom.js' %}"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-171717652-1');
+        </script>
+        <!--well -->
+        {% block dij %}
+          
+        {% endblock dij %}
+    </div>
+
+</body>
+
+</html>

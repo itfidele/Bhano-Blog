@@ -84,7 +84,7 @@
         </div>
         <!-- End Preloader -->
 
-        {% if not request.is_mobile %}
+        {% if request|is_pc %}
             <!-- Start Top Header Area -->
             <div class="top-header-area bg-ffffff">
                 <div class="container">

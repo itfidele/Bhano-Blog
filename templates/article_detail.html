@@ -37,7 +37,7 @@
                     <div class="col-lg-8 col-md-12">
                         <div class="blog-details-desc">
                             <div class="article-image">
-                                <img src="{{ post.thumbnail.url }}" style="width: 100%;" alt="{{ post.title }}">
+                                <img src="{{ post.thumbnail.url }}" loading="lazy" style="width: 100%;" alt="{{ post.title }}">
                             </div>
 
                             <div class="article-content">
@@ -95,13 +95,13 @@
                             <div class="post-navigation">
                                 <div class="navigation-links">
                                     <div class="nav-previous">
-                                        <a href="#">
+                                        <a href="{{ prev_post.get_absolute_url }}">
                                             <i class='bx bx-chevron-left'></i>
                                             Prev Post
                                         </a>
                                     </div>
                                     <div class="nav-next">
-                                        <a href="#">
+                                        <a href="{{ next_post.get_absolute_url }}">
                                             Next Post
                                             <i class='bx bx-chevron-right'></i>
                                         </a>

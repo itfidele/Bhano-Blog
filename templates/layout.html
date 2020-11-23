@@ -1,5 +1,6 @@
 <!doctype html>
 {% load static %}
+{% load user_agents %}
 
 <html lang="zxx">
     
@@ -83,7 +84,7 @@
         </div>
         <!-- End Preloader -->
 
-        {% if not request|is_mobile %}
+        {% if not request.is_mobile %}
             <!-- Start Top Header Area -->
             <div class="top-header-area bg-ffffff">
                 <div class="container">

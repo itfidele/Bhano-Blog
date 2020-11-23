@@ -38,11 +38,11 @@
                         <div class="blog-details-desc">
 
                             <div class="article-content">
-                                <span><a href="#">{{ post.author.username|title }}</a> / {{ post.publish|naturalday }} / <a href="#">{{ post.comments.count }} Comment</a></span>
                                 <h3>{{ post.title|title }}</h3>
                                 <div class="article-image">
                                     <img src="{{ post.thumbnail.url }}" loading="lazy" style="width: 100%;" alt="{{ post.title }}">
                                 </div>
+                                <span><a href="#">{{ post.author.username|title }}</a> / {{ post.publish|naturalday }} / <a href="#">{{ post.comments.count }} Comment</a></span>
                                 <div>
                                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                                   <!-- link_article_ase -->

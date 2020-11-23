@@ -232,47 +232,20 @@
                             </div>
 
                             <section class="widget widget_latest_news_thumb">
-                                <h3 class="widget-title">Latest news</h3>
+                                <h3 class="widget-title">Izindi wasoma</h3>
 
-                                <article class="item">
-                                    <a href="#" class="thumb">
-                                        <span class="fullimage cover bg1" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <h4 class="title usmall"><a href="#">Negotiations on a peace agreement between the two countries</a></h4>
-                                        <span>28 September, 2020</span>
-                                    </div>
-                                </article>
+                                {% for post in similar_posts %}
+                                    <article class="item">
+                                        <a href="#" class="thumb">
+                                            <span class="fullimage cover" style="background: url("{{ post.thumbnail.url }}")" role="img"></span>
+                                        </a>
+                                        <div class="info">
+                                            <h4 class="title usmall"><a href="#">{{ post.title }}</a></h4>
+                                            <span>{{ post.publish|naturalday }}</span>
+                                        </div>
+                                    </article>
+                                {% endfor %}
 
-                                <article class="item">
-                                    <a href="#" class="thumb">
-                                        <span class="fullimage cover bg2" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <h4 class="title usmall"><a href="#">Love songs helped me through heartbreak</a></h4>
-                                        <span>28 September, 2020</span>
-                                    </div>
-                                </article>
-
-                                <article class="item">
-                                    <a href="#" class="thumb">
-                                        <span class="fullimage cover bg3" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <h4 class="title usmall"><a href="#">This movement aims to establish women rights</a></h4>
-                                        <span>28 September, 2020</span>
-                                    </div>
-                                </article>
-
-                                <article class="item">
-                                    <a href="#" class="thumb">
-                                        <span class="fullimage cover bg4" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <h4 class="title usmall"><a href="#">Giving special powers to police officers to prevent crime</a></h4>
-                                        <span>28 September, 2020</span>
-                                    </div>
-                                </article>
                             </section>
 
                             <section class="widget widget_popular_posts_thumb">

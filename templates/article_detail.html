@@ -259,96 +259,16 @@
                                 allowTransparency="true" allow="encrypted-media"></iframe>
                             </section>
 
-                            <section class="widget widget_most_shared">
-                                <h3 class="widget-title">Most shared</h3>
-
-                                <div class="single-most-shared">
-                                    <div class="most-shared-image">
-                                        <a href="#">
-                                            <img src="assets/img/most-shared/most-shared-2.jpg" alt="image">
-                                        </a>
-
-                                        <div class="most-shared-content">
-                                            <h3>
-                                                <a href="#">All the highlights from western fashion week summer 2020</a>
-                                            </h3>
-                                            <p><a href="#">Patricia</a> / 28 September, 2020</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-
                             <section class="widget widget_tag_cloud">
-                                <h3 class="widget-title">Tags</h3>
+                                <h3 class="widget-title">Ibyakunzwe</h3>
 
                                 <div class="tagcloud">
-                                    <a href="#">News</a>
-                                    <a href="#">Business</a>
-                                    <a href="#">Health</a>
-                                    <a href="#">Politics</a>
-                                    <a href="#">Magazine</a>
-                                    <a href="#">Sport</a>
-                                    <a href="#">Tech</a>
-                                    <a href="#">Video</a>
-                                    <a href="#">Global</a>
-                                    <a href="#">Culture</a>
-                                    <a href="#">Fashion</a>
+                                    {% for tag in popular_tags %}
+                                        <a href="{% url 'web:article_tag' tag.slug %}">{{ tag }}</a>
+                                    {% endfor %}
                                 </div>
                             </section>
 
-                            <section class="widget widget_instagram">
-                                <h3 class="widget-title">Instagram</h3>
-
-                                <ul>
-                                    <li>
-                                        <div class="box">
-                                            <img src="assets/img/latest-news/latest-news-1.jpg" alt="image">
-                                            <i class="bx bxl-instagram"></i>
-                                            <a href="#" target="_blank" class="link-btn"></a>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="box">
-                                            <img src="assets/img/latest-news/latest-news-2.jpg" alt="image">
-                                            <i class="bx bxl-instagram"></i>
-                                            <a href="#" target="_blank" class="link-btn"></a>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="box">
-                                            <img src="assets/img/latest-news/latest-news-3.jpg" alt="image">
-                                            <i class="bx bxl-instagram"></i>
-                                            <a href="#" target="_blank" class="link-btn"></a>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="box">
-                                            <img src="assets/img/latest-news/latest-news-4.jpg" alt="image">
-                                            <i class="bx bxl-instagram"></i>
-                                            <a href="#" target="_blank" class="link-btn"></a>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="box">
-                                            <img src="assets/img/latest-news/latest-news-5.jpg" alt="image">
-                                            <i class="bx bxl-instagram"></i>
-                                            <a href="#" target="_blank" class="link-btn"></a>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="box">
-                                            <img src="assets/img/latest-news/latest-news-6.jpg" alt="image">
-                                            <i class="bx bxl-instagram"></i>
-                                            <a href="#" target="_blank" class="link-btn"></a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </section>
                         </aside>
                     </div>
                 </div>

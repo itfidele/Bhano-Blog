@@ -29,6 +29,11 @@
 <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f06beeccc9fba0019cdd26e&product=sop' async='async'></script>
 {% endblock dij %}
 
+{% block loading_text %}
+    <p>Gukurura...</p>
+    <span>{{ post.title|title }}</span>
+{% endblock %}
+
 {% block content %}
     <!-- Start News Details Area -->
         <section class="news-details-area ptb-50">

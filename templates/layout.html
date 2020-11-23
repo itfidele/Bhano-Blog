@@ -70,7 +70,8 @@
 
     <body>
         
-        <!-- Start Preloader -->
+
+            <!-- Start Preloader -->
         <div class="preloader">
             <div class="loader">
                 <div class="wrapper">
@@ -79,10 +80,13 @@
                     <div class="circle circle-2"></div>
                     <div class="circle circle-3"></div>
                 </div>
-                <span>Tegereza Gato...</span>
+                {% block loading_text %}
+                    <span>Tegereza Gato...</span>
+                {% endblock %}
             </div>
         </div>
         <!-- End Preloader -->
+
 
         {% if request|is_pc %}
             <!-- Start Top Header Area -->

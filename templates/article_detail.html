@@ -36,13 +36,13 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-12">
                         <div class="blog-details-desc">
-                            <div class="article-image">
-                                <img src="{{ post.thumbnail.url }}" loading="lazy" style="width: 100%;" alt="{{ post.title }}">
-                            </div>
 
                             <div class="article-content">
                                 <span><a href="#">{{ post.author.username|title }}</a> / {{ post.publish|naturalday }} / <a href="#">{{ post.comments.count }} Comment</a></span>
                                 <h3>{{ post.title|title }}</h3>
+                                <div class="article-image">
+                                    <img src="{{ post.thumbnail.url }}" loading="lazy" style="width: 100%;" alt="{{ post.title }}">
+                                </div>
                                 <div>
                                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                                   <!-- link_article_ase -->

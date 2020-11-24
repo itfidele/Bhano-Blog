@@ -63,6 +63,7 @@ def ArticleDetail(request, category, slug):
     similar_posts = Post.objects.filter(category__name=post.category.name).order_by('?').exclude(id=post.id)[:6]
     context['similar_posts'] = similar_posts
     context['post'] = post
+    context['posts']=Post.published.all().order_by('-publish')[:8]
     context['form_comment'] = CommentForm()
     context['comments'] = comments
     context['popular_tags']=Post.tags.most_common()[:8]

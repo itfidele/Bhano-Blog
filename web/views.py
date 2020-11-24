@@ -5,10 +5,11 @@ from taggit.models import Tag
 # Create your views here.
 context={}
 context['popular_news']=Post.objects.all().order_by('-views','-publish')[:6]
+context['posts']=Post.published.all().order_by('-publish')[:8]
 
 def index(request):
 
-    posts = Post.published.all().order_by('-publish')[:8]
+    #posts = Post.published.all().order_by('-publish')[:8]
     
     if request.user_agent.is_mobile:
         amakurumashya = Post.published.all().order_by('-publish')[:8]

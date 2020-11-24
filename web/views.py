@@ -35,7 +35,7 @@ def index(request):
     context['ubuzimas']=ubuzimas
     context['enterntainment']=enterntainment
     #context['imyidagaduro_posts']=imyidagaduro
-    context['posts'] = posts
+
     context['amakurumashya'] = amakurumashya
     context['ikoranabuhangas']=ikoranabuhangas
 

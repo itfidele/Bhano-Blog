@@ -52,7 +52,7 @@
                                 <h3>
                                     <a href="#">{{ post.title|title }}</a>
                                 </h3>
-                                <p>{{ post.body|striptags|slice:":100" }}</p>
+                                <p>{{ post.body|striptags|slice:":100"|safe }}</p>
                                 <p><a href="#">{{ post.author.username|title }}</a> / {{ post.publish|naturalday }}</p>
                             </div>
                         </div>

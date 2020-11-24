@@ -68,7 +68,7 @@
                                     <div class="single-most-popular-news">
                                         <div class="popular-news-image">
                                             <a href="{{ post.get_absolute_url }}">
-                                                <img src="{{ post.thumbnail.url }}" loading="lazy" title="{{ post.title }}" alt="{{ post.title }}">
+                                                <img src="{{ post.thumbnail.url }}" loading="lazy" style="width: 100%;object-fit: cover;height: 200px;" title="{{ post.title }}" alt="{{ post.title }}">
                                             </a>
                                         </div>
 
@@ -89,14 +89,14 @@
 
 
                         <div class="col-lg-4">
-                            {% for foo in popular_news|slice:":4" %}
+                            {% for post in popular_news|slice:":4" %}
                                 {% if forloop.counter > 2 %}
                                    <div class="most-popular-post">
                                         <div class="row align-items-center">
                                             <div class="col-lg-4 col-sm-4">
                                                 <div class="post-image">
                                                     <a href="{{ post.get_absolute_url }}">
-                                                        <img src="{{ post.thumbnail.url }}" title="{{ post.title }}" alt="{{ post.title }}">
+                                                        <img src="{{ post.thumbnail.url }}" loading="lazy" title="{{ post.title }}" alt="{{ post.title }}">
                                                     </a>
                                                 </div>
                                             </div>
@@ -114,7 +114,6 @@
                                     </div>
                                 {% endif %}
                             {% endfor %}
-
                         </div>
                     </div>
                 </div>

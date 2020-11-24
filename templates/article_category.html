@@ -42,15 +42,15 @@
                         <div class="col-lg-3 col-md-6">
                         <div class="single-news-item">
                             <div class="news-image">
-                                <a href="#">
-                                    <img src="{{ post.get_absolute_url }}" loading="lazy" style="width: 100%;object-fit: cover;height: 200px;" alt="{{ post.title }}">
+                                <a href="{{ post.get_absolute_url }}">
+                                    <img src="{{ post.thumbnail.url }}" loading="lazy" style="width: 100%;object-fit: cover;height: 200px;" alt="{{ post.title }}">
                                 </a>
                             </div>
 
                             <div class="news-content mt-20">
                                 <span>{{ post.category.name }}</span>
                                 <h3>
-                                    <a href="#">{{ post.title|title }}</a>
+                                    <a href="{{ post.get_absolute_url }}">{{ post.title|title }}</a>
                                 </h3>
                                 <p>{{ post.body|striptags|slice:":100"|safe }}</p>
                                 <p><a href="#">{{ post.author.username|title }}</a> / {{ post.publish|naturalday }}</p>

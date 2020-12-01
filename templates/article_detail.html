@@ -148,7 +148,36 @@
                             </section>
 
                         </aside>
+
+                        <aside class="widget-area" style="margin-top: 80px;">
+
+                            <section class="widget widget_latest_news_thumb">
+                                <h3 class="widget-title">Advertising</h3>
+
+                                <iframe src="//iframe.dacast.com/b/148060/c/571022" width="100%%" frameborder="0" scrolling="no" allow="autoplay" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
+                            </section>
+
+                            <section class="widget widget_popular_posts_thumb">
+                                <h3 class="widget-title">Facebook Page</h3>
+                                <iframe loading="lazy" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbyosehano%2F&tabs=pages&width=340&height=213&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                                width="340" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                                allowTransparency="true" allow="encrypted-media"></iframe>
+                            </section>
+
+                            <section class="widget widget_tag_cloud">
+                                <h3 class="widget-title">Ibyakunzwe</h3>
+
+                                <div class="tagcloud">
+                                    {% for tag in popular_tags %}
+                                        <a href="{% url 'web:article_tag' tag.slug %}">{{ tag }}</a>
+                                    {% endfor %}
+                                </div>
+                            </section>
+
+                        </aside>
                     </div>
+
                 </div>
             </div>
         </section>

@@ -25,7 +25,8 @@ from web.views import coronovirus_report
 from main.views import lazy_load_posts
 from main.models import Post
 from rest_framework import routers, serializers, viewsets
-
+from main.apiviews import PostList
+from main.apiviews import PostDetail
 
 # Serializers define the API representation.
 class PostSerializer(serializers.HyperlinkedModelSerializer):
@@ -61,6 +62,6 @@ urlpatterns = [
     path('coronovirus/',coronovirus_report,name='coronovirus'),
     path('lazy_load_posts/', lazy_load_posts, name='lazy_load_posts'),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap'),
-    path('well/', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('api/posts/',PostList.as_view(),name='posts_api'),
+    path('api/posts/<int:pk>/',PostList.as_view(),name='posts_api_detail'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

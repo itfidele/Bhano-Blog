@@ -20,7 +20,7 @@ class PostDetail(APIView):
 '''
 
 class PostList(generics.ListCreateAPIView):
-    queryset = Post.published.all()
+    queryset = Post.published.all().order_by('-publish')[:20]
     serializer_class = PostSerializers
 
 

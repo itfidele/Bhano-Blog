@@ -61,6 +61,8 @@
                                   </script>
                                     {{ post.body|safe }}
 
+                                    <a href='{{ post.category.get_absolute_url }}' class='btn btn-primary btn-md'>Inkuru z'{{ post.category.name}}</a>
+
                                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                                       <ins class="adsbygoogle"
                                           style="display:block"
@@ -158,22 +160,7 @@
 
                             </section>
 
-                            <section class="widget widget_popular_posts_thumb">
-                                <h3 class="widget-title">Facebook Page</h3>
-                                <iframe loading="lazy" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbyosehano%2F&tabs=pages&width=340&height=213&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-                                width="340" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                                allowTransparency="true" allow="encrypted-media"></iframe>
-                            </section>
-
-                            <section class="widget widget_tag_cloud">
-                                <h3 class="widget-title">Ibyakunzwe</h3>
-
-                                <div class="tagcloud">
-                                    {% for tag in popular_tags %}
-                                        <a href="{% url 'web:article_tag' tag.slug %}">{{ tag }}</a>
-                                    {% endfor %}
-                                </div>
-                            </section>
+                        
 
                         </aside>
                     </div>

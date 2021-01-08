@@ -26,7 +26,70 @@
 {% endblock metadatas %}
 
 {% block dij %}
-<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5fc64d2aad82460011c4da93&product=inline-share-buttons" async="async"></script>
+<script type="text/javascript">
+
+  var VUUKLE_CONFIG = {
+    "apiKey": "d63ffec1-bc9b-408f-8041-e2a626f02584",
+    "host": "byosehano.com",
+    "articleId": "!!! GENERATE UNIQUE ID FOR YOUR ARTICLE !!!",
+    "img": "!!! ARTICLE IMAGE URL !!!",
+    "tags": "!!! UP TO 3 TAGS SEPARATED BY COMMA !!!",
+    "url": "https://byosehano.com",
+    "title": "string",
+    "author": "string",
+    "language": "en",
+    "recommendedArticles": false,
+    "globalRecommendations": false,
+    "wideImages": false,
+    "comments": {
+        "enabled": true,
+        "hideRecommendedArticles": false,
+        "editorOptions": [
+            "bold",
+            "italic",
+            "underline",
+            "url",
+            "blockquote",
+            "code",
+            "list",
+            "image",
+            "gif"
+        ],
+        "transliteration": {
+            "language": "en",
+            "enabledByDefault": false
+        },
+        "hideCommentInputBox": false,
+        "commentingClosed": false,
+        "maxChars": 3000,
+        "countToLoad": 5
+    },
+    "emotes": {
+        "enabled": true,
+        "hideRecommendedArticles": false,
+        "size": "80px",
+        "disable": [
+            5,
+            6
+        ]
+    },
+    "powerbar": {
+        "enabled": true,
+        "defaultEmote": 1,
+        "verticalPosition": "10px",
+        "mode": "horizontal"
+    }
+};
+
+  //⛔️ DON'T EDIT BELOW THIS LINE
+  (function() {
+    var d = document,
+        s = d.createElement('script');
+        
+    s.src = 'https://cdn.vuukle.com/platform.js';
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
 {% endblock dij %}
 
 {% block loading_text %}
@@ -60,7 +123,8 @@
                                       (adsbygoogle = window.adsbygoogle || []).push({});
                                   </script>
                                     {{ post.body|safe }}
-
+                                    <!-- COMMENTS POWERBAR: Place it where you want SHARES to be displayed -->
+                                    <div class="vuukle-powerbar"></div>
                                     <a href='{{ post.category.get_absolute_url }}' class='btn btn-primary btn-lg'>Soma izindi nkuru z'{{ post.category.name}}</a>
 
                                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

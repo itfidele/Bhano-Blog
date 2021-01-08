@@ -31,8 +31,8 @@
   var VUUKLE_CONFIG = {
     "apiKey": "d63ffec1-bc9b-408f-8041-e2a626f02584",
     "host": "byosehano.com",
-    "articleId": "!!! GENERATE UNIQUE ID FOR YOUR ARTICLE !!!",
-    "img": "!!! ARTICLE IMAGE URL !!!",
+    "articleId": "https://{{ post.get_absolute_url }}",
+    "img": "https://byosehano.com{{ post.thumbnail.url }}",
     "tags": "!!! UP TO 3 TAGS SEPARATED BY COMMA !!!",
     "url": "https://byosehano.com",
     "title": "string",

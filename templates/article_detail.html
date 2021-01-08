@@ -123,8 +123,7 @@
                                       (adsbygoogle = window.adsbygoogle || []).push({});
                                   </script>
                                     {{ post.body|safe }}
-                                    <!-- COMMENTS POWERBAR: Place it where you want SHARES to be displayed -->
-                                    <div class="vuukle-powerbar"></div>
+                                    
                                     <a href='{{ post.category.get_absolute_url }}' class='btn btn-primary btn-lg'>Soma izindi nkuru z'{{ post.category.name}}</a>
 
                                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -142,7 +141,14 @@
                             <div class="article-footer">
                                 <div class="article-share">
                                     <ul class="social">
-                                        <div class="sharethis-inline-share-buttons"></div>
+                                        <div class="sharethis-inline-share-buttons">
+                                            <!-- COMMENTS POWERBAR: Place it where you want SHARES to be displayed -->
+                                            <div class="vuukle-powerbar"></div>
+                                        </div>
+                                        <!-- EMOTES WRAPPER: Place it where you want emotes to be displayed -->
+                                        <div id="vuukle-emote"></div>
+
+
                                     </ul>
                                 </div>
                             </div>
@@ -164,15 +170,8 @@
                                 </div>
                             </div>
 
-                            <div class="comments-area">
-                                <div class="comment-respond">
-                                    <!-- begin wwww.htmlcommentbox.com -->
-                                     <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
-                                     <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
-                                     <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24aF6w5i75N1Enf2%2FKM9oBU."+"&opts=16862&num=10&ts=1606146064871");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
-                                    <!-- end www.htmlcommentbox.com -->
-                                </div>
-                            </div>
+                            <!-- COMMENTS WRAPPER: Place it where you want comments to be displayed -->
+                            <div id="vuukle-comments"></div>
                         </div>
                     </div>
 

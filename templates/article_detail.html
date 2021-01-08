@@ -31,10 +31,10 @@
   var VUUKLE_CONFIG = {
     "apiKey": "d63ffec1-bc9b-408f-8041-e2a626f02584",
     "host": "byosehano.com",
-    "articleId": "https://{{ post.get_absolute_url }}",
+    "articleId": "https://byosehano.com{{ post.get_absolute_url }}",
     "img": "https://byosehano.com{{ post.thumbnail.url }}",
     "tags": "!!! UP TO 3 TAGS SEPARATED BY COMMA !!!",
-    "url": "https://byosehano.com",
+    "url": "https://byosehano.com{{ post.get_absolute_url }}",
     "title": "{{ post.title }}",
     "author": "{{ post.author.username }}",
     "language": "en",

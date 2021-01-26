@@ -26,6 +26,8 @@
 {% endblock metadatas %}
 
 {% block dij %}
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5fc64d2aad82460011c4da93&product=inline-share-buttons" async="async"></script>
+
 <script type="text/javascript">
 
   var VUUKLE_CONFIG = {
@@ -137,8 +139,9 @@
                                     {{ post.body|safe }}
                                     
                                     <div class="sharethis-inline-share-buttons">
-                                            <!-- COMMENTS POWERBAR: Place it where you want SHARES to be displayed -->
-                                        <div class="vuukle-powerbar"></div>
+                                         <!-- ShareThis BEGIN -->
+                                        <div class="sharethis-inline-share-buttons"></div>
+                                        <!-- ShareThis END -->
                                     </div>
                                     <!-- EMOTES WRAPPER: Place it where you want emotes to be displayed -->
                                     <div id="vuukle-emote"></div>

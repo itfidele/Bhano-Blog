@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load humanize %}
+{% load user_agents %}
+
+{% block content %}
+    <!-- Start Main Default News Area -->
+        <section class="main-default-news-area">
+            <div class="container">
+                <div class="row">
+                    {% for post in posts|slice:":5" %}
+                        {% if forloop.counter != 3 %}
+
+                            {% if forloop.counter == 1 or forloop.counter == 4 %}
+                                <div class="col-lg-3">
+                            {% endif %}
+
+                            <div class="single-main-default-news">
+                                <a href="#">
+                                    <img src="{{ post.thumbnail.url }}" loading="lazy" alt="image" style="height: 190px;width: 100%;object-fit: cover;">
+                                </a>
+                                <div class="news-content">
+                                    <div class="tag">{{ post.category.name }}</div>
+                                    <h3>
+                                        <a href="{{ post.get_absolute_url }}">{{ post.title}}</a>
+                                    </h3>
+                                    <span>{{ post.publish|naturalday }}</span>
+                                </div>
+                            </div>
+                            {% if forloop.counter == 2 or forloop.counter == 5 %}
+                                </div>
+                            {% endif %}
+                        {% else %}
+                            <div class="col-lg-6">
+                                <div class="single-main-default-news-inner">
+                                    <a href="#">
+                                        <img src="{{ post.thumbnail.url }}" loading="lazy" alt="image">
+                                    </a>
+                                    <div class="news-content">
+                                        <div class="tag">{{ post.category.name }}</div>
+                                        <h3>
+                                            <a href="{{ post.get_absolute_url }}">{{ post.title|title }}</a>
+                                        </h3>
+                                        <span>{{ post.publish|naturalday }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- End Main Default  News Area -->
+
+    <!-- Start Default News Area -->
+        <section class="default-news-area">
+            <div class="container">
+                <div class="most-popular-news">
+                    <div class="section-title">
+                        <h2>Izakunzwe</h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="row">
+                                {% for post in popular_news|slice:":2" %}
+                                    <div class="col-lg-6">
+                                    <div class="single-most-popular-news">
+                                        <div class="popular-news-image">
+                                            <a href="{{ post.get_absolute_url }}">
+                                                <img src="{{ post.thumbnail.url }}" loading="lazy" style="width: 100%;object-fit: cover;height: 200px;" title="{{ post.title }}" alt="{{ post.title }}">
+                                            </a>
+                                        </div>
+
+                                        <div class="popular-news-content">
+                                            <span>{{ post.category.name }}</span>
+                                            <h3>
+                                                <a href="{{ post.get_absolute_url }}">{{ post.title|title }}</a>
+                                            </h3>
+                                            <p><a href="#">{{ post.author.username }}</a> / {{ post.publish|naturalday }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-lg-4">
+                            {% for post in popular_news|slice:":4" %}
+                                {% if forloop.counter > 2 %}
+                                   <div class="most-popular-post">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-4 col-sm-4">
+                                                <div class="post-image">
+                                                    <a href="{{ post.get_absolute_url }}">
+                                                        <img src="{{ post.thumbnail.url }}" loading="lazy" title="{{ post.title }}" alt="{{ post.title }}">
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-8 col-sm-8">
+                                                <div class="post-content">
+                                                    <span>{{ post.category.name }}</span>
+                                                    <h3>
+                                                        <a href="{{ post.get_absolute_url }}">{{ post.title|title }}</a>
+                                                    </h3>
+                                                    <p>{{ post.publish|naturalday }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- End Default News Area -->
+{% endblock content %}

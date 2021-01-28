@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block metadatas %}
+<title>{{ menu_title|title }}</title>
+<meta name="title" content="{{ menu_title|title }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://byosehano.com/tags/{{ menu_title }}/">
+<meta property="og:title" content="{{ menu_title|title }}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://byosehano.com/tags/{{ menu_title }}/">
+
+<meta property="twitter:title" content="{{ menu_title|title }}">
+{% endblock metadatas %}
+
+{% block loading_text %}
+    <span>{{ menu_title }}</span>
+{% endblock %}
+
+{% block content %}
+    <!-- Start Page Banner -->
+        <div class="page-title-area">
+            <div class="container">
+                <div class="page-title-content">
+                    <h2>{{ menu_title }}</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li>{{ menu_title }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Banner -->
+
+        <!-- Start News Area -->
+        <section class="news-area ptb-50">
+            <div class="container-fluid">
+                <div class="row">
+                    {% for post in posts %}
+                        <div class="col-lg-3 col-md-6">
+                        <div class="single-news-item">
+                            <div class="news-image">
+                                <a href="{{ post.get_absolute_url }}">
+                                    <img src="{{ post.thumbnail.url }}" loading="lazy" style="width: 100%;object-fit: cover;height: 200px;" alt="{{ post.title }}">
+                                </a>
+                            </div>
+
+                            <div class="news-content mt-20">
+                                <span>{{ post.category.name }}</span>
+                                <h3>
+                                    <a href="{{ post.get_absolute_url }}">{{ post.title|title }}</a>
+                                </h3>
+                                <p>{{ post.body|striptags|slice:":100"|safe }}</p>
+                                <p><a href="#">{{ post.author.username|title }}</a> / {{ post.publish|naturalday }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+        <!-- End News Area -->
+{% endblock content %}

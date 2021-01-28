@@ -18,53 +18,112 @@
 <meta property="twitter:title" content="{{ menu_title|title }}">
 {% endblock metadatas %}
 
-{% block loading_text %}
-    <span>{{ menu_title }}</span>
-{% endblock %}
 
 {% block content %}
-    <!-- Start Page Banner -->
-        <div class="page-title-area">
-            <div class="container">
-                <div class="page-title-content">
-                    <h2>{{ menu_title }}</h2>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li>{{ menu_title }}</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- End Page Banner -->
+<!--/ 1rd Block Wrapper Start -->
+<section class="utf_block_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="block category-listing">
+                    <h3 class="utf_block_title"><span>{{ menu_title }}</span></h3>
+                    <!--<ul class="subCategory unstyled">
+                        <li><a href="#">Travel</a></li>
+                        <li><a href="#">Health</a></li>
+                        <li><a href="#">Architecture</a></li>
+                        <li><a href="#">Food</a></li>
+                    </ul>-->
 
-        <!-- Start News Area -->
-        <section class="news-area ptb-50">
-            <div class="container-fluid">
-                <div class="row">
+
                     {% for post in posts %}
-                        <div class="col-lg-3 col-md-6">
-                        <div class="single-news-item">
-                            <div class="news-image">
-                                <a href="{{ post.get_absolute_url }}">
-                                    <img src="{{ post.thumbnail.url }}" loading="lazy" style="width: 100%;object-fit: cover;height: 200px;" alt="{{ post.title }}">
-                                </a>
-                            </div>
 
-                            <div class="news-content mt-20">
-                                <span>{{ post.category.name }}</span>
-                                <h3>
-                                    <a href="{{ post.get_absolute_url }}">{{ post.title|title }}</a>
-                                </h3>
-                                <p>{{ post.body|striptags|slice:":100"|safe }}</p>
-                                <p><a href="#">{{ post.author.username|title }}</a> / {{ post.publish|naturalday }}</p>
+                    {% if forloop.first %}
+                    <div class="row">
+                        {% endif %}
+                        <div class="col-md-6">
+                            <div class="utf_post_block_style post-grid clearfix">
+                                <div class="utf_post_thumb"> <a href="{{ post.get_absolute_url }}"> <img class="img-fluid"
+                                            src="{{ post.thumbnail.url }}" alt="{{ post.title|title }}" style="object-fit: cover;height: 200px;"> </a> </div>
+                                <a class="utf_post_cat" href="#">{{ post.category.name }}</a>
+                                <div class="utf_post_content">
+                                    <h2 class="utf_post_title title-large"> <a href="{{ post.get_absolute_url }}">{{ post.title|title }}</a> </h2>
+                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
+                                            <a href="#">{{ post.author.username }}</a></span> <span
+                                            class="utf_post_date"><i class="fa fa-clock-o"></i>{{ post.publish|naturalday }}</span>
+                                        <span class="post-comment pull-right"><i class="fa fa-comments-o"></i> <a
+                                                href="#" class="comments-link"><span>{{ post.comments.count }}</span></a></span> </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                        <div class="col-md-12">
+                            <div class="btn-grouped">
+                                {% if posts.has_previous %}
+                                    <a class="btn btn-primary" href="?page=1">First</a>
+                                    <a class="btn btn-primary" href="?page={{ posts.previous_page_number }}">Previous</a>
+                                {% endif %}
+                                {% for p in posts.page_range %}
+                                  range
+                                {% endfor %}
+                                {% if posts.has_next %}
+                                    <a class="btn btn-primary" href="?page={{ posts.next_page_number }}">Next</a></li>
+                                    <a class="btn btn-primary" href="?page={{ posts.paginator.num_pages }}">Last</a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    {% endfor %}
+            </div>
 
+            <div class="col-lg-4 col-md-12">
+                <div class="sidebar utf_sidebar_right">
+                    <div class="widget">
+                        <h3 class="utf_block_title"><span>Dukurikire</span></h3>
+                        <ul class="social-icon">
+                            <li><a href="https://fb.me/byosehano/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://instagram.com/byosehano/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="https://byosehano.com/feed" target="_blank"><i class="fa fa-rss"></i></a></li>
+                        </ul>
+                       
+                    </div>
+
+                    <div class="widget color-default">
+                        <h3 class="utf_block_title"><span>Izakunzwe</span></h3>
+                        <div class="utf_list_post_block">
+                            <ul class="utf_list_post">
+                                
+                                {% for post in popular_news|slice:":3" %}
+                                    <li class="clearfix">
+                                        <div class="utf_post_block_style post-float clearfix">
+                                            <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
+                                                        src="{{ post.thumbnail.url }}" alt=""> </a></div>
+                                            <div class="utf_post_content">
+                                                <h2 class="utf_post_title title-small"> <a href="{{ post.get_absolute_url }}">{{ post.title }}</a> </h2>
+                                                <div class="utf_post_meta"> <span class="utf_post_author"><i
+                                                            class="fa fa-eye"></i>{{ post.views }} <i class="fa fa-comment-o"></i> {{ post.comments.count }}</span></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="widget text-center"> <img class="banner img-fluid"
+                            src="images/banner-ads/ad-sidebar.png" alt=""> </div>
+                    <div class="widget m-bottom-0">
+                        <h3 class="utf_block_title"><span>Dukurikire</span></h3>
+                        <div class="utf_newsletter_block">
+                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbyosehano%2F&tabs=pages&width=340&height=213&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="213" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-        <!-- End News Area -->
+        </div>
+    </div>
+</section>
+<!--/ 1rd Block Wrapper End -->
 {% endblock content %}

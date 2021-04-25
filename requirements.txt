@@ -6,6 +6,7 @@ bs4==0.0.1
 Django==3.0.7
 django-autoslug==1.9.7
 django-ckeditor==5.9.0
+django-cors-headers==3.7.0
 django-grappelli==2.14.2
 django-hosts==4.0
 django-js-asset==1.2.2

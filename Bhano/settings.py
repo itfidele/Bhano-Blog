@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'django_user_agents',
     'rest_framework',
+    'corsheaders',
 ]
 
 
@@ -68,7 +69,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django_user_agents.middleware.UserAgentMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+#CORS_ORIGIN_WHITELIST = (
+#    'http://localhost:3000',
+#    'htpp://192.168.43.250:3000',
+#)
 
 ROOT_URLCONF = 'Bhano.urls'
 
